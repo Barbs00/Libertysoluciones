@@ -542,34 +542,49 @@
         }
 
         .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
+            margin-top: 50px;
         }
 
-        .contact-item {
-            text-align: center;
-            padding: 24px;
-            background: #fafbfc;
-            border-radius: 8px;
+        .contact-linear {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8fafb;
+            border-radius: 12px;
             border: 1px solid #f0f0f0;
         }
 
-        .contact-item-icon {
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-
-        .contact-item h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .contact-item p {
+        .contact-item-linear {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             color: #666666;
             font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item-linear:hover {
+            color: #2c3e50;
+        }
+
+        .contact-icon-linear {
+            font-size: 16px;
+        }
+
+        .contact-text {
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .contact-linear {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
         }
 
         /* Footer */
@@ -675,12 +690,23 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Somos un Tech Partner integral especializado en optimización de procesos industriales</h1>
-                <p class="hero-subtitle">Más de 25 años de experiencia transformando operaciones empresariales</p>
-                <p class="hero-description">Nos centramos en el desarrollo de soluciones orientadas a la automatización empleando metodologías Lean Manufacturing y Kaizen, entendiendo los cambios constantes de cualquier empresa.</p>
+                <h1>Tu aliado tecnológico para transformar procesos y potenciar resultados</h1>
+                <p class="hero-subtitle">En Liberty Soluciones, llevamos más de 25 años ayudando a empresas —grandes y pequeñas— a evolucionar sus operaciones con soluciones digitales inteligentes.</p>
+                <p class="hero-description">Somos un Tech Partner integral, expertos en automatización y mejora continua, aplicando metodologías Lean Manufacturing y Kaizen para adaptarnos a los cambios constantes del mundo empresarial. ¿Quieres optimizar tus procesos, reducir costos y aumentar la eficiencia? Estamos listos para ayudarte a lograrlo.</p>
                 <div>
                     <a href="#contacto" class="cta-primary">Diagnóstico Gratuito</a>
                     <a href="#casos" class="cta-secondary">Ver Casos de Éxito</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section después de servicios -->
+        <div style="background: #f8fafb; padding: 80px 0;">
+            <div class="container">
+                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 16px; padding: 60px; margin: 0 auto; text-align: center; max-width: 700px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 28px; font-weight: 600;">¿Tu operación necesita más control, menos errores y mejores resultados?</h3>
+                    <p style="color: #666; margin-bottom: 32px; font-size: 18px;">Hablemos. Podemos ayudarte.</p>
+                    <a href="#contacto" class="cta-primary" style="font-size: 18px; padding: 18px 36px;">Contactar Ahora</a>
                 </div>
             </div>
         </div>
@@ -715,10 +741,10 @@
         <div class="container">
             <div class="problem-content">
                 <div class="problem-text fade-in">
-                    <h2>Tu aliado tecnológico para transformar procesos y potenciar resultados</h2>
-                    <p>En Liberty Soluciones, llevamos más de 25 años ayudando a empresas —grandes y pequeñas— a evolucionar sus operaciones con soluciones digitales inteligentes.</p>
-<p>Somos un Tech Partner integral, expertos en automatización y mejora continua, aplicando metodologías Lean Manufacturing y Kaizen para adaptarnos a los cambios constantes del mundo empresarial.</p>
-<p>¿Quieres optimizar tus procesos, reducir costos y aumentar la eficiencia? Estamos listos para ayudarte a lograrlo.".</p>
+                    <h2>Transformamos procesos clave para que tu negocio funcione mejor, más rápido y con menos desperdicio</h2>
+                    <p>Aplicamos metodologías comprobadas como Lean Manufacturing y Kaizen para identificar ineficiencias, optimizar flujos y automatizar tareas repetitivas que consumen tiempo y recursos.</p>
+                    <p>Nos especializamos en áreas críticas como logística, inventarios, gestión de calidad y análisis de datos, generando mejoras que impactan directamente en la rentabilidad y eficiencia de tu negocio.</p>
+                    <p>Combinamos la mejora continua con tecnología avanzada para ofrecerte soluciones sostenibles, escalables y adaptadas a los desafíos reales de tu industria.</p>
                     
                     <div class="methodology-badges">
                         <div class="badge">Lean Manufacturing</div>
@@ -736,8 +762,8 @@
     <section id="servicios" class="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Nuestros procesos están diseñados para garantizar la calidad y el éxito en cada proyecto</h2>
-                <p class="section-subtitle">Transformamos procesos críticos mediante metodologías Lean, análisis de datos y tecnología de captura automática</p>
+                <h2 class="section-title">Soluciones diseñadas para asegurar calidad, eficiencia y resultados reales</h2>
+                <p class="section-subtitle">En Liberty Soluciones, transformamos procesos críticos aplicando metodologías Lean, análisis de datos y tecnología de captura automática. Nuestro enfoque combina experiencia técnica con innovación para garantizar el éxito en cada proyecto, desde la detección de desperdicios hasta la automatización inteligente.</p>
             </div>
             
             <div class="services-grid">
@@ -884,8 +910,8 @@
     <section id="proceso" class="process-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Agregue valor a sus dispositivos, reduzca errores y tome acciones efectivas e inmediatas</h2>
-                <p class="section-subtitle">Aplicamos metodologías Lean Manufacturing y Kaizen para transformar sus procesos de manera sistemática y sostenible</p>
+                <h2 class="section-title">Agrega valor, reduce errores y toma decisiones efectivas desde el primer día</h2>
+                <p class="section-subtitle">En Liberty Soluciones aplicamos metodologías comprobadas como Lean Manufacturing y Kaizen para transformar tus procesos de forma sistemática, sostenible y alineada con tus objetivos</p>
             </div>
             
             <div class="process-steps">
@@ -957,8 +983,8 @@
     <section id="contacto" class="contact">
         <div class="container">
             <div class="contact-content">
-                <h2>Soluciones para todos los usuarios y procesos de negocio de su operación</h2>
-                <p class="contact-subtitle">Solicite un diagnóstico Lean gratuito y descubra oportunidades de mejora en sus operaciones críticas</p>
+                <h2>Diagnóstico Lean gratuito: el primer paso hacia una operación más rentable</h2>
+                <p class="contact-subtitle">Solicita tu diagnóstico y descubre oportunidades de mejora en tus procesos críticos.</p>
                 
                 <form class="contact-form" action="https://formspree.io/f/mnngjklb" method="POST">
                     <div class="form-title">Diagnóstico Lean Gratuito</div>
@@ -1005,12 +1031,12 @@
                     <div class="contact-item">
                         <div class="contact-item-icon">📱</div>
                         <h4>Teléfono Directo</h4>
-                        <p>+56 9 7144 4053</p>
+                        <p>+56 9 8352 5140</p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📞</div>
                         <h4>Teléfono Alternativo</h4>
-                        <p>+56 9 8352 5140</p>
+                        <p>+56 9 7144 4405</p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📍</div>
@@ -1058,6 +1084,7 @@
                         <li>Alimentos y Bebidas</li>
                         <li>Automotriz</li>
                         <li>Logística</li>
+                        <li>Emprendimientos y PYMEs</li>
                     </ul>
                 </div>
             </div>
