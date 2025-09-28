@@ -960,82 +960,36 @@
                 <h2>Soluciones para todos los usuarios y procesos de negocio de su operación</h2>
                 <p class="contact-subtitle">Solicite un diagnóstico Lean gratuito y descubra oportunidades de mejora en sus operaciones críticas</p>
                 
-                <form class="contact-form">
+                <form class="contact-form" action="https://formspree.io/f/mnngjklb" method="POST">
                     <div class="form-title">Diagnóstico Lean Gratuito</div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo *</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cargo">Cargo</label>
-                            <input type="text" id="cargo" name="cargo" placeholder="Ej: Gerente de Operaciones">
-                        </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Corporativo *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX">
-                        </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678">
+                    </div>
                     <div class="form-group">
                         <label for="empresa">Empresa *</label>
                         <input type="text" id="empresa" name="empresa" required>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="industria">Industria</label>
-                            <select id="industria" name="industria">
-                                <option value="">Seleccionar industria</option>
-                                <option value="manufactura">Manufactura</option>
-                                <option value="farmaceutica">Farmacéutica</option>
-                                <option value="alimentos">Alimentos y Bebidas</option>
-                                <option value="automotriz">Automotriz</option>
-                                <option value="retail">Retail & E-commerce</option>
-                                <option value="logistica">Logística y Distribución</option>
-                                <option value="otros">Otros</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="empleados">Tamaño de la Empresa</label>
-                            <select id="empleados" name="empleados">
-                                <option value="">Seleccionar tamaño</option>
-                                <option value="1-50">1-50 empleados</option>
-                                <option value="51-200">51-200 empleados</option>
-                                <option value="201-1000">201-1000 empleados</option>
-                                <option value="1000+">Más de 1000 empleados</option>
-                            </select>
-                        </div>
-                    </div>
-
                     <div class="form-group">
-                        <label for="procesos">¿Qué procesos necesita optimizar?</label>
-                        <select id="procesos" name="procesos">
-                            <option value="">Seleccionar área prioritaria</option>
-                            <option value="inventarios">Gestión de inventarios</option>
-                            <option value="logistica">Procesos logísticos</option>
-                            <option value="produccion">Líneas de producción</option>
-                            <option value="calidad">Control de calidad</option>
-                            <option value="comercial">Procesos comerciales</option>
-                            <option value="almacen">Operaciones de almacén</option>
-                            <option value="multiple">Múltiples áreas</option>
-                        </select>
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describa su consulta o necesidad..." required></textarea>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="mensaje">Describa su Principal Desafío Operativo *</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Ej: Tenemos muchos desperdicios en nuestro proceso de picking, errores frecuentes y falta de visibilidad en tiempo real. Necesitamos optimizar y automatizar..." required></textarea>
-                    </div>
+                    <!-- Campos ocultos para Formspree -->
+                    <input type="hidden" name="_next" value="https://libertysoluciones.com">
+                    <input type="hidden" name="_subject" value="Nueva consulta desde Liberty Soluciones">
+                    <input type="hidden" name="_cc" value="libertysolucionescl@gmail.com">
                     
-                    <button type="submit" class="cta-primary" style="width: 100%; margin-top: 20px;">Solicitar Diagnóstico Gratuito</button>
+                    <button type="submit" class="cta-primary" style="width: 100%; margin-top: 20px;">Enviar Consulta</button>
                     
                     <p style="font-size: 12px; color: #777; margin-top: 16px; text-align: center;">
                         * Diagnóstico Lean gratuito | Respuesta en 24 horas | Sin compromiso
@@ -1051,7 +1005,12 @@
                     <div class="contact-item">
                         <div class="contact-item-icon">📱</div>
                         <h4>Teléfono Directo</h4>
-                        <p>+56 9 XXXX XXXX</p>
+                        <p>+56 9 8352 5140</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📞</div>
+                        <h4>Teléfono Alternativo</h4>
+                        <p>+56 9 7144 4405</p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📍</div>
@@ -1135,27 +1094,8 @@
             });
         });
 
-        // Form submission
+        // Form submission - Formspree
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const nombre = formData.get('nombre');
-            const email = formData.get('email');
-            const empresa = formData.get('empresa');
-            const mensaje = formData.get('mensaje');
-            
-            if (!nombre || !email || !empresa || !mensaje) {
-                alert('Por favor complete todos los campos obligatorios (*)');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Por favor ingrese un email válido');
-                return;
-            }
-            
             const button = this.querySelector('button');
             const originalText = button.textContent;
             
@@ -1163,17 +1103,17 @@
             button.style.background = '#27ae60';
             button.disabled = true;
             
+            // El formulario se envía automáticamente a Formspree
+            // Después de envío exitoso:
             setTimeout(() => {
-                button.textContent = '✓ ¡Solicitud Enviada!';
-                
+                button.textContent = '✓ ¡Mensaje Enviado!';
                 setTimeout(() => {
-                    alert('¡Gracias por su interés!\n\nEn las próximas 24 horas nos pondremos en contacto para coordinar su diagnóstico Lean gratuito.\n\nRecibirá un email de confirmación en breve.');
-                    this.reset();
+                    alert('¡Gracias por su consulta!\n\nHemos recibido su mensaje y le responderemos en las próximas 24 horas.\n\nRecibirá una confirmación por email.');
                     button.textContent = originalText;
                     button.style.background = '#2c3e50';
                     button.disabled = false;
                 }, 1500);
-            }, 1500);
+            }, 1000);
         });
 
         // Animation on scroll
