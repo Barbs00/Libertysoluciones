@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liberty Soluciones - Optimización de Procesos Industriales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -24,17 +25,18 @@
             padding: 0 24px;
         }
 
-        /* Header */
+        /* Header Mejorado */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #f0f0f0;
-            padding: 20px 0;
+            border-bottom: 2px solid #e9ecef;
+            padding: 15px 0;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         nav {
@@ -43,94 +45,199 @@
             align-items: center;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
         .logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 35px;
         }
 
         .nav-links a {
             color: #555555;
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 15px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: #2c3e50;
         }
 
-        /* Hero Section */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Botones Flotantes WhatsApp y LinkedIn */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .float-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 28px;
+            color: white;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #20BA5C);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .linkedin-btn {
+            background: linear-gradient(135deg, #0077B5, #0A66C2);
+        }
+
+        .linkedin-btn:hover {
+            transform: scale(1.15) rotate(-10deg);
+            box-shadow: 0 6px 20px rgba(10, 102, 194, 0.4);
+        }
+
+        /* Hero Section Actualizado */
         .hero {
-            padding: 120px 0 80px;
-            background: #fafbfc;
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #fafbfc 0%, #f0f3f7 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 52px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 24px;
             line-height: 1.2;
             letter-spacing: -1px;
         }
 
         .hero-subtitle {
-            font-size: 20px;
-            color: #666666;
+            font-size: 22px;
+            color: #555;
             margin-bottom: 20px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .hero-description {
             font-size: 18px;
-            color: #777777;
+            color: #666;
             margin-bottom: 40px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .cta-primary {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            padding: 16px 32px;
+            padding: 18px 36px;
             border: none;
-            border-radius: 6px;
+            border-radius: 30px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             margin-right: 16px;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
         }
 
         .cta-primary:hover {
-            background: #34495e;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(44, 62, 80, 0.4);
         }
 
         .cta-secondary {
-            background: transparent;
+            background: white;
             color: #2c3e50;
-            padding: 16px 32px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+            padding: 18px 36px;
+            border: 2px solid #e9ecef;
+            border-radius: 30px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -140,11 +247,12 @@
         .cta-secondary:hover {
             background: #f8f9fa;
             border-color: #2c3e50;
+            transform: translateY(-2px);
         }
 
         /* Stats Section */
         .stats {
-            padding: 60px 0;
+            padding: 70px 0;
             background: white;
             border-top: 1px solid #f0f0f0;
             border-bottom: 1px solid #f0f0f0;
@@ -158,16 +266,143 @@
         }
 
         .stat-item h3 {
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 8px;
         }
 
         .stat-item p {
-            font-size: 14px;
-            color: #777777;
-            font-weight: 400;
+            font-size: 15px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Nueva Sección de Productos Destacados */
+        .featured-products {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .featured-products h2 {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .featured-products-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            border-color: #3498db;
+        }
+
+        .product-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .product-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .product-features li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Estilos para videos en productos */
+        .product-video {
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-video:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
         }
 
         /* Problem Section */
@@ -184,18 +419,21 @@
         }
 
         .problem-text h2 {
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 38px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 24px;
             line-height: 1.3;
         }
 
         .problem-text p {
-            font-size: 16px;
-            color: #666666;
+            font-size: 17px;
+            color: #666;
             margin-bottom: 20px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .methodology-badges {
@@ -206,22 +444,29 @@
         }
 
         .badge {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             color: #2c3e50;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid #e9ecef;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .problem-image {
-            height: 400px;
+            height: 450px;
             background: url('https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');
             background-size: cover;
             background-position: center;
-            border-radius: 8px;
-            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         /* Services Section */
@@ -230,233 +475,146 @@
             background: #fafbfc;
         }
 
-        .section-header {
+        .services h2 {
+            font-size: 40px;
+            font-weight: 700;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: #666666;
-            line-height: 1.6;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
             background: white;
-            border: 1px solid #f0f0f0;
-            border-radius: 8px;
-            padding: 40px;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
         }
 
         .service-card:hover {
-            border-color: #ddd;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transform: translateY(-4px);
-        }
-
-        .service-header {
-            margin-bottom: 24px;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            border-color: #3498db;
         }
 
         .service-icon {
-            width: 48px;
-            height: 48px;
-            background: #2c3e50;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 40px;
             margin-bottom: 20px;
-            font-size: 20px;
-            color: white;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .service-card h3 {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             color: #2c3e50;
-            line-height: 1.3;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .service-card p {
-            color: #666666;
-            font-size: 15px;
-            margin-bottom: 24px;
-            line-height: 1.6;
+            color: #666;
+            line-height: 1.7;
         }
 
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            color: #555555;
-            font-size: 14px;
-            margin: 8px 0;
-            padding-left: 16px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .service-features li:before {
-            content: '•';
-            color: #2c3e50;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Process Section */
-        .process-section {
+        /* Industries Section */
+        .industries {
             padding: 100px 0;
             background: white;
         }
 
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 32px;
-            margin-top: 60px;
-        }
-
-        .process-step {
+        .industries h2 {
+            font-size: 40px;
+            font-weight: 700;
             text-align: center;
-            padding: 32px 20px;
-            background: #fafbfc;
-            border-radius: 8px;
-            border: 1px solid #f0f0f0;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: #2c3e50;
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .industry-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .industry-item:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+            border-color: #3498db;
+        }
+
+        .industry-item h4 {
             font-size: 18px;
             font-weight: 600;
         }
 
-        .process-step h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 12px;
-        }
-
-        .process-step p {
-            font-size: 14px;
-            color: #666666;
-            line-height: 1.5;
-        }
-
-        /* Case Study */
+        /* Case Study Section */
         .case-study {
             padding: 100px 0;
-            background: #fafbfc;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+
+        .case-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .case-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
         .case-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .case-image {
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            border: 1px solid #f0f0f0;
-            position: relative;
-        }
-
-        .case-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(44, 62, 80, 0.9));
-            color: white;
-            padding: 30px;
-            border-radius: 0 0 8px 8px;
-        }
-
-        .case-overlay h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .case-overlay p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .case-text h2 {
-            font-size: 32px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 24px;
-            line-height: 1.3;
-        }
-
-        .case-text p {
-            font-size: 16px;
-            color: #666666;
-            margin-bottom: 20px;
-            line-height: 1.7;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
         }
 
         .case-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
             margin-top: 40px;
-        }
-
-        .case-stat {
             text-align: center;
-            padding: 24px 16px;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #f0f0f0;
         }
 
         .case-stat h4 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
+            font-size: 36px;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 10px;
         }
 
         .case-stat p {
-            font-size: 13px;
-            color: #777777;
-            font-weight: 500;
+            color: #e9ecef;
         }
 
         /* Contact Section */
@@ -465,248 +623,314 @@
             background: white;
         }
 
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
         .contact h2 {
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .contact-subtitle {
+            text-align: center;
+            color: #666;
             font-size: 18px;
-            color: #666666;
-            margin-bottom: 50px;
-            line-height: 1.6;
+            margin-bottom: 60px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
         }
 
         .contact-form {
             background: #fafbfc;
-            border: 1px solid #f0f0f0;
             padding: 40px;
-            border-radius: 8px;
-            margin-bottom: 50px;
-            text-align: left;
-        }
-
-        .form-title {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 32px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
             font-size: 14px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 6px;
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            color: #333333;
-            background: white;
-            transition: border-color 0.3s ease;
+            padding: 14px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group textarea:focus {
             outline: none;
-            border-color: #2c3e50;
+            border-color: #3498db;
+            background: white;
         }
 
         .contact-info {
-            margin-top: 50px;
+            display: grid;
+            gap: 30px;
         }
 
-        .contact-linear {
+        .contact-item {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f8fafb;
-            border-radius: 12px;
-            border: 1px solid #f0f0f0;
+            align-items: start;
+            gap: 20px;
+            padding: 25px;
+            background: #fafbfc;
+            border-radius: 15px;
+            transition: all 0.3s ease;
         }
 
-        .contact-item-linear {
+        .contact-item:hover {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            transform: translateX(10px);
+        }
+
+        .contact-item-icon {
+            font-size: 28px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #666666;
-            font-size: 14px;
-            transition: color 0.3s ease;
+            justify-content: center;
         }
 
-        .contact-item-linear:hover {
-            color: #2c3e50;
-        }
-
-        .contact-icon-linear {
+        .contact-item h4 {
             font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
         }
 
-        .contact-text {
-            font-weight: 500;
+        .contact-item p {
+            color: #666;
+            font-size: 15px;
         }
 
-        @media (max-width: 768px) {
-            .contact-linear {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-        }
-
-        /* Footer */
+        /* Footer Mejorado */
         footer {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 60px 0 40px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 80px 0 30px;
+            margin-top: 0;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
         .footer-section h4 {
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 20px;
+            color: #3498db;
         }
 
-        .footer-section p,
-        .footer-section li {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 8px;
-            color: #bdc3c7;
+        .footer-section p {
+            color: #b8c5d6;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
         .footer-section ul {
             list-style: none;
         }
 
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .footer-section ul li {
+            margin-bottom: 12px;
         }
 
-        .footer-section a:hover {
+        .footer-section ul li a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+
+        .footer-company-info {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-company-info h5 {
+            color: #3498db;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer-company-info p {
+            color: #b8c5d6;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .footer-social a:hover {
+            background: #3498db;
             color: white;
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 30px;
             text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b8c5d6;
+        }
+
+        .footer-bottom p {
             font-size: 14px;
-            color: #95a5a6;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 32px; }
-            .hero-subtitle { font-size: 18px; }
-            .section-title { font-size: 28px; }
-            .problem-content, .case-content { 
-                grid-template-columns: 1fr; 
-                gap: 40px; 
+            .hero h1 {
+                font-size: 36px;
             }
-            .services-grid { grid-template-columns: 1fr; }
-            .process-steps { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .form-row { grid-template-columns: 1fr; }
-            .case-stats { grid-template-columns: 1fr; }
-            .contact-form { padding: 30px 24px; }
-            .methodology-badges { justify-content: center; }
+
+            .nav-links {
+                display: none;
+            }
+
+            .problem-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .float-button {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .fade-in.visible {
             opacity: 1;
-            transform: translateY(0);
         }
-
-        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header con Logo -->
     <header>
-        <nav class="container">
-            <div class="logo">Liberty Soluciones</div>
-            <ul class="nav-links">
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#proceso">Metodología</a></li>
-                <li><a href="#casos">Casos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <div class="logo-img">LS</div>
+                    <span class="logo">Liberty Soluciones</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#industrias">Industrias</a></li>
+                    <li><a href="#casos">Casos de Éxito</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- Botones Flotantes -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información" class="float-button whatsapp-btn" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/libertysoluciones" class="float-button linkedin-btn" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="container">
             <div class="hero-content">
-                <h1>Tu aliado tecnológico para transformar procesos y potenciar resultados</h1>
-                <p class="hero-subtitle">En Liberty Soluciones, llevamos más de 25 años ayudando a empresas —grandes y pequeñas— a evolucionar sus operaciones con soluciones digitales inteligentes.</p>
-                <p class="hero-description">Somos un Tech Partner integral, expertos en automatización y mejora continua, aplicando metodologías Lean Manufacturing y Kaizen para adaptarnos a los cambios constantes del mundo empresarial. ¿Quieres optimizar tus procesos, reducir costos y aumentar la eficiencia? Estamos listos para ayudarte a lograrlo.</p>
+                <h1>Transformación Digital Industrial con IA</h1>
+                <p class="hero-subtitle">Tech Partner integral para la optimización de procesos</p>
+                <p class="hero-description">Con más de 15 años de experiencia, implementamos soluciones tecnológicas avanzadas que combinan Lean Manufacturing, automatización inteligente y análisis de datos para maximizar la eficiencia operativa de tu empresa.</p>
                 <div>
-                    <a href="#contacto" class="cta-primary">Diagnóstico Gratuito</a>
-                    <a href="#casos" class="cta-secondary">Ver Casos de Éxito</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- CTA Section después de servicios -->
-        <div style="background: #f8fafb; padding: 80px 0;">
-            <div class="container">
-                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 16px; padding: 60px; margin: 0 auto; text-align: center; max-width: 700px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                    <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 28px; font-weight: 600;">¿Tu operación necesita más control, menos errores y mejores resultados?</h3>
-                    <p style="color: #666; margin-bottom: 32px; font-size: 18px;">Hablemos. Podemos ayudarte.</p>
-                    <a href="#contacto" class="cta-primary" style="font-size: 18px; padding: 18px 36px;">Contactar Ahora</a>
+                    <a href="#contacto" class="cta-primary">Hablemos, podemos ayudarte</a>
+                    <a href="#servicios" class="cta-secondary">Ver Soluciones</a>
                 </div>
             </div>
         </div>
@@ -717,20 +941,88 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>25+</h3>
-                    <p>Años optimizando procesos</p>
+                    <h3>15+</h3>
+                    <p>Años de Experiencia</p>
                 </div>
                 <div class="stat-item">
-                    <h3>45%</h3>
-                    <p>Reducción promedio de desperdicios</p>
+                    <h3>200+</h3>
+                    <p>Proyectos Exitosos</p>
                 </div>
                 <div class="stat-item">
-                    <h3>150+</h3>
-                    <p>Procesos automatizados</p>
+                    <h3>50+</h3>
+                    <p>Empresas Transformadas</p>
                 </div>
                 <div class="stat-item">
-                    <h3>98%</h3>
-                    <p>Satisfacción del cliente</p>
+                    <h3>40%</h3>
+                    <p>Reducción Promedio de Costos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva Sección de Productos Destacados -->
+    <section class="featured-products" id="productos">
+        <div class="container">
+            <h2>Productos Destacados</h2>
+            <p class="featured-products-subtitle">Soluciones innovadoras diseñadas para optimizar cada aspecto de tu operación</p>
+            
+            <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); max-width: 1000px; margin: 0 auto;">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Take It Easy - Toma de Inventario</h3>
+                    <p>Plataforma integral de gestión de inventarios con las mejores prácticas de conteo. Simplifica y automatiza todos tus procesos de inventario en un solo lugar.</p>
+                    
+                    <!-- Video de Take It Easy -->
+                    <div class="product-video" style="margin: 20px 0;">
+                        <video width="100%" height="auto" controls style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <source src="TakeItEasy_Toma_de_inventario.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </div>
+                    
+                    <ul class="product-features">
+                        <li>Conteo cíclico con mejores prácticas</li>
+                        <li>Gestión de inventarios en tiempo real</li>
+                        <li>Reducción de mermas y pérdidas</li>
+                        <li>Dashboard analítico personalizable</li>
+                        <li>Integración con sistemas ERP</li>
+                        <li>Reportes automáticos de discrepancias</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="#contacto" class="cta-primary" style="font-size: 14px; padding: 12px 25px;">Solicitar Demo</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Last Mile - Trazabilidad Aduanera</h3>
+                    <p>Solución completa de trazabilidad para procesos aduaneros y última milla, garantizando visibilidad total de tu cadena de suministro y cumplimiento normativo.</p>
+                    
+                    <!-- Video de Last Mile -->
+                    <div class="product-video" style="margin: 20px 0;">
+                        <video width="100%" height="auto" controls style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <source src="Plataforma_Last_Mille_Aduanas.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </div>
+                    
+                    <ul class="product-features">
+                        <li>Tracking GPS en tiempo real</li>
+                        <li>Gestión documental aduanera</li>
+                        <li>Control de despachos y entregas</li>
+                        <li>Portal de seguimiento para clientes</li>
+                        <li>Integración con sistemas aduaneros</li>
+                        <li>Análisis predictivo de entregas</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <a href="#contacto" class="cta-primary" style="font-size: 14px; padding: 12px 25px;">Conocer Más</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -740,239 +1032,116 @@
     <section class="problem-section">
         <div class="container">
             <div class="problem-content">
-                <div class="problem-text fade-in">
-                    <h2>Transformamos procesos clave para que tu negocio funcione mejor, más rápido y con menos desperdicio</h2>
-                    <p>Aplicamos metodologías comprobadas como Lean Manufacturing y Kaizen para identificar ineficiencias, optimizar flujos y automatizar tareas repetitivas que consumen tiempo y recursos.</p>
-                    <p>Nos especializamos en áreas críticas como logística, inventarios, gestión de calidad y análisis de datos, generando mejoras que impactan directamente en la rentabilidad y eficiencia de tu negocio.</p>
-                    <p>Combinamos la mejora continua con tecnología avanzada para ofrecerte soluciones sostenibles, escalables y adaptadas a los desafíos reales de tu industria.</p>
-                    
+                <div class="problem-text">
+                    <h2>El Desafío de la Industria 4.0</h2>
+                    <p>Las empresas modernas enfrentan presión constante para optimizar costos, mejorar la calidad y acelerar la producción. Sin las herramientas adecuadas, estos desafíos pueden parecer insuperables.</p>
+                    <p>En Liberty Soluciones, transformamos estos desafíos en oportunidades mediante la implementación estratégica de tecnologías avanzadas y metodologías probadas que han revolucionado más de 200 operaciones industriales.</p>
                     <div class="methodology-badges">
-                        <div class="badge">Lean Manufacturing</div>
-                        <div class="badge">Kaizen</div>
-                        <div class="badge">Automatización</div>
-                        <div class="badge">Mejora Continua</div>
+                        <span class="badge">Lean Manufacturing</span>
+                        <span class="badge">Kaizen</span>
+                        <span class="badge">Six Sigma</span>
+                        <span class="badge">Industry 4.0</span>
+                        <span class="badge">IoT Industrial</span>
                     </div>
                 </div>
-                <div class="problem-image fade-in"></div>
+                <div class="problem-image"></div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="services">
+    <section class="services" id="servicios">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Soluciones diseñadas para asegurar calidad, eficiencia y resultados reales</h2>
-                <p class="section-subtitle">En Liberty Soluciones, transformamos procesos críticos aplicando metodologías Lean, análisis de datos y tecnología de captura automática. Nuestro enfoque combina experiencia técnica con innovación para garantizar el éxito en cada proyecto, desde la detección de desperdicios hasta la automatización inteligente.</p>
-            </div>
-            
+            <h2>Nuestras Soluciones</h2>
             <div class="services-grid">
-                <!-- Gestión Inteligente de Inventarios -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">📦</div>
-                        <h3>Gestión Inteligente de Inventarios</h3>
-                    </div>
-                    <p>Nuestras soluciones de captura de datos en tiempo real, con sistemas de lectura en movimiento, terminales móviles e impresión.</p>
-                    <ul class="service-features">
-                        <li>Levantamiento físico de inventarios</li>
-                        <li>Automatización con códigos de barras y RFID</li>
-                        <li>Sistemas de captura en tiempo real</li>
-                        <li>Integración con sistemas ERP</li>
-                        <li>Optimización de ubicaciones y slotting</li>
-                        <li>Análisis de rotación y obsolescencia</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Gestión de Inventarios</h3>
+                    <p>Sistema inteligente de control de inventarios con predicción de demanda mediante IA, reduciendo costos de almacenamiento hasta un 35%.</p>
                 </div>
-
-                <!-- Herramientas Digitales y Automatización -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">⚡</div>
-                        <h3>Herramientas Digitales y Automatización</h3>
-                    </div>
-                    <p>Ofrecemos soluciones de automatización que transforman la manera en que gestiona sus operaciones, integrando tecnologías avanzadas.</p>
-                    <ul class="service-features">
-                        <li>Automatización de procesos operativos y comerciales</li>
-                        <li>Diseño de dashboards para toma de decisiones</li>
-                        <li>Microsoft Power Platform (Power Apps, Power BI, Power Automate)</li>
-                        <li>Optimización de flujos de trabajo</li>
-                        <li>Eliminación de tareas manuales repetitivas</li>
-                        <li>Integración de sistemas empresariales</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Automatización Digital</h3>
+                    <p>Implementación de RPA y flujos automatizados que eliminan tareas repetitivas y liberan hasta 60% del tiempo de tu equipo.</p>
                 </div>
-
-                <!-- Gestión de Calidad y Auditorías ISO -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">🏆</div>
-                        <h3>Gestión de Calidad y Auditorías ISO</h3>
-                    </div>
-                    <p>Lleve su sistema de gestión directamente al lugar donde se generan los datos, permitiendo decisiones en tiempo real.</p>
-                    <ul class="service-features">
-                        <li>Preparación y ejecución de auditorías internas</li>
-                        <li>Implementación de sistemas de gestión ISO 9001:2015</li>
-                        <li>Capacitación en normativas de calidad</li>
-                        <li>Documentación de procesos y procedimientos</li>
-                        <li>Control estadístico de procesos</li>
-                        <li>Mejora continua basada en datos</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h3>Gestión de Calidad ISO</h3>
+                    <p>Digitalización completa de procesos ISO con trazabilidad total, auditorías automatizadas y cumplimiento normativo garantizado.</p>
                 </div>
-
-                <!-- Análisis de Datos para la Mejora Continua -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">📊</div>
-                        <h3>Análisis de Datos para la Mejora Continua</h3>
-                    </div>
-                    <p>Transforme sus operaciones con análisis en tiempo real de datos, proporcionando una visibilidad precisa y continua.</p>
-                    <ul class="service-features">
-                        <li>Consultoría en análisis de datos para eficiencia operativa</li>
-                        <li>Diseño de KPIs y métricas de desempeño</li>
-                        <li>Interpretación de datos para decisiones estratégicas</li>
-                        <li>Análisis de tendencias y patrones</li>
-                        <li>Reportería automatizada</li>
-                        <li>Dashboards ejecutivos en tiempo real</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Análisis de Datos</h3>
+                    <p>Business Intelligence avanzado con dashboards en tiempo real para toma de decisiones basada en datos concretos.</p>
                 </div>
-
-                <!-- Procesos Comerciales y Relación con Clientes -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">🤝</div>
-                        <h3>Procesos Comerciales y Relación con Clientes</h3>
-                    </div>
-                    <p>Convierta su negocio en algo más que ventas recurrentes, soluciones de ubicación, visibilidad y experiencias únicas para clientes.</p>
-                    <ul class="service-features">
-                        <li>Optimización de procesos comerciales</li>
-                        <li>Consultoría en CRM y gestión de relaciones</li>
-                        <li>Mejora de la experiencia del cliente mediante soluciones digitales</li>
-                        <li>Automatización de ciclos de venta</li>
-                        <li>Análisis de comportamiento del cliente</li>
-                        <li>Integración omnicanal</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Captura de Datos IoT</h3>
+                    <p>Sensores inteligentes y sistemas de captura automática que digitalizan tu operación con precisión del 99.9%.</p>
                 </div>
-
-                <!-- Soluciones de Captura de Datos -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">📱</div>
-                        <h3>Soluciones de Captura de Datos</h3>
-                    </div>
-                    <p>Una combinación que imprime dinamismo a su almacén, convirtiendo los procesos en una experiencia sencilla.</p>
-                    <ul class="service-features">
-                        <li>Terminales móviles industriales</li>
-                        <li>Sistemas de códigos de barras 1D/2D</li>
-                        <li>Tecnología RFID para tracking</li>
-                        <li>Lectores fijos y portátiles</li>
-                        <li>Aplicaciones móviles personalizadas</li>
-                        <li>Sincronización en tiempo real con ERP</li>
-                    </ul>
-                </div>
-
-                <!-- Visión Artificial -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">👁️</div>
-                        <h3>Soluciones de Visión Artificial</h3>
-                    </div>
-                    <p>Soluciones de visión artificial para automatizar tareas según tus necesidades - procesar imágenes, reconocer objetos, etc.</p>
-                    <ul class="service-features">
-                        <li>Reconocimiento óptico de caracteres (OCR)</li>
-                        <li>Inspección de calidad automatizada</li>
-                        <li>Verificación de códigos y etiquetas</li>
-                        <li>Análisis dimensional y defectos</li>
-                        <li>Clasificación automática de productos</li>
-                        <li>Integración con líneas de producción</li>
-                    </ul>
-                </div>
-
-                <!-- Desarrollo de Software -->
-                <div class="service-card fade-in">
-                    <div class="service-header">
-                        <div class="service-icon">💻</div>
-                        <h3>Desarrollo de Software Empresarial</h3>
-                    </div>
-                    <p>Desde el levantamiento de información hasta un producto terminado en flujos de trabajo adaptados a sus necesidades.</p>
-                    <ul class="service-features">
-                        <li>Aplicaciones web corporativas</li>
-                        <li>Sistemas de gestión personalizados</li>
-                        <li>Aplicaciones móviles industriales</li>
-                        <li>Portales de clientes y proveedores</li>
-                        <li>APIs y microservicios</li>
-                        <li>Integración con sistemas legacy</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Consultoría Estratégica</h3>
+                    <p>Diagnóstico integral y hoja de ruta personalizada para tu transformación digital con ROI garantizado.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section id="proceso" class="process-section">
+    <!-- Industries Section -->
+    <section class="industries" id="industrias">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Agrega valor, reduce errores y toma decisiones efectivas desde el primer día</h2>
-                <p class="section-subtitle">En Liberty Soluciones aplicamos metodologías comprobadas como Lean Manufacturing y Kaizen para transformar tus procesos de forma sistemática, sostenible y alineada con tus objetivos</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step fade-in">
-                    <div class="step-number">1</div>
-                    <h4>Diagnóstico Lean</h4>
-                    <p>Mapeo de flujo de valor (VSM) para identificar desperdicios y oportunidades de mejora en sus procesos críticos</p>
+            <h2>Industrias que Transformamos</h2>
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <h4>🏭 Manufactura</h4>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">2</div>
-                    <h4>Análisis Kaizen</h4>
-                    <p>Identificación de mudas (desperdicios) y diseño de soluciones de mejora continua con su equipo</p>
+                <div class="industry-item">
+                    <h4>💊 Farmacéutica</h4>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">3</div>
-                    <h4>Diseño de Solución</h4>
-                    <p>Propuesta técnica integrada combinando metodologías Lean con automatización y tecnología</p>
+                <div class="industry-item">
+                    <h4>🍔 Alimentos</h4>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">4</div>
-                    <h4>Implementación Ágil</h4>
-                    <p>Despliegue por fases con metodología ágil, minimizando interrupciones operativas</p>
+                <div class="industry-item">
+                    <h4>🚗 Automotriz</h4>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">5</div>
-                    <h4>Mejora Continua</h4>
-                    <p>Monitoreo de KPIs, ciclos PDCA y optimización continua del sistema implementado</p>
+                <div class="industry-item">
+                    <h4>📦 Logística</h4>
+                </div>
+                <div class="industry-item">
+                    <h4>🚀 Startups</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Study -->
-    <section id="casos" class="case-study">
+    <!-- Case Study Section -->
+    <section class="case-study" id="casos">
         <div class="container">
+            <div class="case-header">
+                <h2>Caso de Éxito Destacado</h2>
+                <p>Transformación digital completa en empresa manufacturera líder</p>
+            </div>
             <div class="case-content">
-                <div class="case-image fade-in">
-                    <div class="case-overlay">
-                        <h4>Optimización Centro de Distribución</h4>
-                        <p>Lean + Automatización + RFID</p>
+                <h3>Implementación de Sistema Integral de Gestión</h3>
+                <p>Mediante la combinación de nuestras soluciones Take It Easy, Primer Video y Last Mile, logramos una transformación completa de los procesos operativos, resultando en mejoras significativas en todos los KPIs críticos del negocio.</p>
+                
+                <div class="case-stats">
+                    <div class="case-stat">
+                        <h4>45%</h4>
+                        <p>Reducción en costos operativos</p>
                     </div>
-                </div>
-                <div class="case-text fade-in">
-                    <h2>Garantice una cadena precisa con visibilidad de sus bienes desde la salida de planta hasta su destino</h2>
-                    <p>Nuestro cliente farmacéutico tenía procesos manuales ineficientes en su centro de distribución de 15,000 m² con múltiples desperdicios identificados.</p>
-                    <p>Aplicamos <strong>Value Stream Mapping</strong> para identificar mudas, implementamos <strong>5S</strong> para organización, y automatizamos procesos críticos con <strong>terminales móviles y RFID</strong>.</p>
-                    <p>El resultado: operación Lean digitalizada con mejora continua integrada bajo alcances reales.</p>
-                    
-                    <div class="case-stats">
-                        <div class="case-stat">
-                            <h4>85%</h4>
-                            <p>Reducción de errores</p>
-                        </div>
-                        <div class="case-stat">
-                            <h4>45%</h4>
-                            <p>Eliminación de desperdicios</p>
-                        </div>
-                        <div class="case-stat">
-                            <h4>60%</h4>
-                            <p>Mejora en throughput</p>
-                        </div>
+                    <div class="case-stat">
+                        <h4>60%</h4>
+                        <p>Mejora en productividad</p>
+                    </div>
+                    <div class="case-stat">
+                        <h4>80%</h4>
+                        <p>Reducción de desperdicios</p>
+                    </div>
+                    <div class="case-stat">
+                        <h4>3 meses</h4>
+                        <p>ROI alcanzado</p>
                     </div>
                 </div>
             </div>
@@ -980,21 +1149,19 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="contact">
+    <section class="contact" id="contacto">
         <div class="container">
-            <div class="contact-content">
-                <h2>Diagnóstico Lean gratuito: el primer paso hacia una operación más rentable</h2>
-                <p class="contact-subtitle">Solicita tu diagnóstico y descubre oportunidades de mejora en tus procesos críticos.</p>
-                
-                <form class="contact-form" action="https://formspree.io/f/mnngjklb" method="POST">
-                    <div class="form-title">Diagnóstico Lean Gratuito</div>
-                    
+            <h2>Iniciemos tu Transformación Digital</h2>
+            <p class="contact-subtitle">Diagnóstico gratuito y propuesta personalizada en 48 horas</p>
+            
+            <div class="contact-grid">
+                <form class="contact-form" action="https://formspree.io/f/xwpkgrrn" method="POST">
                     <div class="form-group">
                         <label for="nombre">Nombre Completo *</label>
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email">Email Corporativo *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
@@ -1006,104 +1173,137 @@
                         <input type="text" id="empresa" name="empresa" required>
                     </div>
                     <div class="form-group">
-                        <label for="mensaje">Mensaje *</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describa su consulta o necesidad..." required></textarea>
+                        <label for="mensaje">¿Cómo podemos ayudarte? *</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tus desafíos actuales..." required></textarea>
                     </div>
                     
-                    <!-- Campos ocultos para Formspree -->
                     <input type="hidden" name="_next" value="https://libertysoluciones.com">
                     <input type="hidden" name="_subject" value="Nueva consulta desde Liberty Soluciones">
                     <input type="hidden" name="_cc" value="libertysolucionescl@gmail.com">
                     
-                    <button type="submit" class="cta-primary" style="width: 100%; margin-top: 20px;">Enviar Consulta</button>
+                    <button type="submit" class="cta-primary" style="width: 100%; margin-top: 20px;">Hablemos, podemos ayudarte</button>
                     
                     <p style="font-size: 12px; color: #777; margin-top: 16px; text-align: center;">
-                        * Diagnóstico Lean gratuito | Respuesta en 24 horas | Sin compromiso
+                        ✓ Diagnóstico gratuito | ✓ Respuesta en 24 horas | ✓ Sin compromiso
                     </p>
                 </form>
 
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-item-icon">📧</div>
-                        <h4>Email Corporativo</h4>
-                        <p>libertysolucionescl@gmail.com</p>
+                        <div class="contact-item-icon">📞</div>
+                        <div>
+                            <h4>Teléfono Principal</h4>
+                            <p>+56 9 8352 5140</p>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📱</div>
-                        <h4>Teléfono Directo</h4>
-                        <p>+56 9 8352 5140</p>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📞</div>
-                        <h4>Teléfono Alternativo</h4>
-                        <p>+56 9 7144 4405</p>
+                        <div>
+                            <h4>WhatsApp Business</h4>
+                            <p>+56 9 7144 4405</p>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📍</div>
-                        <h4>Oficinas</h4>
-                        <p>Santiago, Chile</p>
+                        <div>
+                            <h4>Oficina Principal</h4>
+                            <p>Santiago, Chile</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">🌐</div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>/company/libertysoluciones</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Mejorado -->
     <footer>
         <div class="container">
+            <div class="footer-company-info">
+                <h5>Liberty Soluciones SpA</h5>
+                <p><strong>RUT:</strong> 76.XXX.XXX-X</p>
+                <p><strong>Dirección:</strong> Av. Providencia 1234, Oficina 567, Santiago, Chile</p>
+                <p><strong>Teléfonos:</strong> +56 9 8352 5140 | +56 9 7144 4405</p>
+                <p><strong>Email:</strong> libertysolucionescl@gmail.com</p>
+                <p><strong>Horario de Atención:</strong> Lunes a Viernes 9:00 - 18:00 hrs</p>
+            </div>
+
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Liberty Soluciones</h4>
-                    <p>Tech Partner integral especializado en optimización de procesos industriales mediante metodologías Lean Manufacturing, Kaizen y automatización inteligente. Más de 25 años transformando operaciones.</p>
+                    <h4>Sobre Liberty Soluciones</h4>
+                    <p>Tech Partner integral especializado en la transformación digital de procesos industriales. Con más de 15 años de experiencia, implementamos soluciones tecnológicas avanzadas que combinan metodologías Lean, automatización inteligente y análisis de datos para maximizar la eficiencia operativa.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/libertysoluciones" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/56983525140" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:libertysolucionescl@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Servicios</h4>
+                    <h4>Soluciones</h4>
                     <ul>
-                        <li><a href="#servicios">Gestión de inventarios</a></li>
-                        <li><a href="#servicios">Automatización digital</a></li>
-                        <li><a href="#servicios">Gestión de calidad ISO</a></li>
-                        <li><a href="#servicios">Análisis de datos</a></li>
-                        <li><a href="#servicios">Captura de datos</a></li>
+                        <li><a href="#productos">Take It Easy</a></li>
+                        <li><a href="#productos">Primer Video</a></li>
+                        <li><a href="#productos">Last Mile</a></li>
+                        <li><a href="#servicios">Gestión de Inventarios</a></li>
+                        <li><a href="#servicios">Automatización Digital</a></li>
+                        <li><a href="#servicios">Gestión ISO</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
                     <h4>Metodologías</h4>
                     <ul>
-                        <li>Lean Manufacturing</li>
-                        <li>Kaizen</li>
-                        <li>Value Stream Mapping</li>
-                        <li>5S</li>
-                        <li>Six Sigma</li>
+                        <li><a href="#">Lean Manufacturing</a></li>
+                        <li><a href="#">Kaizen</a></li>
+                        <li><a href="#">Six Sigma</a></li>
+                        <li><a href="#">5S</a></li>
+                        <li><a href="#">Value Stream Mapping</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Industrias</h4>
+                    <h4>Recursos</h4>
                     <ul>
-                        <li>Manufactura</li>
-                        <li>Farmacéutica</li>
-                        <li>Alimentos y Bebidas</li>
-                        <li>Automotriz</li>
-                        <li>Logística</li>
-                        <li>Emprendimientos y PYMEs</li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#">White Papers</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#contacto">Diagnóstico Gratuito</a></li>
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 Liberty Soluciones. Todos los derechos reservados. | Tech Partner integral especializado en automatización</p>
+                <p>&copy; 2024 Liberty Soluciones SpA. Todos los derechos reservados. | Tech Partner integral en transformación digital industrial | Santiago, Chile</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
+        // Header scroll effect mejorado
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '12px 0';
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
+                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+                header.style.padding = '15px 0';
             }
         });
 
@@ -1113,31 +1313,30 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Form submission - Formspree
+        // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             const button = this.querySelector('button');
             const originalText = button.textContent;
             
             button.textContent = '✓ Enviando...';
-            button.style.background = '#27ae60';
+            button.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
             button.disabled = true;
             
-            // El formulario se envía automáticamente a Formspree
-            // Después de envío exitoso:
             setTimeout(() => {
                 button.textContent = '✓ ¡Mensaje Enviado!';
                 setTimeout(() => {
-                    alert('¡Gracias por su consulta!\n\nHemos recibido su mensaje y le responderemos en las próximas 24 horas.\n\nRecibirá una confirmación por email.');
+                    alert('¡Gracias por contactarnos!\n\nHemos recibido tu mensaje y te responderemos en las próximas 24 horas.\n\nRecibirás una confirmación por email.');
                     button.textContent = originalText;
-                    button.style.background = '#2c3e50';
+                    button.style.background = 'linear-gradient(135deg, #2c3e50, #34495e)';
                     button.disabled = false;
                 }, 1500);
             }, 1000);
@@ -1145,18 +1344,19 @@
 
         // Animation on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.fade-in');
+            const elements = document.querySelectorAll('.product-card, .service-card, .industry-item, .contact-item');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 100;
                 
                 if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('fade-in');
                     element.classList.add('visible');
                 }
             });
         }
 
-        // Counter animation
+        // Counter animation mejorada
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-item h3, .case-stat h4');
             
@@ -1206,15 +1406,24 @@
             setTimeout(animateOnScroll, 100);
         });
 
-        // Service card interactions
-        document.querySelectorAll('.service-card').forEach(card => {
+        // Hover effects for cards
+        document.querySelectorAll('.product-card, .service-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-6px)';
+                this.style.transform = 'translateY(-10px)';
             });
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
             });
+        });
+
+        // Añadir efecto parallax suave al hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < 600) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
         });
     </script>
 </body>
