@@ -852,36 +852,109 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .cases-gallery {
+        
+
+        /* Icon Fixes - Prevent Blue Color */
+        .fas, .fab {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: inherit !important;
+        }
+        
+        /* Service Icons - Emoji */
+        .service-icon {
+            font-size: 48px;
+            display: inline-block;
+            margin-bottom: 15px;
+            color: inherit;
+        }
+        
+        /* Product Icon */
+        .product-icon {
+            font-size: 48px;
+            color: #4366E8;
+            margin-bottom: 15px;
+        }
+        
+        .product-icon i {
+            color: #4366E8 !important;
+        }
+        
+        /* Footer Social Icons */
+        .footer-social a {
+            color: #b8c5d6 !important;
+        }
+        
+        .footer-social a i {
+            color: inherit !important;
+            font-size: 20px;
+        }
+        
+        .footer-social a:hover {
+            color: #4366E8 !important;
+        }
+        
+        .footer-social a:hover i {
+            color: #4366E8 !important;
+        }
+        
+        /* Footer Contact Icons */
+        .footer-section i {
+            color: #4366E8 !important;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        
+        /* Mobile Menu Icon */
+        .mobile-menu-btn i {
+            color: #333 !important;
+        }
+        
+        /* Button Icons */
+        .cta-primary i,
+        .cta-secondary i {
+            color: inherit !important;
+            margin: 0 4px;
+        }
+        
+        /* Samsung A15 Specific Fix (360px) */
+        @media (max-width: 360px) {
+            body {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+            
+            h1 { font-size: 22px; }
+            h2 { font-size: 18px; }
+            h3 { font-size: 15px; }
+            
+            .service-icon {
+                font-size: 32px;
+            }
+            
+            .product-icon {
+                font-size: 36px;
+            }
+            
+            .services-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
             }
             
-            .case-card {
-                height: 240px;
+            .service-card {
+                padding: 18px;
             }
             
-            .case-card-content {
-                padding: 20px;
-            }
-            
-            .case-card h3 {
+            .footer-social a {
+                width: 35px;
+                height: 35px;
                 font-size: 14px;
-            }
-            
-            .case-header-gallery h2 {
-                font-size: 24px;
             }
         }
 
-         {
-            .case-metrics {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-        
         @media (max-width: 768px) {
             .case-metrics {
                 grid-template-columns: 1fr;
@@ -1354,15 +1427,6 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/libertysoluciones" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://wa.me/56983525140" target="_blank" title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="mailto:libertysolucionescl@gmail.com" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
                 </div>
             </div>
 
