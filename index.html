@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liberty Soluciones - Optimización de Procesos Industriales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Logo.png">
     <style>
         * {
             margin: 0;
@@ -17,6 +18,7 @@
             line-height: 1.6;
             color: #333333;
             background: #ffffff;
+            overflow-x: hidden;
         }
 
         .container {
@@ -25,16 +27,16 @@
             padding: 0 24px;
         }
 
-        /* Header Mejorado */
-        header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
+        /* Header */
+                header {
+            background: rgba(255, 255, 255, 0.99);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid #e9ecef;
-            padding: 15px 0;
+            border-bottom: 2px solid rgba(67, 102, 232, 0.15);
+            padding: 10px 0;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
@@ -48,36 +50,28 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
         }
 
         .logo-img {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
+            height: 50px;
+            width: auto;
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #4366E8;
+            cursor: pointer;
+            padding: 10px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 30px;
         }
 
         .nav-links a {
@@ -90,7 +84,7 @@
         }
 
         .nav-links a:hover {
-            color: #2c3e50;
+            color: #4366E8;
         }
 
         .nav-links a::after {
@@ -100,7 +94,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #3498db;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             transition: width 0.3s ease;
         }
 
@@ -108,28 +102,28 @@
             width: 100%;
         }
 
-        /* Botones Flotantes WhatsApp y LinkedIn */
+        /* Floating Buttons */
         .floating-buttons {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             z-index: 999;
         }
 
         .float-button {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-size: 28px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            font-size: 24px;
             color: white;
         }
 
@@ -138,8 +132,8 @@
         }
 
         .whatsapp-btn:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
         }
 
         .linkedin-btn {
@@ -147,128 +141,108 @@
         }
 
         .linkedin-btn:hover {
-            transform: scale(1.15) rotate(-10deg);
-            box-shadow: 0 6px 20px rgba(10, 102, 194, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(10, 102, 194, 0.4);
         }
 
-        /* Hero Section Actualizado */
+        /* Hero Section */
         .hero {
-            padding: 140px 0 80px;
-            background: linear-gradient(135deg, #fafbfc 0%, #f0f3f7 100%);
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #fafbfc 0%, #f0f4fa 100%);
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
         }
 
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 700;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.2;
-            letter-spacing: -1px;
         }
 
         .hero-subtitle {
-            font-size: 22px;
+            font-size: 20px;
             color: #555;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-weight: 500;
         }
 
         .hero-description {
-            font-size: 18px;
+            font-size: 17px;
             color: #666;
-            margin-bottom: 40px;
-            line-height: 1.8;
+            margin-bottom: 35px;
+            line-height: 1.7;
         }
 
-        .cta-primary {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+                .cta-primary {
+            background: linear-gradient(135deg, #4366E8, #34495E);
             color: white;
-            padding: 18px 36px;
+            padding: 16px 32px;
             border: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            margin-right: 16px;
-            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            margin: 0 8px 8px;
+            box-shadow: 0 4px 15px rgba(67, 102, 232, 0.3);
         }
 
         .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(44, 62, 80, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 102, 232, 0.4);
+            background: linear-gradient(135deg, #34495E, #2C3E50);
         }
 
         .cta-secondary {
             background: white;
-            color: #2c3e50;
-            padding: 18px 36px;
-            border: 2px solid #e9ecef;
-            border-radius: 30px;
+            color: #4366E8;
+            padding: 16px 32px;
+            border: 2px solid #4366E8;
+            border-radius: 25px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            margin: 0 8px 8px;
         }
 
         .cta-secondary:hover {
-            background: #f8f9fa;
-            border-color: #2c3e50;
+            background: linear-gradient(135deg, rgba(67, 102, 232, 0.05), rgba(44, 62, 80, 0.05));
             transform: translateY(-2px);
         }
 
         /* Stats Section */
         .stats {
-            padding: 70px 0;
+            padding: 60px 0;
             background: white;
-            border-top: 1px solid #f0f0f0;
             border-bottom: 1px solid #f0f0f0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            gap: 30px;
             text-align: center;
         }
 
         .stat-item h3 {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 700;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -276,23 +250,23 @@
         }
 
         .stat-item p {
-            font-size: 15px;
+            font-size: 14px;
             color: #666;
             font-weight: 500;
         }
 
-        /* Nueva Sección de Productos Destacados */
+        /* Featured Product Section */
         .featured-products {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa, #f0f4fa);
         }
 
         .featured-products h2 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -301,113 +275,86 @@
         .featured-products-subtitle {
             text-align: center;
             color: #666;
-            font-size: 18px;
-            margin-bottom: 60px;
+            font-size: 17px;
+            margin-bottom: 50px;
         }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
+        .product-showcase {
+            max-width: 800px;
+            margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(67, 102, 232, 0.1);
             border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #4366E8, #4366E8) border-box;
         }
 
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-            border-color: #3498db;
+        .product-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .product-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 15px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 30px;
+            font-size: 36px;
             color: white;
         }
 
-        .product-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
+        .product-showcase h3 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
         }
 
-        .product-card p {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .product-features {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .product-features li {
-            padding: 10px 0;
-            color: #555;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-        }
-
-        .product-features li::before {
-            content: '✓';
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* Estilos para videos en productos */
         .product-video {
             margin: 25px 0;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .product-video:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
         .product-video video {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 10px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .product-features li {
+            padding: 12px 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            color: #4366E8;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
         }
 
         /* Problem Section */
         .problem-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: white;
         }
 
@@ -419,49 +366,32 @@
         }
 
         .problem-text h2 {
-            font-size: 38px;
+            font-size: 34px;
             font-weight: 700;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.3;
         }
 
         .problem-text p {
-            font-size: 17px;
+            font-size: 16px;
             color: #666;
-            margin-bottom: 20px;
-            line-height: 1.8;
+            margin-bottom: 18px;
+            line-height: 1.7;
         }
 
         .methodology-badges {
             display: flex;
-            gap: 12px;
-            margin-top: 32px;
+            gap: 10px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
 
-        .badge {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            color: #2c3e50;
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            border: 2px solid #e9ecef;
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            transform: translateY(-2px);
-        }
-
         .problem-image {
-            height: 450px;
+            height: 400px;
             background: url('https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');
             background-size: cover;
             background-position: center;
@@ -471,16 +401,16 @@
 
         /* Services Section */
         .services {
-            padding: 100px 0;
-            background: #fafbfc;
+            padding: 80px 0;
+            background: #f8f9fb;
         }
 
         .services h2 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -488,59 +418,58 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .service-card {
             background: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            cursor: pointer;
             border: 2px solid transparent;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-            border-color: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(67, 102, 232, 0.15);
+            border-color: rgba(44, 62, 80, 0.3);
         }
 
         .service-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
+            font-size: 36px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .service-card h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 15px;
+            color: #1F2937;
+            margin-bottom: 12px;
         }
 
         .service-card p {
             color: #666;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 14px;
         }
 
         /* Industries Section */
         .industries {
-            padding: 100px 0;
+            padding: 80px 0;
             background: white;
         }
 
         .industries h2 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -548,87 +477,74 @@
 
         .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .industry-item {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 30px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(67, 102, 232, 0.05), rgba(44, 62, 80, 0.05));
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 2px solid rgba(67, 102, 232, 0.2);
         }
 
         .industry-item:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             color: white;
-            border-color: #3498db;
+            border-color: transparent;
         }
 
         .industry-item h4 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
         }
 
-        /* Case Study Section */
-        .case-study {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
+                .case-content {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 60px;
+            backdrop-filter: blur(15px);
+            max-width: 100%;
+            margin: 0 auto;
+            border: 2px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 1;
         }
 
-        .case-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .case-header h2 {
-            font-size: 40px;
+        .case-content h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
             font-weight: 700;
-            margin-bottom: 20px;
         }
 
-        .case-content {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 50px;
-            backdrop-filter: blur(10px);
+        .case-content p {
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.98;
+            font-size: 16px;
         }
 
-        .case-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-            text-align: center;
-        }
+                
 
-        .case-stat h4 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-
-        .case-stat p {
-            color: #e9ecef;
-        }
+                
 
         /* Contact Section */
         .contact {
-            padding: 100px 0;
+            padding: 80px 0;
             background: white;
         }
 
         .contact h2 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -637,43 +553,45 @@
         .contact-subtitle {
             text-align: center;
             color: #666;
-            font-size: 18px;
-            margin-bottom: 60px;
+            font-size: 17px;
+            margin-bottom: 50px;
         }
 
-        .contact-grid {
+        \.contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr;
+            gap: 50px;
             align-items: start;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-form {
-            background: #fafbfc;
-            padding: 40px;
+            background: #f8f9fb;
+            padding: 35px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
+            color: #1F2937;
+            margin-bottom: 6px;
             font-size: 14px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border: 2px solid #e9ecef;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.3s ease;
             font-family: inherit;
         }
@@ -681,79 +599,130 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #3498db;
+            border-color: #4366E8;
             background: white;
+            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
         }
 
         .contact-info {
             display: grid;
-            gap: 30px;
+            gap: 20px;
         }
 
         .contact-item {
             display: flex;
-            align-items: start;
-            gap: 20px;
-            padding: 25px;
-            background: #fafbfc;
-            border-radius: 15px;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(67, 102, 232, 0.05), rgba(44, 62, 80, 0.05));
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            transform: translateX(10px);
+            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(67, 102, 232, 0.1), rgba(44, 62, 80, 0.1));
         }
 
         .contact-item-icon {
-            font-size: 28px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 20px;
+            color: white;
         }
 
         .contact-item h4 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 5px;
+            color: #1F2937;
+            margin-bottom: 3px;
         }
 
         .contact-item p {
             color: #666;
-            font-size: 15px;
+            font-size: 14px;
         }
 
-        /* Footer Mejorado */
-        footer {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+        /* Footer */
+                footer {
+            background: linear-gradient(135deg, #1a252f, #1e2d3d);
             color: white;
-            padding: 80px 0 30px;
-            margin-top: 0;
+            padding: 50px 0 20px;
         }
 
-        .footer-content {
+                        .footer-top {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-contacts {
+            display: none;
+        }
+
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+                
+
+                .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b8c5d6;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .footer-social a:hover {
+            background: #4366E8;
+            color: white;
+            border-color: #4366E8;
+            transform: translateY(-3px);
+        }
+
+                .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
         }
 
         .footer-section h4 {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #3498db;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .footer-section p {
             color: #b8c5d6;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 14px;
         }
 
         .footer-section ul {
@@ -761,110 +730,456 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-section ul li a {
             color: #b8c5d6;
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .footer-section ul li a:hover {
-            color: #3498db;
+            color: #4366E8;
         }
-
-        .footer-company-info {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+        .footer-section:nth-child(3) h4 {
+            background: linear-gradient(135deg, #4366E8, #2C3E50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .footer-company-info h5 {
-            color: #3498db;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .footer-company-info p {
-            color: #b8c5d6;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-
-        .footer-social {
+        
+        .footer-section:nth-child(3) ul {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            flex-direction: column;
+            gap: 12px;
         }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
+        
+        .footer-section:nth-child(3) ul li {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #b8c5d6;
+        }
+        
+        .footer-section:nth-child(3) ul li i {
+            color: #4366E8;
+            font-size: 16px;
+            min-width: 16px;
+        }
+        
+        .footer-section:nth-child(3) ul li a {
             color: #b8c5d6;
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 18px;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-section:nth-child(3) ul li a:hover {
+            color: #4366E8;
+        }
+        
+ {
+            color: #4366E8;
+        }
+        
+        .footer-section ul li i {
+            margin-right: 8px;
+            color: #4366E8;
         }
 
-        .footer-social a:hover {
-            background: #3498db;
-            color: white;
-            transform: translateY(-3px);
+        
+        .footer-section:last-child {
+        }
+        
+        .footer-section:nth-child(3) {
+        
+        .footer-section:last-child h4 {
+            background: linear-gradient(135deg, #4366E8, #2C3E50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-section:last-child ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-section:last-child ul li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #b8c5d6;
+        }
+        
+        .footer-section:last-child ul li i {
+            color: #4366E8;
+            font-size: 16px;
+        }
+        
+        .footer-section:last-child ul li a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section:last-child ul li a:hover {
+            color: #4366E8;
         }
 
-        .footer-bottom {
+         {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #b8c5d6;
         }
 
-        .footer-bottom p {
-            font-size: 14px;
+        
+        .footer-section:last-child {
+        }
+        
+        .footer-section:nth-child(3) {
+        
+        .footer-section:last-child h4 {
+            background: linear-gradient(135deg, #4366E8, #2C3E50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-section:last-child ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-section:last-child ul li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #b8c5d6;
+        }
+        
+        .footer-section:last-child ul li i {
+            color: #4366E8;
+            font-size: 16px;
+        }
+        
+        .footer-section:last-child ul li a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section:last-child ul li a:hover {
+            color: #4366E8;
         }
 
-        /* Responsive */
+         p {
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        
+        
+        /* Responsividad */
+        
+        /* Responsividad */
+        @media (max-width: 1200px) {
+            .cases-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .case-header-gallery h2 {
+                font-size: 32px;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 {
+            .cases-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .case-card {
+                height: 240px;
+            }
+            
+            .case-card-content {
+                padding: 20px;
+            }
+            
+            .case-card h3 {
+                font-size: 14px;
+            }
+            
+            .case-header-gallery h2 {
+                font-size: 24px;
+            }
+        }
+
+         {
+            .case-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .case-metrics {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 30px 0;
+                margin: 40px 0;
+            }
+            
+            .metric-item {
+                padding: 25px;
+            }
+            
+            .metric-value {
+                font-size: 42px;
+            }
+            
+            .metric-label {
+                font-size: 10px;
+            }
+            
+            .metric-description {
+                font-size: 12px;
+            }
+            
+            .case-summary {
+                padding: 30px;
+            }
+            
+            .case-summary h3 {
+                font-size: 20px;
+            }
+            
+            .case-summary p {
+                font-size: 13px;
+            }
+        }
+
+         {
+            .improvements-showcase {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .improvements-showcase {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin: 40px 0 60px 0;
+            }
+            
+            .improvement-card {
+                padding: 30px 20px;
+            }
+            
+            .improvement-number {
                 font-size: 36px;
+            }
+            
+            .improvement-card h3 {
+                font-size: 16px;
+            }
+            
+            .improvement-card p {
+                font-size: 12px;
+            }
+            
+            .case-content {
+                padding: 30px;
+            }
+            
+            .case-content h3 {
+                font-size: 22px;
+            }
+            
+            .case-content p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Menu */
+            .mobile-menu-btn {
+                display: block;
             }
 
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                gap: 15px;
             }
 
-            .problem-content,
-            .contact-grid {
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 100px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .cta-primary, .cta-secondary {
+                padding: 14px 28px;
+                font-size: 14px;
+                display: block;
+                margin: 10px auto;
+                max-width: 250px;
+            }
+
+            /* Stats */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-item h3 {
+                font-size: 28px;
+            }
+
+            /* Product Showcase */
+            .product-showcase {
+                padding: 25px;
+            }
+
+            .product-showcase h3 {
+                font-size: 22px;
+            }
+
+            .product-features li {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+
+            /* Problem Section */
+            .problem-content {
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            }
+
+            .problem-text h2 {
+                font-size: 28px;
+            }
+
+            .problem-image {
+                height: 250px;
+            }
+
+            /* Services */
+            .services-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 20px;
             }
 
-            .footer-content {
+            /* Industries */
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .industry-item {
+                padding: 20px;
+            }
+
+            .industry-item h4 {
+                font-size: 14px;
+            }
+
+            .case-content {
+                padding: 25px;
+            }
+
+            
+
+            /* Contact */
+            .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
 
+            .contact-form {
+                padding: 25px;
+            }
+
+                        /* Footer */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-section ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            /* Floating Buttons */
             .floating-buttons {
-                bottom: 20px;
-                right: 20px;
+                bottom: 15px;
+                right: 15px;
             }
 
             .float-button {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
             }
 
-            .products-grid {
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .industries-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-contact-item {
+                font-size: 12px;
             }
         }
 
@@ -872,7 +1187,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -881,25 +1196,22 @@
         }
 
         .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
+            animation: fadeInUp 0.6s ease forwards;
         }
     </style>
 </head>
 <body>
-    <!-- Header con Logo -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <div class="logo-img">LS</div>
-                    <span class="logo">Liberty Soluciones</span>
+                    <img src="Logo.png" alt="Liberty Soluciones" class="logo-img">
                 </div>
-                <ul class="nav-links">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#productos">Productos</a></li>
                     <li><a href="#servicios">Servicios</a></li>
@@ -911,12 +1223,14 @@
         </div>
     </header>
 
-    <!-- Botones Flotantes -->
+    <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <a href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información" class="float-button whatsapp-btn" target="_blank" title="WhatsApp">
+        <a href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información" 
+           class="float-button whatsapp-btn" target="_blank" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://www.linkedin.com/company/libertysoluciones" class="float-button linkedin-btn" target="_blank" title="LinkedIn">
+        <a href="https://www.linkedin.com/company/libertysoluciones" 
+           class="float-button linkedin-btn" target="_blank" title="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
         </a>
     </div>
@@ -925,9 +1239,13 @@
     <section class="hero" id="inicio">
         <div class="container">
             <div class="hero-content">
-                <h1>Transformación Digital Industrial con IA</h1>
+                <h1>Transformación Digital Industrial</h1>
                 <p class="hero-subtitle">Tech Partner integral para la optimización de procesos</p>
-                <p class="hero-description">Con más de 15 años de experiencia, implementamos soluciones tecnológicas avanzadas que combinan Lean Manufacturing, automatización inteligente y análisis de datos para maximizar la eficiencia operativa de tu empresa.</p>
+                <p class="hero-description">
+                    Con más de 15 años de experiencia, implementamos soluciones tecnológicas avanzadas 
+                    que combinan Lean Manufacturing, automatización inteligente y análisis de datos 
+                    para maximizar la eficiencia operativa de tu empresa.
+                </p>
                 <div>
                     <a href="#contacto" class="cta-primary">Hablemos, podemos ayudarte</a>
                     <a href="#servicios" class="cta-secondary">Ver Soluciones</a>
@@ -960,69 +1278,46 @@
         </div>
     </section>
 
-    <!-- Nueva Sección de Productos Destacados -->
+    <!-- Featured Product Section -->
     <section class="featured-products" id="productos">
         <div class="container">
-            <h2>Productos Destacados</h2>
-            <p class="featured-products-subtitle">Soluciones innovadoras diseñadas para optimizar cada aspecto de tu operación</p>
+            <h2>Producto Destacado</h2>
+            <p class="featured-products-subtitle">
+                Solución innovadora para la gestión eficiente de inventarios
+            </p>
             
-            <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); max-width: 1000px; margin: 0 auto;">
-                <div class="product-card">
+            <div class="product-showcase">
+                <div class="product-header">
                     <div class="product-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Take It Easy - Toma de Inventario</h3>
-                    <p>Plataforma integral de gestión de inventarios con las mejores prácticas de conteo. Simplifica y automatiza todos tus procesos de inventario en un solo lugar.</p>
-                    
-                    <!-- Video de Take It Easy -->
-                    <div class="product-video" style="margin: 20px 0;">
-                        <video width="100%" height="auto" controls style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                            <source src="TakeItEasy_Toma_de_inventario.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                    </div>
-                    
-                    <ul class="product-features">
-                        <li>Conteo cíclico con mejores prácticas</li>
-                        <li>Gestión de inventarios en tiempo real</li>
-                        <li>Reducción de mermas y pérdidas</li>
-                        <li>Dashboard analítico personalizable</li>
-                        <li>Integración con sistemas ERP</li>
-                        <li>Reportes automáticos de discrepancias</li>
-                    </ul>
-                    
-                    <div style="text-align: center; margin-top: 25px;">
-                        <a href="#contacto" class="cta-primary" style="font-size: 14px; padding: 12px 25px;">Solicitar Demo</a>
-                    </div>
+                    <h3>Take It Easy - Gestión de Inventarios</h3>
+                    <p>Plataforma integral que revoluciona la forma de gestionar inventarios 
+                       mediante las mejores prácticas internacionales de conteo y control.</p>
                 </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-route"></i>
-                    </div>
-                    <h3>Last Mile - Trazabilidad Aduanera</h3>
-                    <p>Solución completa de trazabilidad para procesos aduaneros y última milla, garantizando visibilidad total de tu cadena de suministro y cumplimiento normativo.</p>
-                    
-                    <!-- Video de Last Mile -->
-                    <div class="product-video" style="margin: 20px 0;">
-                        <video width="100%" height="auto" controls style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                            <source src="Plataforma_Last_Mille_Aduanas.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                    </div>
-                    
-                    <ul class="product-features">
-                        <li>Tracking GPS en tiempo real</li>
-                        <li>Gestión documental aduanera</li>
-                        <li>Control de despachos y entregas</li>
-                        <li>Portal de seguimiento para clientes</li>
-                        <li>Integración con sistemas aduaneros</li>
-                        <li>Análisis predictivo de entregas</li>
-                    </ul>
-                    
-                    <div style="text-align: center; margin-top: 25px;">
-                        <a href="#contacto" class="cta-primary" style="font-size: 14px; padding: 12px 25px;">Conocer Más</a>
-                    </div>
+                
+                <div class="product-video">
+                    <video width="100%" height="auto" controls>
+                        <source src="TakeItEasy_Toma_de_inventario.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                
+                <ul class="product-features">
+                    <li>Conteo cíclico con mejores prácticas internacionales</li>
+                    <li>Gestión de inventarios en tiempo real</li>
+                    <li>Reducción de mermas y pérdidas hasta 80%</li>
+                    <li>Dashboard analítico personalizable</li>
+                    <li>Integración completa con sistemas ERP</li>
+                    <li>Reportes automáticos de discrepancias</li>
+                    <li>Trazabilidad completa de productos</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#contacto" class="cta-primary" style="padding: 16px 35px;">
+                        <i class="fas fa-play-circle" style="margin-right: 8px;"></i>
+                        Solicitar Demo Personalizada
+                    </a>
                 </div>
             </div>
         </div>
@@ -1034,16 +1329,16 @@
             <div class="problem-content">
                 <div class="problem-text">
                     <h2>El Desafío de la Industria 4.0</h2>
-                    <p>Las empresas modernas enfrentan presión constante para optimizar costos, mejorar la calidad y acelerar la producción. Sin las herramientas adecuadas, estos desafíos pueden parecer insuperables.</p>
-                    <p>En Liberty Soluciones, transformamos estos desafíos en oportunidades mediante la implementación estratégica de tecnologías avanzadas y metodologías probadas que han revolucionado más de 200 operaciones industriales.</p>
-                    <div class="methodology-badges">
-                        <span class="badge">Lean Manufacturing</span>
-                        <span class="badge">Kaizen</span>
-                        <span class="badge">Six Sigma</span>
-                        <span class="badge">Industry 4.0</span>
-                        <span class="badge">IoT Industrial</span>
-                    </div>
-                </div>
+                    <p>
+                        Las empresas modernas enfrentan presión constante para optimizar costos, 
+                        mejorar la calidad y acelerar la producción. Sin las herramientas adecuadas, 
+                        estos desafíos pueden parecer insuperables.
+                    </p>
+                    <p>
+                        En Liberty Soluciones, transformamos estos desafíos en oportunidades mediante 
+                        la implementación estratégica de tecnologías avanzadas y metodologías probadas 
+                        que han revolucionado más de 200 operaciones industriales.
+                    </p></div>
                 <div class="problem-image"></div>
             </div>
         </div>
@@ -1057,32 +1352,38 @@
                 <div class="service-card">
                     <div class="service-icon">📊</div>
                     <h3>Gestión de Inventarios</h3>
-                    <p>Sistema inteligente de control de inventarios con predicción de demanda mediante IA, reduciendo costos de almacenamiento hasta un 35%.</p>
+                    <p>Sistema inteligente de control con análisis predictivo avanzado, 
+                       reduciendo costos de almacenamiento hasta un 35%.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🤖</div>
                     <h3>Automatización Digital</h3>
-                    <p>Implementación de RPA y flujos automatizados que eliminan tareas repetitivas y liberan hasta 60% del tiempo de tu equipo.</p>
+                    <p>Implementación de RPA y flujos automatizados que liberan hasta 
+                       60% del tiempo de tu equipo.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">✅</div>
                     <h3>Gestión de Calidad ISO</h3>
-                    <p>Digitalización completa de procesos ISO con trazabilidad total, auditorías automatizadas y cumplimiento normativo garantizado.</p>
+                    <p>Digitalización completa de procesos ISO con trazabilidad total 
+                       y auditorías automatizadas.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📈</div>
                     <h3>Análisis de Datos</h3>
-                    <p>Business Intelligence avanzado con dashboards en tiempo real para toma de decisiones basada en datos concretos.</p>
+                    <p>Business Intelligence avanzado con dashboards en tiempo real 
+                       para decisiones basadas en datos.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📱</div>
                     <h3>Captura de Datos IoT</h3>
-                    <p>Sensores inteligentes y sistemas de captura automática que digitalizan tu operación con precisión del 99.9%.</p>
+                    <p>Sensores inteligentes que digitalizan tu operación con 
+                       precisión del 99.9%.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎯</div>
                     <h3>Consultoría Estratégica</h3>
-                    <p>Diagnóstico integral y hoja de ruta personalizada para tu transformación digital con ROI garantizado.</p>
+                    <p>Diagnóstico integral y hoja de ruta personalizada para tu 
+                       transformación digital.</p>
                 </div>
             </div>
         </div>
@@ -1115,40 +1416,7 @@
         </div>
     </section>
 
-    <!-- Case Study Section -->
-    <section class="case-study" id="casos">
-        <div class="container">
-            <div class="case-header">
-                <h2>Caso de Éxito Destacado</h2>
-                <p>Transformación digital completa en empresa manufacturera líder</p>
-            </div>
-            <div class="case-content">
-                <h3>Implementación de Sistema Integral de Gestión</h3>
-                <p>Mediante la combinación de nuestras soluciones Take It Easy, Primer Video y Last Mile, logramos una transformación completa de los procesos operativos, resultando en mejoras significativas en todos los KPIs críticos del negocio.</p>
-                
-                <div class="case-stats">
-                    <div class="case-stat">
-                        <h4>45%</h4>
-                        <p>Reducción en costos operativos</p>
-                    </div>
-                    <div class="case-stat">
-                        <h4>60%</h4>
-                        <p>Mejora en productividad</p>
-                    </div>
-                    <div class="case-stat">
-                        <h4>80%</h4>
-                        <p>Reducción de desperdicios</p>
-                    </div>
-                    <div class="case-stat">
-                        <h4>3 meses</h4>
-                        <p>ROI alcanzado</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+                                                    <!-- Contact Section -->
     <section class="contact" id="contacto">
         <div class="container">
             <h2>Iniciemos tu Transformación Digital</h2>
@@ -1174,136 +1442,109 @@
                     </div>
                     <div class="form-group">
                         <label for="mensaje">¿Cómo podemos ayudarte? *</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tus desafíos actuales..." required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="4" 
+                                  placeholder="Cuéntanos sobre tus desafíos actuales..." required></textarea>
                     </div>
                     
                     <input type="hidden" name="_next" value="https://libertysoluciones.com">
                     <input type="hidden" name="_subject" value="Nueva consulta desde Liberty Soluciones">
-                    <input type="hidden" name="_cc" value="libertysolucionescl@gmail.com">
                     
-                    <button type="submit" class="cta-primary" style="width: 100%; margin-top: 20px;">Hablemos, podemos ayudarte</button>
+                    <button type="submit" class="cta-primary" style="width: 100%; margin-top: 20px;">
+                        Hablemos, podemos ayudarte
+                    </button>
                     
-                    <p style="font-size: 12px; color: #777; margin-top: 16px; text-align: center;">
+                    <p style="font-size: 12px; color: #777; margin-top: 12px; text-align: center;">
                         ✓ Diagnóstico gratuito | ✓ Respuesta en 24 horas | ✓ Sin compromiso
                     </p>
                 </form>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📞</div>
-                        <div>
-                            <h4>Teléfono Principal</h4>
-                            <p>+56 9 8352 5140</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📱</div>
-                        <div>
-                            <h4>WhatsApp Business</h4>
-                            <p>+56 9 7144 4405</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📍</div>
-                        <div>
-                            <h4>Oficina Principal</h4>
-                            <p>Santiago, Chile</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">🌐</div>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <p>/company/libertysoluciones</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Mejorado -->
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-company-info">
-                <h5>Liberty Soluciones SpA</h5>
-                <p><strong>RUT:</strong> 76.XXX.XXX-X</p>
-                <p><strong>Dirección:</strong> Av. Providencia 1234, Oficina 567, Santiago, Chile</p>
-                <p><strong>Teléfonos:</strong> +56 9 8352 5140 | +56 9 7144 4405</p>
-                <p><strong>Email:</strong> libertysolucionescl@gmail.com</p>
-                <p><strong>Horario de Atención:</strong> Lunes a Viernes 9:00 - 18:00 hrs</p>
+            <div class="footer-top">
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/libertysoluciones" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/56983525140" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:libertysolucionescl@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
 
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Sobre Liberty Soluciones</h4>
-                    <p>Tech Partner integral especializado en la transformación digital de procesos industriales. Con más de 15 años de experiencia, implementamos soluciones tecnológicas avanzadas que combinan metodologías Lean, automatización inteligente y análisis de datos para maximizar la eficiencia operativa.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/libertysoluciones" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://wa.me/56983525140" target="_blank" title="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:libertysolucionescl@gmail.com" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
+                    <p>
+                        Tech Partner especializado en transformación digital industrial.
+                        <br><strong>15+ años</strong> de experiencia implementando soluciones que optimizan procesos y generan valor.
+                    </p>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Soluciones</h4>
                     <ul>
-                        <li><a href="#productos">Take It Easy</a></li>
-                        <li><a href="#productos">Primer Video</a></li>
-                        <li><a href="#productos">Last Mile</a></li>
                         <li><a href="#servicios">Gestión de Inventarios</a></li>
                         <li><a href="#servicios">Automatización Digital</a></li>
                         <li><a href="#servicios">Gestión ISO</a></li>
+                        <li><a href="#servicios">Análisis de Datos</a></li>
+                        <li><a href="#servicios">Captura de Datos IoT</a></li>
+                        <li><a href="#servicios">Consultoría</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Metodologías</h4>
+                    <h4>Contacto</h4>
                     <ul>
-                        <li><a href="#">Lean Manufacturing</a></li>
-                        <li><a href="#">Kaizen</a></li>
-                        <li><a href="#">Six Sigma</a></li>
-                        <li><a href="#">5S</a></li>
-                        <li><a href="#">Value Stream Mapping</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Recursos</h4>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Casos de Éxito</a></li>
-                        <li><a href="#">White Papers</a></li>
-                        <li><a href="#">Webinars</a></li>
-                        <li><a href="#contacto">Diagnóstico Gratuito</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+56983525140">+56 9 8352 5140</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56983525140">+56 9 7144 4405</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:libertysolucionescl@gmail.com">libertysolucionescl@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Santiago, Chile</span></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Liberty Soluciones SpA. Todos los derechos reservados. | Tech Partner integral en transformación digital industrial | Santiago, Chile</p>
+                <p>&copy; 2024 Liberty Soluciones. Todos los derechos reservados. | Tech Partner en transformación digital industrial</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect mejorado
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-                header.style.padding = '12px 0';
+                header.style.padding = '8px 0';
             } else {
-                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-                header.style.padding = '15px 0';
+                header.style.padding = '10px 0';
             }
         });
 
@@ -1313,7 +1554,13 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 80;
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                    
+                    const offsetTop = target.offsetTop - 70;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -1325,18 +1572,18 @@
         // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             const button = this.querySelector('button');
-            const originalText = button.textContent;
+            const originalText = button.innerHTML;
             
-            button.textContent = '✓ Enviando...';
+            button.innerHTML = '✓ Enviando...';
             button.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
             button.disabled = true;
             
             setTimeout(() => {
-                button.textContent = '✓ ¡Mensaje Enviado!';
+                button.innerHTML = '✓ ¡Mensaje Enviado!';
                 setTimeout(() => {
                     alert('¡Gracias por contactarnos!\n\nHemos recibido tu mensaje y te responderemos en las próximas 24 horas.\n\nRecibirás una confirmación por email.');
-                    button.textContent = originalText;
-                    button.style.background = 'linear-gradient(135deg, #2c3e50, #34495e)';
+                    button.innerHTML = originalText;
+                    button.style.background = 'linear-gradient(135deg, #4366E8, #4366E8)';
                     button.disabled = false;
                 }, 1500);
             }, 1000);
@@ -1344,21 +1591,20 @@
 
         // Animation on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.product-card, .service-card, .industry-item, .contact-item');
+            const elements = document.querySelectorAll('.service-card, .industry-item, .contact-item, .improvement-item');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 100;
                 
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('fade-in');
-                    element.classList.add('visible');
                 }
             });
         }
 
-        // Counter animation mejorada
+        // Counter animation
         function animateCounters() {
-            const counters = document.querySelectorAll('.stat-item h3, .case-stat h4');
+            const counters = document.querySelectorAll('.stat-item h3');
             
             counters.forEach(counter => {
                 const target = counter.textContent;
@@ -1378,16 +1624,15 @@
                     if (isPercentage) displayValue += '%';
                     if (isPlus) displayValue += '+';
                     counter.textContent = displayValue;
-                }, 50);
+                }, 40);
             });
         }
 
-        // Intersection Observer
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('stats') || 
-                        entry.target.classList.contains('case-study')) {
+                    if (entry.target.classList.contains('stats')) {
                         animateCounters();
                         observer.unobserve(entry.target);
                     }
@@ -1399,31 +1644,9 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', function() {
             const statsSection = document.querySelector('.stats');
-            const caseSection = document.querySelector('.case-study');
             if (statsSection) observer.observe(statsSection);
-            if (caseSection) observer.observe(caseSection);
             
             setTimeout(animateOnScroll, 100);
-        });
-
-        // Hover effects for cards
-        document.querySelectorAll('.product-card, .service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Añadir efecto parallax suave al hero
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < 600) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
         });
     </script>
 </body>
