@@ -352,53 +352,6 @@
             font-size: 18px;
         }
 
-        /* Problem Section */
-        .problem-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .problem-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .problem-text h2 {
-            font-size: 34px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #4366E8, #4366E8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .problem-text p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 18px;
-            line-height: 1.7;
-        }
-
-        .methodology-badges {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-
-        .problem-image {
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
         /* Services Section */
         .services {
             padding: 80px 0;
@@ -1086,20 +1039,6 @@
                 padding: 10px 0;
             }
 
-            /* Problem Section */
-            .problem-content {
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            }
-
-            .problem-text h2 {
-                font-size: 28px;
-            }
-
-            .problem-image {
-                height: 250px;
-            }
-
             /* Services */
             .services-grid {
                 grid-template-columns: 1fr;
@@ -1254,30 +1193,6 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>15+</h3>
-                    <p>Años de Experiencia</p>
-                </div>
-                <div class="stat-item">
-                    <h3>200+</h3>
-                    <p>Proyectos Exitosos</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Empresas Transformadas</p>
-                </div>
-                <div class="stat-item">
-                    <h3>40%</h3>
-                    <p>Reducción Promedio de Costos</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Featured Product Section -->
     <section class="featured-products" id="productos">
         <div class="container">
@@ -1297,9 +1212,9 @@
                 </div>
                 
                 <div class="product-video">
-                    <video width="100%" height="auto" controls>
-                        <source src="TakeItEasy_Toma_de_inventario.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
+                    <video width="100%" height="auto" controls playsinline poster="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                        <source src="https://raw.githubusercontent.com/barbs00/libertysoluciones/main/TakeItEasy_Toma_de_inventario.mp4" type="video/mp4">
+                        <p>Tu navegador no soporta el elemento de video.</p>
                     </video>
                 </div>
                 
@@ -1323,27 +1238,6 @@
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="container">
-            <div class="problem-content">
-                <div class="problem-text">
-                    <h2>El Desafío de la Industria 4.0</h2>
-                    <p>
-                        Las empresas modernas enfrentan presión constante para optimizar costos, 
-                        mejorar la calidad y acelerar la producción. Sin las herramientas adecuadas, 
-                        estos desafíos pueden parecer insuperables.
-                    </p>
-                    <p>
-                        En Liberty Soluciones, transformamos estos desafíos en oportunidades mediante 
-                        la implementación estratégica de tecnologías avanzadas y metodologías probadas 
-                        que han revolucionado más de 200 operaciones industriales.
-                    </p></div>
-                <div class="problem-image"></div>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Section -->
     <section class="services" id="servicios">
         <div class="container">
@@ -1352,38 +1246,32 @@
                 <div class="service-card">
                     <div class="service-icon">📊</div>
                     <h3>Gestión de Inventarios</h3>
-                    <p>Sistema inteligente de control con análisis predictivo avanzado, 
-                       reduciendo costos de almacenamiento hasta un 35%.</p>
+                    <p>Optimiza tu cadena de suministro con nuestro sistema inteligente de control. Análisis predictivo avanzado, visibilidad en tiempo real y automatización que reduce costos de almacenamiento hasta un 35%. Sincronización perfecta entre módulos para operaciones sin fricción.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🤖</div>
                     <h3>Automatización Digital</h3>
-                    <p>Implementación de RPA y flujos automatizados que liberan hasta 
-                       60% del tiempo de tu equipo.</p>
+                    <p>Transforma tus procesos con RPA y flujos automatizados inteligentes. Liberamos hasta 60% del tiempo de tu equipo, eliminando tareas manuales repetitivas. Mejora significativa en eficiencia operativa, reducción de errores y capacidad para enfocarse en tareas estratégicas de alto valor.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">✅</div>
-                    <h3>Gestión de Calidad ISO</h3>
-                    <p>Digitalización completa de procesos ISO con trazabilidad total 
-                       y auditorías automatizadas.</p>
+                    <h3>Gestión de Calidad ISO 9001:2015</h3>
+                    <p>Impulsa la excelencia de tu empresa con un sistema de gestión digital, ágil y a tu medida. Procesos trazables, auditorías automáticas y capacitación práctica, todo acompañado por expertos que te guían desde la implementación hasta el soporte post-certificación, para que logres eficiencia, innovación y crecimiento sostenible.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📈</div>
                     <h3>Análisis de Datos</h3>
-                    <p>Business Intelligence avanzado con dashboards en tiempo real 
-                       para decisiones basadas en datos.</p>
+                    <p>Transforma datos en decisiones estratégicas con nuestro Business Intelligence avanzado. Dashboards en tiempo real, reportes automáticos y análisis predictivo que revelan oportunidades ocultas. Acceso visual y comprensible a la información crítica para impulsar crecimiento.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📱</div>
                     <h3>Captura de Datos IoT</h3>
-                    <p>Sensores inteligentes que digitalizan tu operación con 
-                       precisión del 99.9%.</p>
+                    <p>Digitaliza tu operación con sensores inteligentes de precisión 99.9%. Monitoreo en tiempo real de equipos, inventarios y procesos. Detección automática de anomalías, mantenimiento predictivo y datos fiables para tomar decisiones informadas y evitar paros operacionales.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎯</div>
                     <h3>Consultoría Estratégica</h3>
-                    <p>Diagnóstico integral y hoja de ruta personalizada para tu 
-                       transformación digital.</p>
+                    <p>Diseña tu camino al éxito con diagnóstico integral y hoja de ruta personalizada. Nuestros expertos analizan tu situación, identifican oportunidades y definen estrategias. Acompañamiento desde la conceptualización hasta la implementación, asegurando transformación digital sostenible.</p>
                 </div>
             </div>
         </div>
