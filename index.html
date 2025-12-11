@@ -28,6 +28,21 @@
                  max-width: 1200px;
                  margin: 0 auto;
                  padding: 0 24px;
+                 width: 100%;
+                 box-sizing: border-box;
+             }
+
+             /* Mobile Container Override */
+             @media (max-width: 480px) {
+                 .container {
+                     padding: 0 12px;
+                 }
+             }
+
+             @media (max-width: 375px) {
+                 .container {
+                     padding: 0 10px;
+                 }
              }
 
              /* Header */
@@ -994,51 +1009,346 @@
                  margin: 0 4px;
              }
 
+             /* Ultra Mobile (320px - 480px) - Most Important for Responsivity */
+             @media (max-width: 480px) {
+                 * {
+                     max-width: 100%;
+                 }
+
+                 body {
+                     font-size: 14px;
+                 }
+
+                 .container {
+                     padding: 0 12px;
+                     width: 100vw;
+                     overflow-x: hidden;
+                 }
+
+                 /* Header Mobile */
+                 header {
+                     padding: 8px 0;
+                 }
+
+                 nav {
+                     flex-wrap: wrap;
+                 }
+
+                 .logo-img {
+                     height: 40px;
+                 }
+
+                 /* Hero Section Mobile */
+                 .hero {
+                     padding: 90px 0 35px;
+                 }
+
+                 .hero-content {
+                     max-width: 100%;
+                 }
+
+                 .hero h1 {
+                     font-size: 24px;
+                     line-height: 1.2;
+                     margin-bottom: 15px;
+                 }
+
+                 .hero-subtitle {
+                     font-size: 15px;
+                     margin-bottom: 12px;
+                 }
+
+                 .hero-description {
+                     font-size: 13px;
+                     margin-bottom: 20px;
+                     line-height: 1.5;
+                 }
+
+                 .cta-primary, .cta-secondary {
+                     padding: 12px 20px;
+                     font-size: 13px;
+                     margin: 6px auto;
+                     max-width: 100%;
+                     width: auto;
+                 }
+
+                 /* Services Grid Mobile */
+                 .services-grid {
+                     grid-template-columns: 1fr;
+                     gap: 12px;
+                     padding: 0;
+                 }
+
+                 .service-card {
+                     padding: 16px;
+                     border-radius: 10px;
+                 }
+
+                 .service-card h3 {
+                     font-size: 15px;
+                     margin-bottom: 8px;
+                 }
+
+                 .service-card p {
+                     font-size: 12px;
+                     line-height: 1.5;
+                     margin-bottom: 8px;
+                 }
+
+                 .service-icon {
+                     width: 50px;
+                     height: 50px;
+                     margin-bottom: 12px;
+                     border-radius: 8px;
+                 }
+
+                 .service-icon i {
+                     font-size: 24px;
+                 }
+
+                 .iso-list {
+                     padding: 0;
+                     margin: 0;
+                 }
+
+                 .iso-list li {
+                     font-size: 11px;
+                     line-height: 1.4;
+                     margin-bottom: 6px;
+                     padding-left: 16px;
+                 }
+
+                 /* Stats Section Mobile */
+                 .stats {
+                     padding: 40px 0;
+                 }
+
+                 .stats-grid {
+                     grid-template-columns: repeat(2, 1fr);
+                     gap: 15px;
+                 }
+
+                 .stat-item h3 {
+                     font-size: 28px;
+                 }
+
+                 .stat-item p {
+                     font-size: 11px;
+                 }
+
+                 /* Industries Mobile */
+                 .industries {
+                     padding: 50px 0;
+                 }
+
+                 .industries h2 {
+                     font-size: 24px;
+                     margin-bottom: 30px;
+                 }
+
+                 .industries-grid {
+                     grid-template-columns: repeat(2, 1fr);
+                     gap: 10px;
+                 }
+
+                 .industry-item {
+                     padding: 15px;
+                     border-radius: 10px;
+                 }
+
+                 .industry-item h4 {
+                     font-size: 12px;
+                 }
+
+                 /* Contact Section Mobile */
+                 .contact {
+                     padding: 50px 0;
+                 }
+
+                 .contact h2 {
+                     font-size: 22px;
+                     margin-bottom: 30px;
+                 }
+
+                 .contact-grid {
+                     grid-template-columns: 1fr;
+                     gap: 20px;
+                 }
+
+                 .contact-form {
+                     padding: 20px;
+                     border-radius: 10px;
+                 }
+
+                 .form-group label {
+                     font-size: 13px;
+                 }
+
+                 .form-group input,
+                 .form-group textarea {
+                     font-size: 13px;
+                     padding: 10px;
+                 }
+
+                 /* Footer Mobile */
+                 .footer-content {
+                     grid-template-columns: 1fr;
+                     gap: 25px;
+                     margin: 25px 0;
+                 }
+
+                 .footer-section h4 {
+                     font-size: 14px;
+                     margin-bottom: 12px;
+                 }
+
+                 .footer-section p {
+                     font-size: 12px;
+                 }
+
+                 .footer-section ul li {
+                     font-size: 12px;
+                 }
+
+                 /* Floating Buttons Mobile */
+                 .floating-buttons {
+                     bottom: 10px;
+                     right: 10px;
+                     gap: 8px;
+                 }
+
+                 .float-button {
+                     width: 45px;
+                     height: 45px;
+                     font-size: 18px;
+                 }
+             }
+
+             /* Extremely Small Screens (320px - iPhone SE) */
+             @media (max-width: 320px) {
+                 body {
+                     font-size: 12px;
+                 }
+
+                 .container {
+                     padding: 0 8px;
+                 }
+
+                 h1 { font-size: 20px; }
+                 h2 { font-size: 18px; }
+                 h3 { font-size: 13px; }
+
+                 .hero {
+                     padding: 80px 0 25px;
+                 }
+
+                 .hero h1 {
+                     font-size: 20px;
+                 }
+
+                 .hero-subtitle {
+                     font-size: 13px;
+                 }
+
+                 .hero-description {
+                     font-size: 12px;
+                 }
+
+                 .service-icon {
+                     width: 45px;
+                     height: 45px;
+                     margin-bottom: 8px;
+                 }
+
+                 .service-icon i {
+                     font-size: 20px;
+                 }
+
+                 .service-card {
+                     padding: 12px;
+                 }
+
+                 .service-card h3 {
+                     font-size: 13px;
+                 }
+
+                 .service-card p {
+                     font-size: 10px;
+                 }
+
+                 .iso-list li {
+                     font-size: 9px;
+                     padding-left: 12px;
+                 }
+
+                 .cta-primary, .cta-secondary {
+                     padding: 8px 12px;
+                     font-size: 11px;
+                 }
+             }
+
              /* Samsung A15 Specific Fix (360px) */
              @media (max-width: 360px) {
                  body {
                      -webkit-text-size-adjust: 100%;
                      -ms-text-size-adjust: 100%;
+                     font-size: 13px;
                  }
 
-                 h1 { font-size: 22px; }
-                 h2 { font-size: 18px; }
-                 h3 { font-size: 15px; }
+                 .container {
+                     padding: 0 10px;
+                     width: 100vw;
+                     overflow-x: hidden;
+                 }
+
+                 h1 { font-size: 22px; line-height: 1.2; }
+                 h2 { font-size: 20px; }
+                 h3 { font-size: 14px; }
+
+                 .hero {
+                     padding: 85px 0 30px;
+                 }
+
+                 .hero h1 {
+                     font-size: 22px;
+                     margin-bottom: 12px;
+                 }
 
                  .service-icon {
-                     width: 60px;
-                     height: 60px;
-                     font-size: 28px;
+                     width: 50px;
+                     height: 50px;
+                     margin-bottom: 10px;
+                     border-radius: 6px;
                  }
 
                  .service-icon i {
-                     font-size: 28px;
-                 }
-
-                 .product-icon {
-                     font-size: 36px;
+                     font-size: 22px;
                  }
 
                  .services-grid {
                      grid-template-columns: 1fr;
-                     gap: 15px;
+                     gap: 10px;
                  }
 
                  .service-card {
-                     padding: 18px;
+                     padding: 14px;
+                     border-radius: 8px;
                  }
 
                  .service-card h3 {
-                     font-size: 16px;
+                     font-size: 14px;
+                     margin-bottom: 6px;
                  }
 
                  .service-card p {
-                     font-size: 13px;
+                     font-size: 11px;
+                     margin-bottom: 8px;
                  }
 
                  .iso-list li {
-                     font-size: 12px;
-                     margin-bottom: 8px;
+                     font-size: 10px;
+                     margin-bottom: 4px;
+                     padding-left: 14px;
                  }
 
                  .footer-social a {
@@ -1047,13 +1357,9 @@
                      font-size: 14px;
                  }
 
-                 .hero h1 {
-                     font-size: 26px;
-                     line-height: 1.3;
-                 }
-
-                 .container {
-                     padding: 0 16px;
+                 .cta-primary, .cta-secondary {
+                     padding: 10px 16px;
+                     font-size: 12px;
                  }
              }
 
