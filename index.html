@@ -394,11 +394,57 @@
              }
 
              .service-icon {
+                 font-size: 48px;
+                 margin-bottom: 20px;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 width: 70px;
+                 height: 70px;
+                 border-radius: 12px;
+                 position: relative;
+                 line-height: 1;
+             }
+
+             .service-icon i {
+                 color: white;
                  font-size: 36px;
-                 margin-bottom: 15px;
-                 background: linear-gradient(135deg, #4366E8, #4366E8);
-                 -webkit-background-clip: text;
-                 -webkit-text-fill-color: transparent;
+                 line-height: 1;
+             }
+
+             .icon-inventory {
+                 background: linear-gradient(135deg, #4366E8, #2563EB);
+                 box-shadow: 0 8px 20px rgba(67, 102, 232, 0.3);
+             }
+
+             .icon-automation {
+                 background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+                 box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+             }
+
+             .icon-iso {
+                 background: linear-gradient(135deg, #EC4899, #DB2777);
+                 box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+             }
+
+             .icon-analytics {
+                 background: linear-gradient(135deg, #F59E0B, #D97706);
+                 box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+             }
+
+             .icon-iot {
+                 background: linear-gradient(135deg, #10B981, #059669);
+                 box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+             }
+
+             .icon-strategy {
+                 background: linear-gradient(135deg, #06B6D4, #0891B2);
+                 box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+             }
+
+             .service-card:hover .service-icon {
+                 transform: translateY(-5px) scale(1.05);
+                 box-shadow: 0 12px 30px rgba(67, 102, 232, 0.4) !important;
              }
 
              .service-card h3 {
@@ -412,6 +458,30 @@
                  color: #666;
                  line-height: 1.6;
                  font-size: 14px;
+                 margin-bottom: 16px;
+             }
+
+             .iso-list {
+                 list-style: none;
+                 padding: 0;
+                 margin: 0;
+             }
+
+             .iso-list li {
+                 color: #666;
+                 line-height: 1.6;
+                 font-size: 14px;
+                 margin-bottom: 10px;
+                 padding-left: 20px;
+                 position: relative;
+             }
+
+             .iso-list li:before {
+                 content: "✓";
+                 position: absolute;
+                 left: 0;
+                 color: #4366E8;
+                 font-weight: bold;
              }
 
              /* Industries Section */
@@ -936,7 +1006,13 @@
                  h3 { font-size: 15px; }
 
                  .service-icon {
-                     font-size: 32px;
+                     width: 60px;
+                     height: 60px;
+                     font-size: 28px;
+                 }
+
+                 .service-icon i {
+                     font-size: 28px;
                  }
 
                  .product-icon {
@@ -945,16 +1021,97 @@
 
                  .services-grid {
                      grid-template-columns: 1fr;
+                     gap: 15px;
                  }
 
                  .service-card {
                      padding: 18px;
                  }
 
+                 .service-card h3 {
+                     font-size: 16px;
+                 }
+
+                 .service-card p {
+                     font-size: 13px;
+                 }
+
+                 .iso-list li {
+                     font-size: 12px;
+                     margin-bottom: 8px;
+                 }
+
                  .footer-social a {
                      width: 35px;
                      height: 35px;
                      font-size: 14px;
+                 }
+
+                 .hero h1 {
+                     font-size: 26px;
+                     line-height: 1.3;
+                 }
+
+                 .container {
+                     padding: 0 16px;
+                 }
+             }
+
+             /* Responsive Design for Medium Screens (480px-768px) */
+             @media (max-width: 600px) {
+                 .hero {
+                     padding: 110px 0 50px;
+                 }
+
+                 .hero h1 {
+                     font-size: 28px;
+                     line-height: 1.3;
+                 }
+
+                 .hero-subtitle {
+                     font-size: 16px;
+                 }
+
+                 .hero-description {
+                     font-size: 14px;
+                     margin-bottom: 25px;
+                 }
+
+                 .service-card {
+                     padding: 22px;
+                 }
+
+                 .service-card h3 {
+                     font-size: 18px;
+                     margin-bottom: 10px;
+                 }
+
+                 .service-card p {
+                     font-size: 13px;
+                     margin-bottom: 12px;
+                 }
+
+                 .iso-list li {
+                     font-size: 13px;
+                     margin-bottom: 9px;
+                 }
+
+                 .service-icon {
+                     width: 65px;
+                     height: 65px;
+                     margin-bottom: 16px;
+                 }
+
+                 .service-icon i {
+                     font-size: 32px;
+                 }
+
+                 .services-grid {
+                     gap: 18px;
+                 }
+
+                 .container {
+                     padding: 0 18px;
                  }
              }
 
@@ -1342,7 +1499,9 @@
         <h2>Nuestras Soluciones</h2>
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon">📊</div>
+            <div class="service-icon icon-inventory">
+              <i class="fas fa-boxes"></i>
+            </div>
             <h3>Gestión de Inventarios</h3>
             <p>
               Optimiza tu cadena de suministro con nuestro sistema inteligente
@@ -1353,7 +1512,9 @@
             </p>
           </div>
           <div class="service-card">
-            <div class="service-icon">🤖</div>
+            <div class="service-icon icon-automation">
+              <i class="fas fa-robot"></i>
+            </div>
             <h3>Automatización Digital</h3>
             <p>
               Transforma tus procesos con RPA y flujos automatizados
@@ -1364,19 +1525,23 @@
             </p>
           </div>
           <div class="service-card">
-            <div class="service-icon">✅</div>
-            <h3>Gestión de Calidad ISO 9001:2015</h3>
+            <div class="service-icon icon-iso">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3>Consultoría ISO 9001, 14001 y 45001</h3>
             <p>
-              Impulsa la excelencia de tu empresa con un sistema de gestión
-              digital, ágil y a tu medida. Procesos trazables, auditorías
-              automáticas y capacitación práctica, todo acompañado por expertos
-              que te guían desde la implementación hasta el soporte
-              post-certificación, para que logres eficiencia, innovación y
-              crecimiento sostenible.
+              Impulsa la excelencia de tu empresa con sistemas de gestión digitales adaptados a tus necesidades, acompañados por expertos desde la implementación hasta el soporte post-certificación para lograr eficiencia, innovación y crecimiento sostenible.
             </p>
+            <ul class="iso-list">
+              <li><strong>ISO 9001:</strong> Mejora continua y procesos trazables para garantizar eficiencia y satisfacción del cliente.</li>
+              <li><strong>ISO 14001:</strong> Reduce impactos ambientales y cumple normativas para sostenibilidad.</li>
+              <li><strong>ISO 45001:</strong> Previene riesgos y protege a tu equipo con protocolos seguros.</li>
+            </ul>
           </div>
           <div class="service-card">
-            <div class="service-icon">📈</div>
+            <div class="service-icon icon-analytics">
+              <i class="fas fa-chart-bar"></i>
+            </div>
             <h3>Análisis de Datos</h3>
             <p>
               Transforma datos en decisiones estratégicas con nuestro Business
@@ -1387,7 +1552,9 @@
             </p>
           </div>
           <div class="service-card">
-            <div class="service-icon">📱</div>
+            <div class="service-icon icon-iot">
+              <i class="fas fa-microchip"></i>
+            </div>
             <h3>Captura de Datos IoT</h3>
             <p>
               Digitaliza tu operación con sensores inteligentes de precisión
@@ -1398,7 +1565,9 @@
             </p>
           </div>
           <div class="service-card">
-            <div class="service-icon">🎯</div>
+            <div class="service-icon icon-strategy">
+              <i class="fas fa-compass"></i>
+            </div>
             <h3>Consultoría Estratégica</h3>
             <p>
               Diseña tu camino al éxito con diagnóstico integral y hoja de ruta
@@ -1562,8 +1731,7 @@
               </li>
               <li>
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:libertysolucionescl@gmail.com"
-                  >libertysolucionescl@gmail.com</a
+                <a href="/cdn-cgi/l/email-protection#deb2b7bcbbacaaa7adb1b2abbdb7b1b0bbadbdb29eb9b3bfb7b2f0bdb1b3"><span class="__cf_email__" data-cfemail="4b2722292e393f323824273e282224252e3828270b2c262a222765282426">[email&#160;protected]</span></a
                 >
               </li>
               <li>
@@ -1583,7 +1751,7 @@
       </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       // Mobile Menu Toggle
       function toggleMenu() {
         const navLinks = document.getElementById("navLinks");
@@ -1719,12 +1887,4 @@
 
       // Initialize
       window.addEventListener("scroll", animateOnScroll);
-      document.addEventListener("DOMContentLoaded", function () {
-        const statsSection = document.querySelector(".stats");
-        if (statsSection) observer.observe(statsSection);
-
-        setTimeout(animateOnScroll, 100);
-      });
-    </script>
-  </body>
-</html>
+      document.addEventListe
