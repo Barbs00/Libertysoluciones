@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Eficiencia Operacional | Liberty Soluciones</title>
+    <meta name="description" content="Descubre en 5 minutos tus oportunidades de ahorro. Evaluación gratuita de eficiencia operacional para empresas manufactureras, logísticas y retail.">
+
+<!-- Font Awesome para los íconos -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+    
+    <style>
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f5f7fa;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        .hero-section {
+            background: linear-gradient(135deg, #4366E8 0%, #34495E 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-section h1 .highlight {
+            color: #FFD700;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           EVALUACIÓN INTRO
+           ============================================ */
+
+        .evaluacion-intro {
+            background: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .evaluacion-intro .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .evaluacion-intro h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4366E8;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro-text strong {
+            color: #4366E8;
+            font-weight: 700;
+        }
+
+        /* ============================================
+           ÁREAS
+           ============================================ */
+
+        .areas-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .area {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #4366E8;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .area:hover {
+            box-shadow: 0 8px 30px rgba(123, 31, 162, 0.15);
+            transform: translateY(-5px);
+            border-left-width: 6px;
+        }
+
+        .area:nth-child(1) {
+            border-left-color: #FF9800;
+            animation-delay: 0.1s;
+        }
+
+        .area:nth-child(2) {
+            border-left-color: #2196F3;
+            animation-delay: 0.2s;
+        }
+
+        .area:nth-child(3) {
+            border-left-color: #4CAF50;
+            animation-delay: 0.3s;
+        }
+
+        .area:nth-child(4) {
+            border-left-color: #E91E63;
+            animation-delay: 0.4s;
+        }
+
+        .area h4 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .area h4 .emoji {
+            font-size: 28px;
+        }
+
+        .area p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+
+        .area p strong {
+            color: #4366E8;
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        /* ============================================
+           CONCLUSIÓN
+           ============================================ */
+
+        .conclusion {
+            background: linear-gradient(135deg, #4366E8 0%, #34495E 100%);
+            color: #ffffff;
+            padding: 35px 40px;
+            border-radius: 15px;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 10px 40px rgba(123, 31, 162, 0.3);
+        }
+
+        .conclusion strong {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 19px;
+        }
+
+        /* ============================================
+           BOTÓN CTA
+           ============================================ */
+
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #E91E63 0%, #D81B60 100%);
+            color: #ffffff;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #D81B60 0%, #C2185B 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.5);
+        }
+
+        .cta-subtext {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cta-subtext span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ============================================
+           BENEFICIOS
+           ============================================ */
+
+        .beneficios-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .beneficios-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .beneficios-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4366E8;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .beneficio-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .beneficio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(123, 31, 162, 0.15);
+        }
+
+        .beneficio-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .beneficio-card h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .beneficio-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+
+        .faq-section {
+            background: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .faq-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4366E8;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #4366E8;
+        }
+
+        .faq-item summary {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4366E8;
+            padding: 20px 25px;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            font-weight: bold;
+            color: #4366E8;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .faq-item[open] summary {
+            background: #f8f9fb;
+        }
+
+        .faq-content {
+            padding: 0 25px 20px 25px;
+            color: #666;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .faq-content p {
+            margin: 0;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            background: #2c3e50;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 480px) {
+  .container { padding: 0 12px; }
+}
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 20px;
+            }
+            
+            .hero-section h1 {
+                font-size: 28px;
+            }
+            
+            .hero-section p {
+                font-size: 16px;
+            }
+            
+            .evaluacion-intro {
+                padding: 40px 20px;
+            }
+            
+            .evaluacion-intro h2 {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            
+            .intro-text {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .areas-list {
+                gap: 15px;
+            }
+            
+            .area {
+                padding: 25px 20px;
+                border-left-width: 4px;
+            }
+            
+            .area:hover {
+                transform: translateY(-3px);
+                border-left-width: 5px;
+            }
+            
+            .area h4 {
+                font-size: 19px;
+                margin-bottom: 10px;
+            }
+            
+            .area p {
+                font-size: 15px;
+            }
+            
+            .conclusion {
+                padding: 30px 25px;
+                font-size: 16px;
+                margin-top: 30px;
+            }
+            
+            .conclusion strong {
+                font-size: 17px;
+            }
+            
+            .btn-primary {
+                padding: 16px 40px;
+                font-size: 18px;
+            }
+            
+            .beneficios-section {
+                padding: 40px 20px;
+            }
+            
+            .beneficios-section h2 {
+                font-size: 26px;
+                margin-bottom: 30px;
+            }
+            
+            .beneficios-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-subtext {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .faq-section {
+                padding: 40px 20px;
+            }
+            
+            .faq-section h2 {
+                font-size: 26px;
+                margin-bottom: 30px;
+            }
+            
+            .faq-item summary {
+                font-size: 17px;
+                padding: 18px 20px;
+                padding-right: 50px;
+            }
+            
+            .faq-item summary::after {
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            .faq-content {
+                padding: 0 20px 18px 20px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 24px;
+            }
+            
+            .hero-section p {
+                font-size: 15px;
+            }
+            
+            .evaluacion-intro h2 {
+                font-size: 24px;
+            }
+            
+            .intro-text {
+                font-size: 15px;
+            }
+            
+            .area h4 {
+                font-size: 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .area h4 .emoji {
+                font-size: 24px;
+            }
+            
+            .area p {
+                font-size: 14px;
+            }
+            
+            .conclusion {
+                font-size: 15px;
+                padding: 25px 20px;
+            }
+            
+            .btn-primary {
+                padding: 15px 35px;
+                font-size: 17px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .faq-item summary {
+                font-size: 16px;
+                padding: 16px 18px;
+                padding-right: 45px;
+            }
+            
+            .faq-content {
+                font-size: 14px;
+            }
+        }
+
+
+/* ===== Floating Buttons ===== */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+
+.float-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  font-size: 24px;
+  color: white;
+}
+
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366, #20BA5C);
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+}
+
+.linkedin-btn {
+  background: linear-gradient(135deg, #0077B5, #0A66C2);
+}
+.linkedin-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(10,102,194,0.4);
+}
+
+
+/* ===== Footer ===== */
+footer {
+  background: linear-gradient(135deg, #1a252f, #1e2d3d);
+  color: #fff;
+  padding: 50px 0 20px;
+}
+
+.footer-top {
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Redes (opcional) */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.footer-social a {
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b8c5d6;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+.footer-social a:hover {
+  background: #4366E8;
+  color: #fff;
+  border-color: #4366E8;
+  transform: translateY(-3px);
+}
+
+/* Layout principal del footer */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  margin: 40px 0;
+}
+
+.footer-section h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #4366E8, #4366E8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-section p {
+  color: #b8c5d6;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-section ul li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #b8c5d6;
+}
+.footer-section ul li a {
+  color: #b8c5d6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+.footer-section ul li a:hover {
+  color: #4366E8;
+}
+
+/* Íconos dentro del footer */
+.footer-section i {
+  color: #4366E8 !important;
+  font-size: 16px;
+  min-width: 16px;
+}
+
+/* Franja inferior */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #b8c5d6;
+  font-size: 13px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .footer-section ul {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom {
+    font-size: 11px;
+    margin-top: 20px;
+  }
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <a
+    href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información"
+    class="float-button whatsapp-btn"
+    target="_blank"
+    title="WhatsApp"
+  >
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <a
+    href="https://www.linkedin.com/company/libertysoluciones"
+    class="float-button linkedin-btn"
+    target="_blank"
+    title="LinkedIn"
+  >
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>
+                ¿Cuánto Dinero Está Perdiendo Tu Empresa en 
+                <span class="highlight">Ineficiencias Operacionales?</span>
+            </h1>
+            <p>
+                Descubre en solo 5 minutos tus 3 mayores oportunidades de ahorro 
+                con nuestra evaluación gratuita personalizada
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN EXPLICATIVA -->
+    <section class="evaluacion-intro">
+        <div class="container">
+            <h2>Las 4 Áreas Donde Tu Empresa Pierde Más Dinero</h2>
+            
+            <p class="intro-text">
+                Nuestro Índice de Eficiencia Operacional (IEO) mide las 4 dimensiones críticas de tu operación que representan el <strong>85% de las ineficiencias</strong> en empresas manufactureras, logísticas y de retail.
+            </p>
+
+            <div class="areas-list">
+                <div class="area">
+                    <h4>
+                        <span class="emoji">📦</span>
+                        1. Gestión de Inventarios
+                    </h4>
+                    <p>
+                        Quiebres de stock, obsolescencia y gestión manual cuestan en promedio → <strong>$3M-$6M/año</strong> <p>Evaluamos tu sistema actual, frecuencia de quiebres y tiempo dedicado a control manual.</p>
+                    </p>
+                </div>
+                
+                <div class="area">
+                    <h4>
+                        <span class="emoji">⚙️</span>
+                        2. Automatización de Procesos
+                    </h4>
+                    <p>
+                        El 60% del tiempo se pierde en tareas repetitivas. Medimos tu nivel de 
+                    automatización, sistemas desconectados y errores manuales que cuestan → <strong>$2M-$8M/año</strong>
+                    </p>
+                </div>
+                
+                <div class="area">
+                    <h4>
+                        <span class="emoji">✅</span>
+                        3. Calidad y Cumplimiento
+                    </h4>
+                    <p>
+                        Gestión manual de documentos genera riesgo de multas y pérdida de certificaciones cuestab → <strong>$1M-$5M/año</strong> <p>Evaluamos tus sistemas de gestión documental y preparación para auditorías.</p>
+                    </p>
+                </div>
+                
+                <div class="area">
+                    <h4>
+                        <span class="emoji">📊</span>
+                        4. Análisis de Datos
+                    </h4>
+                    <p>
+                        Decisiones basadas en datos desactualizados cuestan → <strong>$1.5M-$4M/año</strong> en oportunidades perdidas. <p>Medimos velocidad de reportes, confiabilidad y capacidad predictiva.</p>
+                    </p>
+                </div>
+            </div>
+
+            <p class="conclusion">                
+Estas 4 dimensiones concentran el <strong>85% del desperdicio operacionales</strong> 
+                en empresas manufactureras, logísticas y de retail. No medimos todo, 
+                medimos lo que <em>realmente importa</em> para tu rentabilidad.
+            
+                Tu IEO combina estas 4 áreas en un solo índice del 0 al 100, permitiéndote ver 
+                de un vistazo dónde estás fuerte y dónde está el dinero fácil de recuperar.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA BOTÓN CON POPUP TALLY -->
+    <section class="cta-section">
+        <button 
+            class="btn-primary"
+            data-tally-open="jalkqx" 
+            data-tally-emoji-text="👋" 
+            data-tally-emoji-animation="wave"
+	    data-tally-layout="modal"
+	    data-tally-width="700"
+ 	    	            data-tally-overlay="1"
+            data-tally-auto-close="0">
+            Iniciar Evaluación Gratuita
+        </button>
+        <div class="cta-subtext">
+            <span>⏱️ 5 minutos</span>
+            <span>💯 100% Gratis</span>
+            <span>🔒 Sin spam</span>
+        </div>
+    </section>
+
+    <!-- SECCIÓN "QUÉ OBTIENES" -->
+    <section class="beneficios-section">
+        <div class="container">
+            <h2>¿Qué Obtienes Exactamente?</h2>
+            
+            <div class="beneficios-grid">
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">📊</div>
+                    <h3>Tu Índice IEO</h3>
+                    <p>Puntaje de 0-100 que muestra tu nivel de eficiencia operacional comparado con la industria</p>
+                </div>
+                
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">🎯</div>
+                    <h3>Top 3 Oportunidades</h3>
+                    <p>Las áreas específicas donde puedes generar mayor impacto en los próximos 90 días</p>
+                </div>
+                
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">💰</div>
+                    <h3>Ahorro Estimado</h3>
+                    <p>Proyección de ahorro anual basada en casos reales de empresas similares</p>
+                </div>
+                
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">📄</div>
+                    <h3>Reporte PDF</h3>
+                    <p>Documento profesional descargable que puedes compartir con tu equipo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>¿Realmente es gratis?</summary>
+                    <div class="faq-content">
+                        <p>Sí, 100% gratuito sin letra chica. No pedimos tarjeta de crédito ni datos bancarios. Solo queremos ayudarte a identificar oportunidades reales de mejora en tu operación.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Qué harán con mis datos?</summary>
+                    <div class="faq-content">
+                        <p>Solo usamos tu información para generar tu reporte personalizado y enviártelo por email. No compartimos datos con terceros ni te agregamos a listas de spam. Puedes darte de baja en cualquier momento.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Me van a llamar para venderme algo?</summary>
+                    <div class="faq-content">
+                        <p>No hacemos llamadas no solicitadas. Si quieres profundizar con una sesión gratuita de 20 minutos para revisar tus resultados, TÚ decides agendarla. No hay presión de ventas.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Para qué industrias sirve esta evaluación?</summary>
+                    <div class="faq-content">
+                        <p>Principalmente para Manufactura, Logística, Retail y empresas de Servicios con procesos operacionales. La evaluación se adapta según tu industria y tamaño de empresa.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Cuánto tarda en llegar mi reporte?</summary>
+                    <div class="faq-content">
+                        <p>Recibirás tu reporte personalizado por email en los próximos 5-30 minutos después de completar la evaluación. Revisa tu bandeja de entrada y carpeta de spam.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Qué tan preciso es el cálculo del IEO?</summary>
+                    <div class="faq-content">
+                        <p>El Índice de Eficiencia Operacional está basado en el análisis de más de 50 empresas chilenas y mejores prácticas internacionales. Los rangos de ahorro son estimaciones conservadoras basadas en casos reales similares al tuyo.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <button 
+            class="btn-primary"
+            data-tally-open="jalkqx" 
+            data-tally-emoji-text="👋" 
+            data-tally-emoji-animation="wave"
+	    data-tally-layout="modal"
+	    data-tally-width="700"
+ 	    	            data-tally-overlay="1"
+            data-tally-auto-close="0">
+            Iniciar Evaluación Gratuita            
+        </button>
+        <div class="cta-subtext">
+            <span>⏱️ 5 minutos</span>
+            <span>💯 100% Gratis</span>
+            <span>🔒 Sin spam</span>
+        </div>
+    </section>
+
+    <!-- SCRIPT TALLY POPUP -->
+    <script>
+        var d=document,w="https://tally.so/widgets/embed.js",
+        v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():
+        d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+        if("undefined"!=typeof Tally)v();
+        else if(d.querySelector('script[src="'+w+'"]')==null){
+            var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);
+        }
+    </script>
+
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <!-- Si quieres redes arriba, agrégalas aquí -->
+      <div class="footer-social">
+        <!-- Ejemplos (opcional):
+        <a href="https://www.linkedin.com/company/libertysoluciones" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        -->
+      </div>
+    </div>
+
+    <div class="footer-content" role="contentinfo" aria-label="Información de pie de página">
+      <div class="footer-section">
+        <h4>Sobre Liberty Soluciones</h4>
+        <p>
+          Tech Partner especializado en transformación digital industrial.
+          <br><strong>15+ años</strong> de experiencia implementando
+          soluciones que optimizan procesos y generan valor.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Soluciones</h4>
+        <ul>
+          <li><a href="#servicios">Gestión de Inventarios</a></li>
+          <li><a href="#servicios">Automatización Digital</a></li>
+          <li><a href="#servicios">Gestión ISO</a></li>
+          <li><a href="#servicios">Análisis de Datos</a></li>
+          <li><a href="#servicios">Captura de Datos IoT</a></li>
+          <li><a href="#servicios">Consultoría</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul>
+          <li>
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+56983525140">+56 9 8352 5140</a>
+          </li>
+          <li>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <a href="https://wa.me/56983525140" target="_blank" rel="noopener">+56 9 8352 5140</a>
+          </li>
+          <li>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:contacto@libertysoluciones.com">contacto@libertysoluciones.com</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>Santiago, Chile</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2024 Liberty Soluciones. Todos los derechos reservados. |
+        Tech Partner en transformación digital industrial
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
