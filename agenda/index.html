@@ -812,120 +812,261 @@
     
     <!-- Scripts -->
     <script>
-        // Año automático en el footer
-        (function(){ 
-            const y = document.getElementById('year'); 
-            if (y) y.textContent = new Date().getFullYear(); 
-        })();
 
-        // Toggle menú móvil
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            const btn = document.querySelector(".mobile-menu-btn");
-            const open = navLinks.classList.toggle("active");
-            if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+<script>
+    // ============================================
+    // FIX: DETECCIÓN FORZADA DE PARÁMETROS GITHUB
+    // ============================================
+    
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('🔍 LIBERTY SOLUCIONES - DEBUG INICIAL');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('🌐 URL completa:', window.location.href);
+    console.log('📁 Pathname:', window.location.pathname);
+    console.log('🔗 Search:', window.location.search);
+    
+    // Detectar parámetro con múltiples métodos (GitHub Pages fix)
+    let sourceParam = null;
+    
+    // Método 1: URLSearchParams
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        sourceParam = urlParams.get('source');
+        console.log('📊 Método 1 (URLSearchParams):', sourceParam);
+    } catch (e) {
+        console.warn('⚠️ URLSearchParams falló:', e);
+    }
+    
+    // Método 2: Regex manual
+    if (!sourceParam) {
+        const match = window.location.href.match(/[?&]source=([^&#]*)/);
+        sourceParam = match ? match[1] : null;
+        console.log('📊 Método 2 (Regex):', sourceParam);
+    }
+    
+    // Método 3: Split manual
+    if (!sourceParam && window.location.search.includes('source=')) {
+        const parts = window.location.search.split('source=');
+        if (parts[1]) {
+            sourceParam = parts[1].split('&')[0];
+            console.log('📊 Método 3 (Split):', sourceParam);
         }
+    }
+    
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('✅ PARÁMETRO FINAL:', sourceParam);
+    console.log('✅ Es IEO?:', sourceParam === 'ieo');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    
+    // Guardar globalmente
+    window.LIBERTY_SOURCE = sourceParam;
 
-        // Cerrar al hacer clic fuera del nav
-        document.addEventListener("click", function (event) {
-            const nav = document.querySelector(".site-header nav");
+    // ============================================
+    // UTILIDADES BÁSICAS
+    // ============================================
+    
+    (function(){ 
+        const y = document.getElementById('year'); 
+        if (y) y.textContent = new Date().getFullYear(); 
+    })();
+
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        const btn = document.querySelector(".mobile-menu-btn");
+        const open = navLinks.classList.toggle("active");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    document.addEventListener("click", function (event) {
+        const nav = document.querySelector(".site-header nav");
+        const navLinks = document.getElementById("navLinks");
+        const btn = document.querySelector(".mobile-menu-btn");
+        if (!nav || !navLinks) return;
+        if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+        link.addEventListener("click", () => {
             const navLinks = document.getElementById("navLinks");
             const btn = document.querySelector(".mobile-menu-btn");
-            if (!nav || !navLinks) return;
-
-            if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
+            if (navLinks.classList.contains("active")) {
                 navLinks.classList.remove("active");
                 if (btn) btn.setAttribute("aria-expanded", "false");
             }
         });
+    });
 
-        // Cerrar al seleccionar un enlace del menú
-        document.querySelectorAll("#navLinks a").forEach(link => {
-            link.addEventListener("click", () => {
-                const navLinks = document.getElementById("navLinks");
-                const btn = document.querySelector(".mobile-menu-btn");
-                if (navLinks.classList.contains("active")) {
-                    navLinks.classList.remove("active");
-                    if (btn) btn.setAttribute("aria-expanded", "false");
-                }
-            });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                e.preventDefault();
+                const offsetTop = target.offsetTop - 70;
+                window.scrollTo({ top: offsetTop, behavior: "smooth" });
+            }
         });
+    });
 
-        // Smooth scroll solo si el destino está en ESTA página
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                const target = document.querySelector(this.getAttribute("href"));
-                if (target) {
-                    e.preventDefault();
-                    const offsetTop = target.offsetTop - 70;
-                    window.scrollTo({ top: offsetTop, behavior: "smooth" });
-                }
-            });
+    // ============================================
+    // CONFIGURACIÓN CALENDLY
+    // ============================================
+    
+    const CALENDLY_IEO = 'https://calendly.com/libertysolucionescl/sesion-ieo?hide_gdpr_banner=1&primary_color=4366e8';
+    const CALENDLY_GENERIC = 'https://calendly.com/libertysolucionescl/sesion-estrategica?hide_gdpr_banner=1&primary_color=4366e8';
+    
+    function setupCalendlyFlow() {
+        const source = window.LIBERTY_SOURCE; // Usar variable global
+        
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('⚙️  CONFIGURANDO FLUJO CALENDLY');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('🎯 Source:', source);
+        console.log('🎯 Flujo seleccionado:', source === 'ieo' ? 'IEO EXPRESS' : 'ESTRATÉGICA');
+        
+        const elements = {
+            badgeIEO: document.getElementById('badge-ieo'),
+            contentIEO: document.getElementById('content-ieo'),
+            contentGeneric: document.getElementById('content-generic'),
+            mainTitle: document.getElementById('main-title'),
+            mainSubtitle: document.getElementById('main-subtitle'),
+            savingsNote: document.getElementById('savings-note'),
+            calendlyWidget: document.getElementById('calendly-widget'),
+            ieoNote: document.getElementById('ieo-calendly-note')
+        };
+        
+        // Verificar elementos
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('🔍 VERIFICANDO ELEMENTOS DEL DOM');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        Object.keys(elements).forEach(key => {
+            const exists = elements[key] !== null;
+            console.log(`${exists ? '✅' : '❌'} ${key}`);
         });
         
-        // ============================================
-        // CONFIGURACIÓN DE CALENDLY DINÁMICO
-        // ============================================
-        
-        // URLs de Calendly (REEMPLAZA CON TUS URLs REALES)
-        const CALENDLY_IEO = 'https://calendly.com/libertysolucionescl/sesion-ieo?hide_gdpr_banner=1&primary_color=4366e8';
-        const CALENDLY_GENERIC = 'https://calendly.com/libertysolucionescl/sesion-estrategica?hide_gdpr_banner=1&primary_color=4366e8';
-        
-        // Detectar origen
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('source');
-        
-        // Elementos del DOM
-        const badgeIEO = document.getElementById('badge-ieo');
-        const contentIEO = document.getElementById('content-ieo');
-        const contentGeneric = document.getElementById('content-generic');
-        const mainTitle = document.getElementById('main-title');
-        const mainSubtitle = document.getElementById('main-subtitle');
-        const savingsNote = document.getElementById('savings-note');
-        const calendlyWidget = document.getElementById('calendly-widget');
-        const ieoNote = document.getElementById('ieo-calendly-note');
-        
-        // Si viene desde IEO
-        if (source === 'ieo') {
-            // Cambiar contenido visual
-            badgeIEO.classList.add('show');
-            contentIEO.classList.add('active');
-            mainTitle.textContent = 'Transforma Tu Reporte IEO en Acción';
-            mainSubtitle.textContent = 'Plan de acción personalizado de 90 días';
-            savingsNote.textContent = 'Según tu nivel de IEO y tamaño de empresa';
-            
-            // Mostrar nota de formulario simplificado
-            ieoNote.classList.add('show');
-            
-            // CAMBIAR WIDGET DE CALENDLY A VERSIÓN IEO EXPRESS
-            calendlyWidget.setAttribute('data-url', CALENDLY_IEO);
-            
-            console.log('✓ Flujo IEO activado');
-            console.log('→ Calendly: sesion-ieo-express (formulario corto)');
-        } 
-        // Por defecto (genérico)
-        else {
-            contentGeneric.classList.add('active');
-            // Widget ya está configurado por defecto al genérico
-            
-            console.log('✓ Flujo genérico activado');
-            console.log('→ Calendly: sesion-estrategica (formulario completo)');
+        if (!elements.calendlyWidget) {
+            console.error('❌ ERROR CRÍTICO: Widget no encontrado');
+            return false;
         }
         
-        // Google Analytics tracking
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('🎨 APLICANDO CAMBIOS VISUALES');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        
+        if (source === 'ieo') {
+            console.log('🎯 Aplicando modo IEO...');
+            
+            // Cambios visuales IEO
+            if (elements.badgeIEO) {
+                elements.badgeIEO.classList.add('show');
+                elements.badgeIEO.style.display = 'inline-block';
+                console.log('✅ Badge IEO visible');
+            }
+            
+            if (elements.contentIEO) {
+                elements.contentIEO.classList.add('active');
+                elements.contentIEO.style.display = 'block';
+                console.log('✅ Contenido IEO visible');
+            }
+            
+            if (elements.contentGeneric) {
+                elements.contentGeneric.classList.remove('active');
+                elements.contentGeneric.style.display = 'none';
+                console.log('✅ Contenido genérico oculto');
+            }
+            
+            if (elements.mainTitle) {
+                elements.mainTitle.textContent = 'Transforma Tu Reporte IEO en Acción';
+                console.log('✅ Título actualizado');
+            }
+            
+            if (elements.mainSubtitle) {
+                elements.mainSubtitle.textContent = 'Plan de acción personalizado de 90 días';
+                console.log('✅ Subtítulo actualizado');
+            }
+            
+            if (elements.savingsNote) {
+                elements.savingsNote.textContent = 'Según tu nivel de IEO y tamaño de empresa';
+                console.log('✅ Nota actualizada');
+            }
+            
+            if (elements.ieoNote) {
+                elements.ieoNote.classList.add('show');
+                elements.ieoNote.style.display = 'block';
+                console.log('✅ Nota azul IEO visible');
+            }
+            
+            // CAMBIAR WIDGET
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('📅 CONFIGURANDO WIDGET IEO');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('🔗 URL:', CALENDLY_IEO);
+            
+            elements.calendlyWidget.setAttribute('data-url', CALENDLY_IEO);
+            elements.calendlyWidget.innerHTML = '';
+            
+        } else {
+            console.log('🎯 Aplicando modo ESTRATÉGICA...');
+            
+            if (elements.contentGeneric) {
+                elements.contentGeneric.classList.add('active');
+                elements.contentGeneric.style.display = 'block';
+                console.log('✅ Contenido genérico visible');
+            }
+            
+            if (elements.contentIEO) {
+                elements.contentIEO.classList.remove('active');
+                elements.contentIEO.style.display = 'none';
+                console.log('✅ Contenido IEO oculto');
+            }
+            
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('📅 CONFIGURANDO WIDGET ESTRATÉGICA');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('🔗 URL:', CALENDLY_GENERIC);
+        }
+        
+        // Reinicializar Calendly si está disponible
+        if (typeof Calendly !== 'undefined' && Calendly.initInlineWidget) {
+            try {
+                const targetUrl = source === 'ieo' ? CALENDLY_IEO : CALENDLY_GENERIC;
+                console.log('🔄 Reinicializando widget con:', targetUrl);
+                
+                Calendly.initInlineWidget({
+                    url: targetUrl,
+                    parentElement: elements.calendlyWidget,
+                    prefill: {},
+                    utm: {}
+                });
+                
+                console.log('✅ Widget reinicializado');
+            } catch (error) {
+                console.error('❌ Error al reinicializar:', error);
+            }
+        } else {
+            console.log('⏳ Widget se cargará automáticamente');
+        }
+        
+        // Google Analytics
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {
                 'page_title': 'Agendar Sesión',
                 'source': source || 'direct',
                 'calendly_type': source === 'ieo' ? 'ieo-express' : 'estrategica'
             });
+            console.log('📊 Evento GA enviado');
         }
         
-        // Tracking cuando se agenda exitosamente
+        // Tracking de conversión
         window.addEventListener('message', function(e) {
             if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+                console.log('📨 Evento Calendly:', e.data.event);
+                
                 if (e.data.event === 'calendly.event_scheduled') {
-                    // Registrar conversión
+                    console.log('🎉 ¡CONVERSIÓN! Sesión agendada');
+                    
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'agendar_sesion', {
                             'event_category': 'Conversiones',
@@ -934,13 +1075,24 @@
                             'currency': 'CLP'
                         });
                     }
-                    
-                    console.log('✓ Sesión agendada exitosamente');
-                    console.log('→ Tipo:', source === 'ieo' ? 'IEO Express' : 'Estratégica');
                 }
             }
         });
-    </script>
+        
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('✅ CONFIGURACIÓN COMPLETADA');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    }
+    
+    // Ejecutar cuando DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(setupCalendlyFlow, 500);
+        });
+    } else {
+        setTimeout(setupCalendlyFlow, 500);
+    }
+</script>
     
 </body>
 </html>
