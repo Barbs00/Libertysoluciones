@@ -1,405 +1,946 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agenda Tu Sesión Estratégica - Liberty Soluciones</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Tu Sesión Estratégica - Liberty Soluciones</title>
+    <meta name="description" content="Sesión estratégica gratuita de 20 minutos para optimizar tus operaciones y reducir costos operacionales.">
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Calendly CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4366E8 0%, #34495E 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 0 12px; }
+        }
+        
+        /* Header */
+        .site-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(67, 102, 232, 0.15);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .site-header .container {
+            padding: 0 24px;
+        }
+        
+        .site-header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-width: 160px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.2s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #4366E8;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #4366E8;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #4366E8;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: inline-flex;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 10px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: calc(20px + env(safe-area-inset-bottom));
+            right: calc(20px + env(safe-area-inset-right));
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1100;
+            pointer-events: none;
+        }
+        
+        .floating-buttons .float-button {
+            pointer-events: auto;
+        }
+        
+        .float-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            font-size: 22px;
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #20BA5C);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(37,211,102,0.35);
+        }
+        
+        .linkedin-btn {
+            background: linear-gradient(135deg, #0077B5, #0A66C2);
+        }
+        
+        .linkedin-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(10,102,194,0.35);
+        }
+        
+        @media (max-height: 680px) and (max-width: 768px) {
+            .floating-buttons {
+                bottom: calc(12px + env(safe-area-inset-bottom));
+                right: calc(12px + env(safe-area-inset-right));
+                gap: 10px;
+            }
+            .float-button {
+                width: 46px;
+                height: 46px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 420px) {
+            .floating-buttons {
+                right: calc(12px + env(safe-area-inset-right));
+            }
+        }
+        
+        /* Page Wrap */
+        .page-wrap {
+            padding-top: 100px;
+            padding-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .page-wrap {
+                padding-top: 90px;
+            }
+        }
+        
+        /* Header Section */
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        /* Badge IEO */
+        .badge-ieo {
+            display: none;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 15px auto;
+            max-width: fit-content;
+        }
+        
+        .badge-ieo.show {
+            display: block;
+        }
+        
+        /* Nota formulario simplificado */
+        .ieo-note {
+            display: none;
+            background: #E3F2FD;
+            border-left: 4px solid #4366E8;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #1565C0;
+            animation: slideInRight 0.5s ease-out;
+        }
+        
+        .ieo-note.show {
+            display: block;
+        }
+        
+        .ieo-note i {
+            margin-right: 8px;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Content */
+        .content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .content {
+                gap: 28px;
+                padding: 32px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 24px;
+            }
+        }
+        
+        .info-section h2 {
+            color: #4366E8;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        /* Dynamic content sections */
+        .content-ieo, .content-generic {
+            display: none;
+        }
+        
+        .content-ieo.active, .content-generic.active {
+            display: block;
+        }
+        
+        .benefits {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .benefits li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #43A047;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 480px) {
+            .benefits li {
+                font-size: 15px;
+                padding-left: 30px;
+            }
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #E91E63 0%, #D81B60 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .highlight-box h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FFD700;
+        }
+        
+        .urgency-box {
+            background: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .urgency-box strong {
+            color: #F57C00;
+            font-size: 18px;
+        }
+        
+        .calendly-section {
+            min-height: 700px;
+        }
+        
+        @media (max-width: 768px) {
+            .calendly-section h2 {
+                font-size: 22px;
+            }
+            .calendly-inline-widget {
+                height: 640px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .calendly-inline-widget {
+                height: 600px !important;
+            }
+        }
+        
+        .guarantee {
+            background: #E3F2FD;
+            border: 2px solid #4366E8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .guarantee h4 {
+            color: #4366E8;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .guarantee ul {
+            list-style: none;
+        }
+        
+        .guarantee li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .guarantee li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4366E8;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a252f, #1e2d3d);
+            color: #fff;
+            padding: 50px 0 20px;
+            border-radius: 0;
+            margin-top: 0;
+        }
+        
+        .footer-top {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b8c5d6;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .footer-social a:hover {
+            background: #4366E8;
+            color: #fff;
+            border-color: #4366E8;
+            transform: translateY(-3px);
+        }
 
-  <!-- Iconos (hamburger, redes) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+        
+        .footer-section h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-section p {
+            color: #b8c5d6;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #b8c5d6;
+        }
+        
+        .footer-section ul li a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #4366E8;
+        }
+        
+        .footer-section i {
+            color: #4366E8 !important;
+            font-size: 16px;
+            min-width: 16px;
+        }
 
-  <!-- Calendly -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-  <style>
-    /* =========================
-       Reset / Base
-    ========================== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-padding-top: 80px; } /* anclas no queden bajo header fijo */
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #4366E8 0%, #34495E 100%);
-      min-height: 100vh;
-      color: #222;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      width: 100%;
-    }
-    @media (max-width: 480px) { .container { padding: 0 12px; } }
-
-    /* =========================
-       Header (desktop-first)
-    ========================== */
-    .site-header {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 1000;
-      border-bottom: 2px solid rgba(67, 102, 232, 0.15);
-      padding: 10px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .site-header .container { padding: 0 24px; }
-    .site-header nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .logo-container { display: flex; align-items: center; }
-    .logo-img { height: 50px; width: auto; max-width: 160px; }
-
-    .nav-links {
-      display: flex; list-style: none; gap: 20px; align-items: center;
-      margin: 0; padding: 0;
-    }
-    .nav-links a {
-      color: #555; text-decoration: none; font-weight: 500; font-size: 13px;
-      transition: color 0.2s ease; position: relative; white-space: nowrap;
-    }
-    .nav-links a:hover { color: #4366E8; }
-    .nav-links a::after {
-      content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 2px;
-      background: #4366E8; transition: width 0.3s ease;
-    }
-    .nav-links a:hover::after { width: 100%; }
-
-    .mobile-menu-btn {
-      display: none; background: none; border: none; font-size: 20px; color: #4366E8;
-      cursor: pointer; padding: 8px;
-    }
-
-    /* ===== Mobile breakpoint ===== */
-    @media (max-width: 768px) {
-      .mobile-menu-btn { display: inline-flex; }
-      .logo-img { height: 40px; }
-
-      .nav-links {
-        display: none; /* oculto por defecto en móvil */
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: #fff; flex-direction: column;
-        padding: 20px; gap: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        z-index: 999;
-      }
-      .nav-links.active { display: flex; }
-      .nav-links a { padding: 10px; border-bottom: 1px solid #f0f0f0; }
-    }
-
-    /* =========================
-       Landing layout
-    ========================== */
-    /* Empuja el contenido por debajo del header fijo */
-    .page-wrap { padding-top: 100px; } /* 100px para respirar bien bajo el header */
-    @media (max-width: 768px) { .page-wrap { padding-top: 90px; } }
-
-    .header-hero { /* bloque hero interno */
-      text-align: center; color: white;
-      margin: 0 auto 40px;
-    }
-    .header-hero h1 { font-size: 36px; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-    .header-hero p { font-size: 18px; opacity: 0.95; }
-    @media (max-width: 480px) {
-      .header-hero h1 { font-size: 28px; }
-      .header-hero p { font-size: 16px; }
-    }
-
-    .content {
-      background: white; border-radius: 16px; padding: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-      margin-bottom: 30px;
-    }
-    @media (max-width: 992px) {
-      .content { gap: 28px; padding: 32px; }
-    }
-    @media (max-width: 768px) {
-      .content { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
-    }
-
-    .info-section h2 { color: #4366E8; font-size: 28px; margin-bottom: 20px; }
-    .benefits { list-style: none; margin: 30px 0; }
-    .benefits li {
-      padding: 15px 0 15px 35px; position: relative; font-size: 16px; line-height: 1.6;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .benefits li:before { content: "✓"; position: absolute; left: 0; color: #43A047; font-size: 24px; font-weight: bold; }
-    @media (max-width: 480px) { .benefits li { font-size: 15px; padding-left: 30px; } }
-
-    .highlight-box {
-      background: linear-gradient(135deg, #E91E63 0%, #D81B60 100%);
-      color: white; padding: 25px; border-radius: 12px; margin: 25px 0; text-align: center;
-    }
-    .highlight-box h3 { font-size: 20px; margin-bottom: 10px; }
-    .highlight-box .value { font-size: 32px; font-weight: 700; color: #FFD700; }
-
-    .urgency-box {
-      background: #FFF3E0; border-left: 5px solid #FF9800; padding: 20px; border-radius: 8px; margin: 20px 0;
-    }
-    .urgency-box strong { color: #F57C00; font-size: 18px; }
-
-    .calendly-section { min-height: 700px; }
-    @media (max-width: 768px) {
-      .calendly-section h2 { font-size: 22px; }
-      .calendly-inline-widget { height: 640px !important; } /* ajusta en móvil */
-    }
-    @media (max-width: 480px) {
-      .calendly-inline-widget { height: 600px !important; }
-    }
-
-    .guarantee {
-      background: #E3F2FD; border: 2px solid #4366E8; padding: 20px; border-radius: 12px; margin-top: 20px;
-    }
-    .guarantee h4 { color: #4366E8; margin-bottom: 15px; font-size: 18px; }
-    .guarantee ul { list-style: none; }
-    .guarantee li { padding: 8px 0 8px 25px; position: relative; color: #555; }
-    .guarantee li:before { content: "✓"; position: absolute; left: 0; color: #4366E8; font-weight: bold; }
-
-    /* =========================
-       Footer (full-width, fuera del container principal)
-    ========================== */
-    footer {
-      background: linear-gradient(135deg, #1a252f, #1e2d3d);
-      color: #fff;
-      padding: 50px 0 20px;
-      border-radius: 0;   /* sin marco curvo */
-      margin-top: 0;      /* sin separación arriba */
-    }
-    .footer-top {
-      text-align: center;
-      padding-bottom: 30px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .footer-social {
-      display: flex; justify-content: center; gap: 15px; margin-top: 20px;
-    }
-    .footer-social a {
-      width: 45px; height: 45px; background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #b8c5d6; transition: all 0.3s ease; font-size: 18px;
-    }
-    .footer-social a:hover { background: #4366E8; color: #fff; border-color: #4366E8; transform: translateY(-3px); }
-
-    .footer-content {
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; margin: 40px 0;
-    }
-    .footer-section h4 {
-      font-size: 17px; font-weight: 700; margin-bottom: 15px;
-      background: linear-gradient(135deg, #4366E8, #4366E8);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .footer-section p { color: #b8c5d6; line-height: 1.7; font-size: 14px; }
-    .footer-section ul { list-style: none; padding: 0; margin: 0; }
-    .footer-section ul li {
-      margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #b8c5d6;
-    }
-    .footer-section ul li a {
-      color: #b8c5d6; text-decoration: none; transition: color 0.3s ease; font-size: 14px;
-    }
-    .footer-section ul li a:hover { color: #4366E8; }
-    .footer-section i { color: #4366E8 !important; font-size: 16px; min-width: 16px; }
-
-    .footer-bottom {
-      text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
-      color: #b8c5d6; font-size: 13px;
-    }
-
-    /* Footer responsive (como evaluación) */
-    @media (max-width: 768px) {
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-        margin: 30px 0;
-      }
-      .footer-section ul { align-items: center; }
-    }
-    @media (max-width: 480px) {
-      .footer-social a { width: 38px; height: 38px; font-size: 16px; }
-      .footer-bottom { font-size: 11px; margin-top: 20px; }
-    }
-  </style>
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b8c5d6;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+                margin: 30px 0;
+            }
+            
+            .footer-section ul {
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-bottom {
+                font-size: 11px;
+                margin-top: 20px;
+            }
+            
+            .footer-social a {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="../index.html#inicio" aria-label="Volver al inicio">
+                        <img src="../Logo.png" alt="Liberty Soluciones" class="logo-img" />
+                    </a>
+                </div>
 
-  <!-- Header (nav) -->
-  <header class="site-header">
-    <div class="container">
-      <nav>
-        <div class="logo-container">
-          <a href="../index.html#inicio" aria-label="Volver al inicio">
-            <img src="../Logo.png" alt="Liberty Soluciones" class="logo-img" />
-          </a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#inicio">Inicio</a></li>
+                    <li><a href="../index.html#productos">Productos</a></li>
+                    <li><a href="../index.html#servicios">Servicios</a></li>
+                    <li><a href="../index.html#industrias">Industrias</a></li>
+                    <li><a href="../index.html#casos">Casos de Éxito</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+    
+    <!-- Floating Buttons -->
+    <div class="floating-buttons" aria-label="Accesos rápidos">
+        <a
+            href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información"
+            class="float-button whatsapp-btn"
+            target="_blank"
+            rel="noopener"
+            title="WhatsApp"
+            aria-label="Abrir WhatsApp"
+        >
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
 
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-          <li><a href="../index.html#inicio">Inicio</a></li>
-          <li><a href="../index.html#productos">Productos</a></li>
-          <li><a href="../index.html#servicios">Servicios</a></li>
-          <li><a href="../index.html#industrias">Industrias</a></li>
-          <li><a href="../index.html#casos">Casos de Éxito</a></li>
-          <li><a href="../index.html#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+        <a
+            href="https://www.linkedin.com/company/libertysoluciones"
+            class="float-button linkedin-btn"
+            target="_blank"
+            rel="noopener"
+            title="LinkedIn"
+            aria-label="Visitar LinkedIn"
+        >
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
     </div>
-  </header>
-
-  <!-- Page content wrapper -->
-  <div class="page-wrap">
+    
+    <!-- Page Wrap -->
+    <div class="page-wrap">
+    
     <div class="container">
-      <!-- Hero interno del landing -->
-      <div class="header-hero">
-        <h1>🎯 Sesión Estratégica Gratuita</h1>
-        <p>Transforma tu Reporte IEO en un Plan de Acción de 90 Días</p>
-      </div>
-
-      <!-- Main Content -->
-      <div class="content">
-        <!-- Left Column: Info -->
-        <div class="info-section">
-          <h2>¿Qué Revisaremos en 20 Minutos?</h2>
-
-          <ul class="benefits">
-            <li><strong>Análisis Personalizado</strong><br>Revisión detallada de tu Reporte IEO y contexto específico de tu empresa</li>
-            <li><strong>Top 3 Oportunidades</strong><br>Las acciones de mayor impacto inmediato para tu operación</li>
-            <li><strong>Plan de 90 Días</strong><br>Hoja de ruta con hitos, responsables y ROI estimado</li>
-            <li><strong>Casos de Éxito</strong><br>Ejemplos reales de empresas similares que ya lo lograron</li>
-            <li><strong>Próximos Pasos</strong><br>Decisión informada sobre cómo avanzar (sin presión de venta)</li>
-          </ul>
-
-          <div class="highlight-box">
-            <h3>💰 Ahorro Potencial</h3>
-            <div class="value">$1M - $15M CLP/año</div>
-            <p style="margin-top: 10px; font-size: 14px; opacity: 0.9;">Según tu nivel de IEO y tamaño de empresa</p>
-          </div>
-
-          <div class="urgency-box">
-            <strong>⏰ Solo 3 sesiones disponibles esta semana</strong>
-            <p style="margin-top: 10px; font-size: 14px; color: #666;">Alta demanda - las sesiones se agotan rápido</p>
-          </div>
-
-          <div class="guarantee">
-            <h4>🔒 100% Sin Riesgo</h4>
-            <ul>
-              <li>Sin compromiso de compra</li>
-              <li>No compartimos tu información</li>
-              <li>Cancela en cualquier momento</li>
-            </ul>
-          </div>
+        
+        <!-- Header -->
+        <div class="header">
+            <div style="font-size: 48px; color: #FFD700; margin-bottom: 10px;">🎯</div>
+            <h1 id="main-title">Sesión Estratégica Gratuita</h1>
+            <p id="main-subtitle">Plan de acción personalizado en 20 minutos</p>
+            
+            <!-- Badge solo para IEO -->
+            <div class="badge-ieo" id="badge-ieo">
+                ✨ Tienes un Reporte IEO esperándote
+            </div>
         </div>
-
-        <!-- Right Column: Calendly -->
-        <div class="calendly-section">
-          <h2 style="color: #4366E8; margin-bottom: 20px;">Selecciona Tu Horario:</h2>
-
-          <!-- Calendly Inline Widget -->
-          <div class="calendly-inline-widget"
-               data-url="https://calendly.com/libertysolucionescl/sesion-ieo?hide_gdpr_banner=1&primary_color=4366e8"
-               style="min-width:320px;height:700px;">
-          </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            
+            <!-- Left Column: Info (Dynamic) -->
+            <div class="info-section">
+                
+                <!-- Contenido ESPECÍFICO para quien tiene IEO -->
+                <div class="content-ieo" id="content-ieo">
+                    <h2>¿Qué Revisaremos en 20 Minutos?</h2>
+                    
+                    <ul class="benefits">
+                        <li><strong>Análisis de Tu Reporte IEO</strong><br>
+                            Revisión detallada de tus resultados y contexto específico</li>
+                        
+                        <li><strong>Top 3 Oportunidades Personalizadas</strong><br>
+                            Las acciones de mayor impacto inmediato para tu operación</li>
+                        
+                        <li><strong>Plan de 90 Días con ROI</strong><br>
+                            Hoja de ruta con hitos, responsables y ahorro estimado</li>
+                        
+                        <li><strong>Casos de Éxito Similares</strong><br>
+                            Ejemplos reales de empresas con tu mismo perfil</li>
+                        
+                        <li><strong>Próximos Pasos Claros</strong><br>
+                            Decisión informada sobre cómo avanzar (sin presión)</li>
+                    </ul>
+                </div>
+                
+                <!-- Contenido GENÉRICO para visitantes sin IEO -->
+                <div class="content-generic" id="content-generic">
+                    <h2>¿Qué Lograrás en Esta Sesión?</h2>
+                    
+                    <ul class="benefits">
+                        <li><strong>Diagnóstico Operacional Rápido</strong><br>
+                            Identificamos tus principales cuellos de botella</li>
+                        
+                        <li><strong>Oportunidades de Ahorro</strong><br>
+                            Estimación de costos evitables en tu operación</li>
+                        
+                        <li><strong>Quick Wins Accionables</strong><br>
+                            3 mejoras que puedes implementar en menos de 30 días</li>
+                        
+                        <li><strong>Casos de Éxito Relevantes</strong><br>
+                            Ejemplos de empresas de tu industria que ya optimizaron</li>
+                        
+                        <li><strong>Hoja de Ruta Inicial</strong><br>
+                            Plan de primeros pasos sin compromiso</li>
+                    </ul>
+                </div>
+                
+                <!-- Highlight Box -->
+                <div class="highlight-box">
+                    <h3>💰 Ahorro Potencial</h3>
+                    <div class="value" id="savings-range">$1M - $15M CLP/año</div>
+                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.9;" id="savings-note">
+                        Según industria y tamaño de empresa
+                    </p>
+                </div>
+                
+                <!-- Urgency -->
+                <div class="urgency-box">
+                    <strong>⏰ Solo 3 sesiones disponibles esta semana</strong>
+                    <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                        Alta demanda - las sesiones se agotan rápido
+                    </p>
+                </div>
+                
+                <!-- Guarantee -->
+                <div class="guarantee">
+                    <h4>🔒 100% Sin Riesgo</h4>
+                    <ul>
+                        <li>Sin compromiso de compra</li>
+                        <li>No compartimos tu información</li>
+                        <li>Cancela en cualquier momento</li>
+                        <li>Valor estimado: $150.000 CLP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Right Column: Calendly -->
+            <div class="calendly-section">
+                <h2 style="color: #4366E8; margin-bottom: 20px;">Selecciona Tu Horario:</h2>
+                
+                <!-- Nota para usuarios IEO -->
+                <div class="ieo-note" id="ieo-calendly-note">
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Ya tenemos tu información del IEO</strong> - Solo 2 preguntas rápidas para agendar
+                </div>
+                
+                <!-- Calendly Inline Widget (se cambiará dinámicamente) -->
+                <div class="calendly-inline-widget" 
+                     id="calendly-widget"
+                     data-url="https://calendly.com/libertysolucionescl/sesion-estrategica?hide_gdpr_banner=1&primary_color=4366e8" 
+                     style="min-width:320px;height:700px;">
+                </div>
+            </div>
+            
         </div>
-      </div>
-    </div> <!-- /container -->
-  </div> <!-- /page-wrap -->
-
-  <!-- Footer (outside the main container, full-width) -->
-  <footer>
-    <div class="container">
-      <div class="footer-content" role="contentinfo" aria-label="Información de pie de página">
-        <div class="footer-section">
-          <h4>Sobre Liberty Soluciones</h4>
-          <p>
-            Tech Partner especializado en transformación digital industrial.
-            <br><strong>15+ años</strong> de experiencia implementando soluciones que optimizan procesos y generan valor.
-          </p>
-        </div>
-
-        <div class="footer-section">
-          <h4>Soluciones</h4>
-          <ul>
-            <li><a href="../index.html#servicios">Gestión de Inventarios</a></li>
-            <li><a href="../index.html#servicios">Automatización Digital</a></li>
-            <li><a href="../index.html#servicios">Gestión ISO</a></li>
-            <li><a href="../index.html#servicios">Análisis de Datos</a></li>
-            <li><a href="../index.html#servicios">Captura de Datos IoT</a></li>
-            <li><a href="../index.html#servicios">Consultoría</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Contacto</h4>
-          <ul>
-            <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+56983525140">+56 9 8352 5140</a></li>
-            <li><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/56983525140" target="_blank" rel="noopener">+56 9 8352 5140</a></li>
-            <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:contacto@libertysoluciones.com">contacto@libertysoluciones.com</a></li>
-            <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Santiago, Chile</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Liberty Soluciones. Todos los derechos reservados. | Tech Partner en transformación digital industrial</p>
-      </div>
     </div>
-  </footer>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content" role="contentinfo" aria-label="Información de pie de página">
+                    <div class="footer-section">
+                        <h4>Sobre Liberty Soluciones</h4>
+                        <p>
+                            Tech Partner especializado en transformación digital industrial.
+                            <br><strong>15+ años</strong> de experiencia implementando soluciones que optimizan procesos y generan valor.
+                        </p>
+                    </div>
 
-  <!-- Scripts -->
-  <script>
-    // Año automático en el footer
-    (function(){ const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
+                    <div class="footer-section">
+                        <h4>Soluciones</h4>
+                        <ul>
+                            <li><a href="../index.html#servicios">Gestión de Inventarios</a></li>
+                            <li><a href="../index.html#servicios">Automatización Digital</a></li>
+                            <li><a href="../index.html#servicios">Gestión ISO</a></li>
+                            <li><a href="../index.html#servicios">Análisis de Datos</a></li>
+                            <li><a href="../index.html#servicios">Captura de Datos IoT</a></li>
+                            <li><a href="../index.html#servicios">Consultoría</a></li>
+                        </ul>
+                    </div>
 
-    // Toggle menú móvil
-    function toggleMenu() {
-      const navLinks = document.getElementById("navLinks");
-      const btn = document.querySelector(".mobile-menu-btn");
-      const open = navLinks.classList.toggle("active");
-      if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
-    }
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+56983525140">+56 9 8352 5140</a></li>
+                            <li><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/56983525140" target="_blank" rel="noopener">+56 9 8352 5140</a></li>
+                            <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:contacto@libertysoluciones.com">contacto@libertysoluciones.com</a></li>
+                            <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Santiago, Chile</span></li>
+                        </ul>
+                    </div>
+                </div>
 
-    // Cerrar al hacer clic fuera del nav
-    document.addEventListener("click", function (event) {
-      const nav = document.querySelector(".site-header nav");
-      const navLinks = document.getElementById("navLinks");
-      const btn = document.querySelector(".mobile-menu-btn");
-      if (!nav || !navLinks) return;
+                <div class="footer-bottom">
+                    <p>&copy; <span id="year"></span> Liberty Soluciones. Todos los derechos reservados. | Tech Partner en transformación digital industrial</p>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+    
+    <!-- Scripts -->
+    <script>
+        // Año automático en el footer
+        (function(){ 
+            const y = document.getElementById('year'); 
+            if (y) y.textContent = new Date().getFullYear(); 
+        })();
 
-      if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        if (btn) btn.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // Cerrar al seleccionar un enlace del menú
-    document.querySelectorAll("#navLinks a").forEach(link => {
-      link.addEventListener("click", () => {
-        const navLinks = document.getElementById("navLinks");
-        const btn = document.querySelector(".mobile-menu-btn");
-        if (navLinks.classList.contains("active")) {
-          navLinks.classList.remove("active");
-          if (btn) btn.setAttribute("aria-expanded", "false");
+        // Toggle menú móvil
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            const btn = document.querySelector(".mobile-menu-btn");
+            const open = navLinks.classList.toggle("active");
+            if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
         }
-      });
-    });
 
-    // Smooth scroll solo si el destino está en ESTA página
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          e.preventDefault();
-          const offsetTop = target.offsetTop - 70; // compensa header fijo
-          window.scrollTo({ top: offsetTop, behavior: "smooth" });
+        // Cerrar al hacer clic fuera del nav
+        document.addEventListener("click", function (event) {
+            const nav = document.querySelector(".site-header nav");
+            const navLinks = document.getElementById("navLinks");
+            const btn = document.querySelector(".mobile-menu-btn");
+            if (!nav || !navLinks) return;
+
+            if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                if (btn) btn.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        // Cerrar al seleccionar un enlace del menú
+        document.querySelectorAll("#navLinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                const navLinks = document.getElementById("navLinks");
+                const btn = document.querySelector(".mobile-menu-btn");
+                if (navLinks.classList.contains("active")) {
+                    navLinks.classList.remove("active");
+                    if (btn) btn.setAttribute("aria-expanded", "false");
+                }
+            });
+        });
+
+        // Smooth scroll solo si el destino está en ESTA página
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.offsetTop - 70;
+                    window.scrollTo({ top: offsetTop, behavior: "smooth" });
+                }
+            });
+        });
+        
+        // ============================================
+        // CONFIGURACIÓN DE CALENDLY DINÁMICO
+        // ============================================
+        
+        // URLs de Calendly (REEMPLAZA CON TUS URLs REALES)
+        const CALENDLY_IEO = 'https://calendly.com/libertysolucionescl/sesion-ieo?hide_gdpr_banner=1&primary_color=4366e8';
+        const CALENDLY_GENERIC = 'https://calendly.com/libertysolucionescl/sesion-estrategica?hide_gdpr_banner=1&primary_color=4366e8';
+        
+        // Detectar origen
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('source');
+        
+        // Elementos del DOM
+        const badgeIEO = document.getElementById('badge-ieo');
+        const contentIEO = document.getElementById('content-ieo');
+        const contentGeneric = document.getElementById('content-generic');
+        const mainTitle = document.getElementById('main-title');
+        const mainSubtitle = document.getElementById('main-subtitle');
+        const savingsNote = document.getElementById('savings-note');
+        const calendlyWidget = document.getElementById('calendly-widget');
+        const ieoNote = document.getElementById('ieo-calendly-note');
+        
+        // Si viene desde IEO
+        if (source === 'ieo') {
+            // Cambiar contenido visual
+            badgeIEO.classList.add('show');
+            contentIEO.classList.add('active');
+            mainTitle.textContent = 'Transforma Tu Reporte IEO en Acción';
+            mainSubtitle.textContent = 'Plan de acción personalizado de 90 días';
+            savingsNote.textContent = 'Según tu nivel de IEO y tamaño de empresa';
+            
+            // Mostrar nota de formulario simplificado
+            ieoNote.classList.add('show');
+            
+            // CAMBIAR WIDGET DE CALENDLY A VERSIÓN IEO EXPRESS
+            calendlyWidget.setAttribute('data-url', CALENDLY_IEO);
+            
+            console.log('✓ Flujo IEO activado');
+            console.log('→ Calendly: sesion-ieo-express (formulario corto)');
+        } 
+        // Por defecto (genérico)
+        else {
+            contentGeneric.classList.add('active');
+            // Widget ya está configurado por defecto al genérico
+            
+            console.log('✓ Flujo genérico activado');
+            console.log('→ Calendly: sesion-estrategica (formulario completo)');
         }
-      });
-    });
-  </script>
+        
+        // Google Analytics tracking
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'Agendar Sesión',
+                'source': source || 'direct',
+                'calendly_type': source === 'ieo' ? 'ieo-express' : 'estrategica'
+            });
+        }
+        
+        // Tracking cuando se agenda exitosamente
+        window.addEventListener('message', function(e) {
+            if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+                if (e.data.event === 'calendly.event_scheduled') {
+                    // Registrar conversión
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'agendar_sesion', {
+                            'event_category': 'Conversiones',
+                            'event_label': source === 'ieo' ? 'IEO Express' : 'Estratégica',
+                            'value': 150000,
+                            'currency': 'CLP'
+                        });
+                    }
+                    
+                    console.log('✓ Sesión agendada exitosamente');
+                    console.log('→ Tipo:', source === 'ieo' ? 'IEO Express' : 'Estratégica');
+                }
+            }
+        });
+    </script>
+    
 </body>
 </html>
