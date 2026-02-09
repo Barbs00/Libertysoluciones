@@ -259,6 +259,210 @@
       .cta-primary, .cta-secondary { padding: 12px 20px; font-size: 13px; }
     }
 
+/* =========================
+   Banner IEO - Evaluación de Eficiencia
+========================== */
+.ieo-banner-home {
+  background: linear-gradient(135deg, #4366E8 0%, #34495E 100%);
+  padding: 2rem 1.5rem;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(67, 102, 232, 0.2);
+  max-width:1200px;
+}
+
+.ieo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ieo-text h3 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.ieo-text p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  margin: 0;
+}
+
+.ieo-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn-ieo {
+  background: linear-gradient(135deg, #E91E63 0%, #D81B60 100%);
+  color: #ffffff;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-ieo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+  background: linear-gradient(135deg, #D81B60 0%, #C2185B 100%);
+}
+
+.btn-ieo .arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-ieo:hover .arrow {
+  transform: translateX(4px);
+}
+
+  .ieo-time {
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.95;
+    color: rgba(255,255,255,0.9);
+  }
+  .ieo-time .clock {
+    display: inline-block;
+    width: 1.05em; height: 1.05em;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    position: relative;
+  }
+  .ieo-time .clock::before {
+    content: "";
+    position: absolute;
+    width: 1px; height: 35%;
+    background: currentColor;
+    top: 15%; left: 50%;
+    transform: translateX(-50%);
+  }
+  .ieo-time .clock::after {
+    content: "";
+    position: absolute;
+    width: 30%; height: 1px;
+    background: currentColor;
+    top: 50%; left: 50%;
+    transform: translateY(-50%);
+  }
+/* Responsive */
+@media (max-width: 768px) {
+  .ieo-content {
+    flex-direction: column;
+    text-align: center;    
+  }
+  
+  .ieo-cta {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .btn-ieo {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .ieo-text h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* =========================
+   Sticky Banner Superior - Aparece al hacer scroll
+========================== */
+.ieo-sticky-top {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: #4366E8;
+      color: white;
+      padding: 0.75rem 1rem;
+      z-index: 999;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+.ieo-sticky-top.visible {
+  transform: translateY(0);
+}
+
+.sticky-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 24px;
+}
+
+.sticky-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sticky-btn {
+  background: linear-gradient(135deg, #E91E63 0%, #D81B60 100%);
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.sticky-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+  background: linear-gradient(135deg, #D81B60 0%, #C2185B 100%);
+}
+
+.sticky-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.sticky-close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .sticky-content {
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    gap: 0.75rem;
+  }
+  
+  .sticky-text {
+    font-size: 0.8rem;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
     /* =========================
        Featured Product
     ========================== */
@@ -717,6 +921,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+
     <!-- Featured Product Section -->
     <section class="featured-products" id="productos">
       <div class="container">
@@ -858,6 +1063,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </section>
+
+<!-- Banner IEO - Evaluación de Eficiencia Operacional -->
+<section class="ieo-banner-home">
+  <div class="container">
+    <div class="ieo-content">
+      <div class="ieo-text">
+        <h3>¿Qué tan eficientes son tus operaciones?</h3>
+        <p>Descubre oportunidades de mejora con nuestro Índice de Eficiencia Operacional</p>
+      </div>
+      <div class="ieo-cta">
+        <a href="Evaluacion_Eficiencia.html" class="btn-ieo">
+          Evaluar mi empresa <span class="arrow">→</span>
+        </a>
+        <span class="ieo-time"><span class="clock" aria-hidden="true"></span> 5 minutos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Industries Section -->
     <section class="industries" id="industrias">
@@ -1157,6 +1381,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Initialize
       window.addEventListener("scroll", animateOnScroll);
       document.addEventListe
-</script> 
+</script>
+
+<!-- Sticky Banner IEO - Aparece al hacer scroll -->
+<div class="ieo-sticky-top" id="ieoStickyBanner">
+  <div class="sticky-content">
+    <span class="sticky-text">🎯 ¿Conoces el nivel de eficiencia de tu empresa?</span>
+    <a href="Evaluacion_Eficiencia.html" class="sticky-btn">Evaluación gratuita</a>
+    <button class="sticky-close" onclick="closeStickyIEO()">✕</button>
+  </div>
+</div>
+
+<script>
+// Mostrar sticky banner después de 400px de scroll
+window.addEventListener('scroll', function() {
+  const banner = document.getElementById('ieoStickyBanner');
+  if (window.scrollY > 400 && !sessionStorage.getItem('ieoBannerClosed')) {
+    banner.classList.add('visible');
+  }
+});
+
+function closeStickyIEO() {
+  document.getElementById('ieoStickyBanner').classList.remove('visible');
+  sessionStorage.setItem('ieoBannerClosed', 'true');
+}
+</script>
 </body>
 </html>
