@@ -21,7 +21,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="Logo.png" />
+  <link rel="icon" type="image/png" href="Logo_Liberty_Recortado.png" />
 
   <style>
     /* =========================
@@ -177,6 +177,33 @@
       .floating-buttons { bottom: 10px; right: 10px; gap: 8px; }
       .float-button { width: 45px; height: 45px; font-size: 20px; }
     }
+
+/* === Estilos del botón flotante de Agenda === */
+.agenda-btn {
+  background: linear-gradient(135deg, #4366E8, #34495E);
+}
+.agenda-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(67, 102, 232, 0.5);
+  background: linear-gradient(135deg, #34495E, #2C3E50);
+}
+
+/* === Visibilidad por dispositivo === */
+/* Desktop (>=769px): ocultar Agenda, mostrar LinkedIn */
+@media (min-width: 769px) {
+  .agenda-btn { display: none !important; }
+  .linkedin-btn { display: flex !important; }
+}
+
+/* Móvil (<=768px): mostrar Agenda, ocultar LinkedIn */
+@media (max-width: 768px) {
+  .agenda-btn { display: flex !important; }
+  .linkedin-btn { display: none !important; }
+
+  /* Espaciado y tamaños para móvil (opcional, ya tienes algo similar) */
+  .floating-buttons { bottom: 12px; right: 12px; gap: 10px; }
+  .float-button { width: 48px; height: 48px; font-size: 20px; }
+}	
 
     /* =========================
        Hero
@@ -877,7 +904,7 @@
     <nav>
       <div class="logo-container">
         <a href="#inicio" aria-label="Volver al inicio">
-          <img src="Logo.png" alt="Liberty Soluciones" class="logo-img" />
+          <img src="Logo_Liberty_Recortado.png" alt="Liberty Soluciones" class="logo-img" />
         </a>
       </div>
 
@@ -892,6 +919,38 @@
         <li><a href="#industrias">Industrias</a></li>
         <li><a href="#casos">Casos de Éxito</a></li>
         <li><a href="#contacto">Contacto</a></li>
+       <li><a href="/agenda/"
+     style="
+       background: linear-gradient(135deg, #4366E8, #34495E);
+       color: #fff; font-weight: 600;
+       padding: 8px 18px; border-radius: 10px;
+       display: inline-block;
+       text-decoration: none;
+       line-height: 1;
+       box-shadow: 0 4px 15px rgba(67, 102, 232, 0.3);
+       transform: translateY(0);
+       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+       position: relative; /* consistente con posicionamiento del menú */
+     "
+     onmouseover="
+       this.style.transform='translateY(-2px)';
+       this.style.boxShadow='0 6px 20px rgba(67,102,232,0.4)';
+       this.style.background='linear-gradient(135deg, #34495E, #2C3E50)';
+       this.style.textDecoration='none';
+       this.style.color='#fff';
+     "
+     onmouseout="
+       this.style.transform='translateY(0)';
+       this.style.boxShadow='0 4px 15px rgba(67,102,232,0.3)';
+       this.style.background='linear-gradient(135deg, #4366E8, #34495E)';
+       this.style.textDecoration='none';
+       this.style.color='#fff';
+     "
+  >
+    Agenda una Sesión
+  </a>
+</li>
+
       </ul>
     </nav>
   </div>
@@ -901,25 +960,41 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJMH827G"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <!-- Floating Buttons -->
-    <div class="floating-buttons">
-      <a
-        href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información"
-        class="float-button whatsapp-btn"
-        target="_blank"
-        title="WhatsApp"
-      >
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a
-        href="https://www.linkedin.com/company/libertysoluciones"
-        class="float-button linkedin-btn"
-        target="_blank"
-        title="LinkedIn"
-      >
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
+    
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <!-- WhatsApp (ya existe) -->
+  <a
+    href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información"
+    class="float-button whatsapp-btn"
+    target="_blank"
+    title="WhatsApp"
+    aria-label="Abrir WhatsApp"
+  >
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- NUEVO: Agenda flotante (solo móvil) -->
+  <a
+    href="/agenda/"
+    class="float-button agenda-btn"
+    title="Agenda una Sesión"
+    aria-label="Agenda una Sesión"
+  >
+    <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+  </a>
+
+  <!-- LinkedIn (se ocultará en móvil) -->
+  <a
+    href="https://www.linkedin.com/company/libertysoluciones"
+    class="float-button linkedin-btn"
+    target="_blank"
+    title="LinkedIn"
+    aria-label="LinkedIn Liberty Soluciones"
+  >
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
