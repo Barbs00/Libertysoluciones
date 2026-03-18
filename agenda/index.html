@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Tu Sesión Estratégica - Liberty Soluciones</title>
-    <meta name="description" content="Sesión estratégica gratuita de 20 minutos para optimizar tus operaciones y reducir costos operacionales.">
+    <meta name="description" content="Sesión estratégica gratuita de 30 minutos. Analizamos tu situación, identificamos la causa raíz de tus ineficiencias y te recomendamos el camino más eficiente.">
     
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -252,7 +252,7 @@
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
         
         .header h1 {
@@ -262,58 +262,58 @@
         }
         
         .header p {
-            font-size: 18px;
+            font-size: 17px;
+            opacity: 0.92;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 { font-size: 28px; }
+            .header p { font-size: 15px; }
+        }
+        
+        /* IEO Nudge Banner */
+        .ieo-nudge {
+            max-width: 640px;
+            margin: 0 auto 28px;
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .ieo-nudge-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        
+        .ieo-nudge p {
+            font-size: 14px;
+            line-height: 1.5;
             opacity: 0.95;
         }
         
-        /* Badge IEO */
-        .badge-ieo {
-            display: none;
-            background: rgba(255, 215, 0, 0.2);
-            border: 2px solid #FFD700;
+        .ieo-nudge a {
             color: #FFD700;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 14px;
-            margin: 15px auto;
-            max-width: fit-content;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
         }
         
-        .badge-ieo.show {
-            display: block;
+        .ieo-nudge a:hover {
+            text-decoration: underline;
         }
         
-        /* Nota formulario simplificado */
-        .ieo-note {
-            display: none;
-            background: #E3F2FD;
-            border-left: 4px solid #4366E8;
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #1565C0;
-            animation: slideInRight 0.5s ease-out;
-        }
-        
-        .ieo-note.show {
-            display: block;
-        }
-        
-        .ieo-note i {
-            margin-right: 8px;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* Content */
@@ -345,31 +345,52 @@
         
         .info-section h2 {
             color: #4366E8;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
+
+        .info-section .section-sub {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: block;
+  }
         
-        /* Dynamic content sections */
-        .content-ieo, .content-generic {
+        .content-generic {
             display: none;
         }
         
-        .content-ieo.active, .content-generic.active {
+        .content-generic.active {
             display: block;
         }
         
         .benefits {
             list-style: none;
-            margin: 30px 0;
+            margin: 0 0 24px 0;
         }
         
         .benefits li {
-            padding: 15px 0;
+            padding: 14px 0;
             padding-left: 35px;
             position: relative;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
             border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .benefits li:last-child {
+            border-bottom: none;
         }
         
         .benefits li:before {
@@ -377,57 +398,104 @@
             position: absolute;
             left: 0;
             color: #43A047;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
+        }
+        
+        .benefits li strong {
+            color: #2c3e50;
+        }
+        
+        .benefits li .benefit-desc {
+            color: #777;
+            font-size: 13px;
         }
         
         @media (max-width: 480px) {
             .benefits li {
-                font-size: 15px;
+                font-size: 14px;
                 padding-left: 30px;
             }
         }
         
-        .highlight-box {
-            background: linear-gradient(135deg, #E91E63 0%, #D81B60 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            text-align: center;
+        /* Diagnosis 360 teaser */
+        .depth-teaser {
+            background: #f0f4ff;
+            border: 1px solid #d6e0f5;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
         }
         
-        .highlight-box h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+        .depth-teaser p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
         }
         
-        .highlight-box .value {
-            font-size: 32px;
-            font-weight: 700;
-            color: #FFD700;
+        .depth-teaser strong {
+            color: #4366E8;
         }
         
-        .urgency-box {
-            background: #FFF3E0;
-            border-left: 5px solid #FF9800;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+	/* Guarantee */
+        .guarantee {
+            background: #f8f9fc;
+            border: 1px solid #e8eaf0;
+            padding: 18px 20px;
+            margin-top: 8px;
+            border-radius: 10px;
         }
         
-        .urgency-box strong {
-            color: #F57C00;
-            font-size: 18px;
+        .guarantee h4 {
+            color: #4366E8;
+            margin-bottom: 12px;	    
+            font-size: 16px;
         }
         
+        .guarantee ul {
+            list-style: none;
+        }
+        
+        .guarantee li {
+            padding: 6px 0;
+            padding-left: 22px;
+            position: relative;
+            color: #666;
+            font-size: 13px;
+        }
+        
+        .guarantee li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4366E8;
+            font-weight: bold;
+        }
+        
+        /* Calendly section */
         .calendly-section {
-            min-height: 700px;
+            min-height: 500px;
+        }
+        
+        .calendly-section h2 {
+            color: #4366E8;
+            margin-bottom: 6px;
+            font-size: 22px;
+        }
+        
+        .calendly-meta {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        
+        .calendly-meta span {
+            margin-right: 12px;
         }
         
         @media (max-width: 768px) {
             .calendly-section h2 {
-                font-size: 22px;
+                font-size: 20px;
             }
             .calendly-inline-widget {
                 height: 640px !important;
@@ -440,37 +508,82 @@
             }
         }
         
-        .guarantee {
-            background: #E3F2FD;
-            border: 2px solid #4366E8;
-            padding: 20px;
+        /* After Session Section */
+        .after-session {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .after-session h2 {
+            color: #4366E8;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .after-session .after-sub {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        
+        .after-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .after-card {
+            padding: 28px 20px;
+            border: 1px solid #e8eaf0;
             border-radius: 12px;
-            margin-top: 20px;
+            transition: all 0.2s ease;
+            text-align: center;
         }
         
-        .guarantee h4 {
-            color: #4366E8;
-            margin-bottom: 15px;
-            font-size: 18px;
+        .after-card:hover {
+            border-color: #4366E8;
+            background: #f0f4ff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(67, 102, 232, 0.1);
         }
         
-        .guarantee ul {
-            list-style: none;
+        .after-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #4366E8;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
         }
         
-        .guarantee li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
+        .after-card h4 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 8px;
         }
         
-        .guarantee li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4366E8;
-            font-weight: bold;
+        .after-card p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .after-grid {
+                grid-template-columns: 1fr;
+            }
+            .after-session {
+                padding: 28px 20px;
+            }
         }
         
         /* Footer */
@@ -482,40 +595,6 @@
             margin-top: 0;
         }
         
-        .footer-top {
-            text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .footer-social a {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #b8c5d6;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-        
-        .footer-social a:hover {
-            background: #4366E8;
-            color: #fff;
-            border-color: #4366E8;
-            transform: translateY(-3px);
-        }
-
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -598,12 +677,6 @@
                 font-size: 11px;
                 margin-top: 20px;
             }
-            
-            .footer-social a {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-            }
         }
     </style>
 </head>
@@ -638,145 +711,128 @@
     
     <!-- Floating Buttons -->
     <div class="floating-buttons" aria-label="Accesos rápidos">
-        <a
-            href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información"
-            class="float-button whatsapp-btn"
-            target="_blank"
-            rel="noopener"
-            title="WhatsApp"
-            aria-label="Abrir WhatsApp"
-        >
+        <a href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20necesito%20información" class="float-button whatsapp-btn" target="_blank" rel="noopener" title="WhatsApp" aria-label="Abrir WhatsApp">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
-
-        <a
-            href="https://www.linkedin.com/company/libertysoluciones"
-            class="float-button linkedin-btn"
-            target="_blank"
-            rel="noopener"
-            title="LinkedIn"
-            aria-label="Visitar LinkedIn"
-        >
+        <a href="https://www.linkedin.com/company/libertysoluciones" class="float-button linkedin-btn" target="_blank" rel="noopener" title="LinkedIn" aria-label="Visitar LinkedIn">
             <i class="fab fa-linkedin-in" aria-hidden="true"></i>
         </a>
     </div>
     
     <!-- Page Wrap -->
     <div class="page-wrap">
-    
     <div class="container">
         
-        <!-- Header -->
+        <!-- Hero Header -->
         <div class="header">
-            <div style="font-size: 48px; color: #FFD700; margin-bottom: 10px;">🎯</div>
-            <h1 id="main-title">Sesión Estratégica Gratuita</h1>
-            <p id="main-subtitle">Plan de acción personalizado en 20 minutos</p>
-            
-            <!-- Badge solo para IEO -->
-            <div class="badge-ieo" id="badge-ieo">
-                ✨ Tienes un Reporte IEO esperándote
-            </div>
+            <div style="font-size: 48px; margin-bottom: 10px;">🎯</div>
+            <h1>Sesión Estratégica Gratuita</h1>
+            <p>En 30 minutos analizamos tu situación, identificamos la causa raíz de tus ineficiencias, y te decimos exactamente qué nivel de intervención necesitas.</p>
+        </div>
+        
+        <!-- IEO Nudge — only shown to NON-IEO visitors -->
+        <div class="ieo-nudge" id="ieo-nudge">
+            <span class="ieo-nudge-icon">💡</span>
+            <p><strong>¿Ya completaste tu Evaluación de Eficiencia?</strong> Si traes tu Reporte IEO a la sesión, podemos ir directo a lo que importa. <a href="https://libertysoluciones.com/evaluacion/">Completar evaluación (5 min) →</a></p>
         </div>
         
         <!-- Main Content -->
         <div class="content">
             
-            <!-- Left Column: Info (Dynamic) -->
+            <!-- Left Column: Info -->
             <div class="info-section">
+<span class="section-label">Qué incluye la sesión</span>
                 
-                <!-- Contenido ESPECÍFICO para quien tiene IEO -->
-                <div class="content-ieo" id="content-ieo">
-                    <h2>¿Qué Revisaremos en 20 Minutos?</h2>
-                    
-                    <ul class="benefits">
-                        <li><strong>Análisis de Tu Reporte IEO</strong><br>
-                            Revisión detallada de tus resultados y contexto específico</li>
-                        
-                        <li><strong>Top 3 Oportunidades Personalizadas</strong><br>
-                            Las acciones de mayor impacto inmediato para tu operación</li>
-                        
-                        <li><strong>Plan de 90 Días con ROI</strong><br>
-                            Hoja de ruta con hitos, responsables y ahorro estimado</li>
-                        
-                        <li><strong>Casos de Éxito Similares</strong><br>
-                            Ejemplos reales de empresas con tu mismo perfil</li>
-                        
-                        <li><strong>Próximos Pasos Claros</strong><br>
-                            Decisión informada sobre cómo avanzar (sin presión)</li>
-                    </ul>
-                </div>
-                
-                <!-- Contenido GENÉRICO para visitantes sin IEO -->
+                <!-- Content for visitors -->
                 <div class="content-generic" id="content-generic">
-                    <h2>¿Qué Lograrás en Esta Sesión?</h2>
+                    <h2>Entendemos tu problema real, no solo los síntomas</h2>                    
                     
                     <ul class="benefits">
-                        <li><strong>Diagnóstico Operacional Rápido</strong><br>
-                            Identificamos tus principales cuellos de botella</li>
-                        
-                        <li><strong>Oportunidades de Ahorro</strong><br>
-                            Estimación de costos evitables en tu operación</li>
-                        
-                        <li><strong>Quick Wins Accionables</strong><br>
-                            3 mejoras que puedes implementar en menos de 30 días</li>
-                        
-                        <li><strong>Casos de Éxito Relevantes</strong><br>
-                            Ejemplos de empresas de tu industria que ya optimizaron</li>
-                        
-                        <li><strong>Hoja de Ruta Inicial</strong><br>
-                            Plan de primeros pasos sin compromiso</li>
+                        <li>
+                            <strong>Revisión personalizada de tu situación</strong><br>
+                            <span class="benefit-desc">Analizamos tu operación y contexto específico para entender dónde están las oportunidades</span>
+                        </li>
+                        <li>
+                            <strong>Identificación de causa raíz</strong><br>
+                            <span class="benefit-desc">Vamos más allá del síntoma: entendemos por qué tus áreas críticas están fallando y qué lo provoca.</span>
+                        </li>
+                        <li>
+                            <strong>Estimación de impacto ajustada</strong><br>
+                            <span class="benefit-desc">Ajustamos los rangos genéricos a tu realidad: facturación, industria, tamaño y contexto específico.</span>
+                        </li>
+                        <li>
+                            <strong>Casos de éxito de tu industria</strong><br>
+                            <span class="benefit-desc">Empresas con problemas similares que ya los resolvieron — y cómo lo hicieron.</span>
+                        </li>
+                        <li>
+                            <strong>Recomendación de próximos pasos</strong><br>
+                            <span class="benefit-desc">Te decimos con honestidad qué nivel de intervención necesitas — o si puedes resolverlo internamente.</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <!-- Highlight Box -->
-                <div class="highlight-box">
-                    <h3>💰 Ahorro Potencial</h3>
-                    <div class="value" id="savings-range">$1M - $15M CLP/año</div>
-                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.9;" id="savings-note">
-                        Según industria y tamaño de empresa
-                    </p>
+                <!-- Diagnosis 360 teaser — both versions -->
+                <div class="depth-teaser">
+                    <p><strong>¿Necesitas más profundidad?</strong> La sesión identifica el problema. Si necesitas cifras exactas, mapeo de procesos en terreno y un plan detallado con ROI por proyecto, nuestro <strong>Diagnóstico 360°</strong> es el siguiente paso. Lo conversamos en la sesión.</p>
                 </div>
                 
-                <!-- Urgency -->
-                <div class="urgency-box">
-                    <strong>⏰ Solo 3 sesiones disponibles esta semana</strong>
-                    <p style="margin-top: 10px; font-size: 14px; color: #666;">
-                        Alta demanda - las sesiones se agotan rápido
-                    </p>
-                </div>
                 
-                <!-- Guarantee -->
-                <div class="guarantee">
-                    <h4>🔒 100% Sin Riesgo</h4>
-                    <ul>
-                        <li>Sin compromiso de compra</li>
-                        <li>No compartimos tu información</li>
-                        <li>Cancela en cualquier momento</li>
-                        <li>Valor estimado: $150.000 CLP</li>
-                    </ul>
-                </div>
             </div>
             
             <!-- Right Column: Calendly -->
             <div class="calendly-section">
-                <h2 style="color: #4366E8; margin-bottom: 20px;">Selecciona Tu Horario:</h2>
-                
-                <!-- Nota para usuarios IEO -->
-                <div class="ieo-note" id="ieo-calendly-note">
-                    <i class="fas fa-check-circle"></i>
-                    <strong>Ya tenemos tu información del IEO</strong> - Solo 2 preguntas rápidas para agendar
+                <h2>Selecciona tu horario</h2>
+                <div class="calendly-meta">
+                    <span>30 minutos · Videollamada · Sin compromiso</span>                
                 </div>
                 
-                <!-- Calendly Inline Widget (se cambiará dinámicamente) -->
+                <!-- Calendly Widget -->
                 <div class="calendly-inline-widget" 
                      id="calendly-widget"
-                     data-url="https://calendly.com/libertysolucionescl/sesion-estrategica?hide_gdpr_banner=1&primary_color=4366e8" 
-                     style="min-width:320px;height:700px;">
+                     data-url="https://calendly.com/libertysoluciones/30min?hide_gdpr_banner=1&primary_color=4366e8" 
+                     style="min-width:320px;height:500px;">
+                </div>
+		
+		<!-- Guarantee -->
+                <div class="guarantee">
+                    
+                    <ul>
+                        <li>Sin compromiso de compra</li>
+                        <li>Tu información es confidencial</li>
+                        <li>Cancela o reprograma cuando quieras</li>
+                        <li>30 minutos — respetamos tu tiempo</li>
+                    </ul>
                 </div>
             </div>
             
         </div>
+        
+        <!-- After Session Section -->
+        <div class="after-session">
+            <h2>¿Qué pasa después de la sesión?</h2>
+            <p class="after-sub">Tres caminos posibles — tú decides cuál tiene más sentido</p>
+            
+            <div class="after-grid">
+                <div class="after-card">
+                    <div class="after-num">1</div>
+                    <h4>Lo resuelves solo</h4>
+                    <p>Si el problema es simple, te damos las herramientas para que lo resuelvas internamente. Sin costo.</p>
+                </div>
+                <div class="after-card">
+                    <div class="after-num">2</div>
+                    <h4>Quick Win</h4>
+                    <p>Si hay oportunidades claras y rápidas, te proponemos un proyecto acotado de 4-6 semanas con impacto inmediato.</p>
+                </div>
+                <div class="after-card">
+                    <div class="after-num">3</div>
+                    <h4>Diagnóstico 360°</h4>
+                    <p>Si el problema es profundo, entramos a tu empresa a diagnosticar con datos reales y entregamos un plan completo con ROI.</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
+</div>
         
         <!-- Footer -->
         <footer>
@@ -807,7 +863,7 @@
                         <ul>
                             <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+56983525140">+56 9 8352 5140</a></li>
                             <li><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/56983525140" target="_blank" rel="noopener">+56 9 8352 5140</a></li>
-                            <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:contacto@libertysoluciones.com">contacto@libertysoluciones.com</a></li>
+                            <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="/cdn-cgi/l/email-protection#51323e3f253032253e113d383334232528223e3d2432383e3f34227f323e3c"><span class="__cf_email__" data-cfemail="c8aba7a6bca9abbca788a4a1aaadbabcb1bba7a4bdaba1a7a6adbbe6aba7a5">[email&#160;protected]</span></a></li>
                             <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Santiago, Chile</span></li>
                         </ul>
                     </div>
@@ -819,17 +875,17 @@
             </div>
         </footer>
         
-    </div>
+   
     
     <!-- Scripts -->
-    <script>
-        // Año automático en el footer
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Year
         (function(){ 
             const y = document.getElementById('year'); 
             if (y) y.textContent = new Date().getFullYear(); 
         })();
 
-        // Toggle menú móvil
+        // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById("navLinks");
             const btn = document.querySelector(".mobile-menu-btn");
@@ -837,20 +893,19 @@
             if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
         }
 
-        // Cerrar al hacer clic fuera del nav
+        // Close menu on outside click
         document.addEventListener("click", function (event) {
             const nav = document.querySelector(".site-header nav");
             const navLinks = document.getElementById("navLinks");
             const btn = document.querySelector(".mobile-menu-btn");
             if (!nav || !navLinks) return;
-
             if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
                 navLinks.classList.remove("active");
                 if (btn) btn.setAttribute("aria-expanded", "false");
             }
         });
 
-        // Cerrar al seleccionar un enlace del menú
+        // Close menu on link click
         document.querySelectorAll("#navLinks a").forEach(link => {
             link.addEventListener("click", () => {
                 const navLinks = document.getElementById("navLinks");
@@ -862,7 +917,7 @@
             });
         });
 
-        // Smooth scroll solo si el destino está en ESTA página
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener("click", function (e) {
                 const target = document.querySelector(this.getAttribute("href"));
@@ -875,79 +930,31 @@
         });
         
         // ============================================
-        // CONFIGURACIÓN DE CALENDLY DINÁMICO
+        // PAGE INIT
         // ============================================
         
-        // URLs de Calendly (REEMPLAZA CON TUS URLs REALES)
-        const CALENDLY_IEO = 'https://calendly.com/libertysolucionescl/sesion-ieo?hide_gdpr_banner=1&primary_color=4366e8';
-        const CALENDLY_GENERIC = 'https://calendly.com/libertysolucionescl/sesion-estrategica?hide_gdpr_banner=1&primary_color=4366e8';
+        // Activate content
+        document.getElementById('content-generic').classList.add('active');
         
-        // Detectar origen
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('source');
-        
-        // Elementos del DOM
-        const badgeIEO = document.getElementById('badge-ieo');
-        const contentIEO = document.getElementById('content-ieo');
-        const contentGeneric = document.getElementById('content-generic');
-        const mainTitle = document.getElementById('main-title');
-        const mainSubtitle = document.getElementById('main-subtitle');
-        const savingsNote = document.getElementById('savings-note');
-        const calendlyWidget = document.getElementById('calendly-widget');
-        const ieoNote = document.getElementById('ieo-calendly-note');
-        
-        // Si viene desde IEO prueba
-        if (source === 'ieo') {
-            // Cambiar contenido visual
-            badgeIEO.classList.add('show');
-            contentIEO.classList.add('active');
-            mainTitle.textContent = 'Transforma Tu Reporte IEO en Acción';
-            mainSubtitle.textContent = 'Plan de acción personalizado de 90 días';
-            savingsNote.textContent = 'Según tu nivel de IEO y tamaño de empresa';
-            
-            // Mostrar nota de formulario simplificado
-            ieoNote.classList.add('show');
-            
-            // CAMBIAR WIDGET DE CALENDLY A VERSIÓN IEO EXPRESS
-            calendlyWidget.setAttribute('data-url', CALENDLY_IEO);
-            
-            console.log('✓ Flujo IEO activado');
-            console.log('→ Calendly: sesion-ieo-express (formulario corto)');
-        } 
-        // Por defecto (genérico)
-        else {
-            contentGeneric.classList.add('active');
-            // Widget ya está configurado por defecto al genérico
-            
-            console.log('✓ Flujo genérico activado');
-            console.log('→ Calendly: sesion-estrategica (formulario completo)');
-        }
-        
-        // Google Analytics tracking
+        // GA tracking
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {
-                'page_title': 'Agendar Sesión',
-                'source': source || 'direct',
-                'calendly_type': source === 'ieo' ? 'ieo-express' : 'estrategica'
+                'page_title': 'Agendar Sesión'
             });
         }
         
-        // Tracking cuando se agenda exitosamente
+        // Track successful booking
         window.addEventListener('message', function(e) {
             if (e.data.event && e.data.event.indexOf('calendly') === 0) {
                 if (e.data.event === 'calendly.event_scheduled') {
-                    // Registrar conversión
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'agendar_sesion', {
                             'event_category': 'Conversiones',
-                            'event_label': source === 'ieo' ? 'IEO Express' : 'Estratégica',
-                            'value': 150000,
-                            'currency': 'CLP'
+                            'event_label': 'Sesión Estratégica',
+                            'value': 1
                         });
                     }
-                    
                     console.log('✓ Sesión agendada exitosamente');
-                    console.log('→ Tipo:', source === 'ieo' ? 'IEO Express' : 'Estratégica');
                 }
             }
         });
