@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2WTK3XMBTV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2WTK3XMBTV');
+</script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Sesión Agendada! - Liberty Soluciones</title>
+    <meta name="description" content="Tu sesión estratégica ha sido agendada exitosamente. Prepárate para aprovecharla al máximo.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4366E8 0%, #34495E 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 0 12px; }
+        }
+        
+        /* Header */
+        .site-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(67, 102, 232, 0.15);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .site-header .container {
+            padding: 0 24px;
+        }
+        
+        .site-header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-width: 160px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.2s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #4366E8;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #4366E8;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #4366E8;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: inline-flex;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 10px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+        
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: calc(20px + env(safe-area-inset-bottom));
+            right: calc(20px + env(safe-area-inset-right));
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1100;
+            pointer-events: none;
+        }
+        
+        .floating-buttons .float-button {
+            pointer-events: auto;
+        }
+        
+        .float-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            font-size: 22px;
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #20BA5C);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(37,211,102,0.35);
+        }
+        
+        .linkedin-btn {
+            background: linear-gradient(135deg, #0077B5, #0A66C2);
+        }
+        
+        .linkedin-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(10,102,194,0.35);
+        }
+        
+        @media (max-height: 680px) and (max-width: 768px) {
+            .floating-buttons {
+                bottom: calc(12px + env(safe-area-inset-bottom));
+                right: calc(12px + env(safe-area-inset-right));
+                gap: 10px;
+            }
+            .float-button {
+                width: 46px;
+                height: 46px;
+                font-size: 20px;
+            }
+        }
+        
+        /* Page Wrap */
+        .page-wrap {
+            padding-top: 100px;
+            padding-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .page-wrap {
+                padding-top: 90px;
+            }
+        }
+        
+        /* Success Hero */
+        .success-hero {
+            text-align: center;
+            color: white;
+            padding: 40px 24px 32px;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(67, 160, 71, 0.2);
+            border: 3px solid #43A047;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.15); }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .success-hero h1 {
+            font-size: 34px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .success-hero p {
+            font-size: 17px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 480px) {
+            .success-hero h1 { font-size: 26px; }
+            .success-hero p { font-size: 15px; }
+        }
+        
+        /* Main Card */
+        .main-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 700px;
+            margin: 0 auto 28px;
+            animation: slideUp 0.6s ease-out 0.2s both;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .main-card {
+                padding: 28px 20px;
+            }
+        }
+        
+        /* IEO CTA Section */
+        .ieo-cta {
+            background: linear-gradient(135deg, #FFF8E1, #FFF3E0);
+            border: 2px solid #FFD54F;
+            border-radius: 14px;
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        
+        .ieo-cta-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        
+        .ieo-cta h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .ieo-cta p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ieo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #F57C00;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .ieo-btn:hover {
+            background: #E65100;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 124, 0, 0.3);
+        }
+        
+        .ieo-time {
+            display: block;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        /* Prepare Section */
+        .prepare-section h3 {
+            font-size: 18px;
+            color: #4366E8;
+            margin-bottom: 16px;
+        }
+        
+        .prepare-list {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .prepare-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+            color: #444;
+            line-height: 1.5;
+        }
+        
+        .prepare-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .prepare-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #EEF2FF;
+            color: #4366E8;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        
+        .prepare-list li strong {
+            color: #2c3e50;
+        }
+        
+        .prepare-list li .sub {
+            font-size: 13px;
+            color: #999;
+        }
+        
+        /* WhatsApp Card */
+        .whatsapp-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            max-width: 700px;
+            margin: 0 auto 28px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: slideUp 0.6s ease-out 0.4s both;
+        }
+        
+        .wa-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #20BA5C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .wa-content {
+            flex: 1;
+        }
+        
+        .wa-content h4 {
+            font-size: 15px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+        
+        .wa-content p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+        
+        .wa-btn {
+            font-size: 13px;
+            font-weight: 600;
+            color: #25D366;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+        
+        .wa-btn:hover {
+            color: #1DA851;
+        }
+        
+        @media (max-width: 480px) {
+            .whatsapp-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px 20px;
+            }
+        }
+        
+        /* Back link */
+        .back-link {
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+        
+        .back-link a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link a:hover {
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a252f, #1e2d3d);
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+        
+        .footer-section h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4366E8, #4366E8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-section p {
+            color: #b8c5d6;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #b8c5d6;
+        }
+        
+        .footer-section ul li a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #4366E8;
+        }
+        
+        .footer-section i {
+            color: #4366E8 !important;
+            font-size: 16px;
+            min-width: 16px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b8c5d6;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+                margin: 30px 0;
+            }
+            
+            .footer-section ul {
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-bottom {
+                font-size: 11px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="../index.html#inicio" aria-label="Volver al inicio">
+                        <img src="../Logo_Liberty_Recortado.png" alt="Liberty Soluciones" class="logo-img" />
+                    </a>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#inicio">Inicio</a></li>
+                    <li><a href="../index.html#productos">Productos</a></li>
+                    <li><a href="../index.html#servicios">Servicios</a></li>
+                    <li><a href="../index.html#industrias">Industrias</a></li>
+                    <li><a href="../index.html#casos">Casos de Éxito</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Floating Buttons -->
+    <div class="floating-buttons" aria-label="Accesos rápidos">
+        <a href="https://wa.me/56983525140?text=Hola%20Liberty%20Soluciones,%20acabo%20de%20agendar%20mi%20sesión%20estratégica" class="float-button whatsapp-btn" target="_blank" rel="noopener" title="WhatsApp" aria-label="Abrir WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/libertysoluciones" class="float-button linkedin-btn" target="_blank" rel="noopener" title="LinkedIn" aria-label="Visitar LinkedIn">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+    </div>
+    
+    <!-- Page Wrap -->
+    <div class="page-wrap">
+    <div class="container">
+        
+        <!-- Success Hero -->
+        <div class="success-hero">
+            <div class="success-icon">✓</div>
+            <h1>¡Tu sesión está confirmada!</h1>
+            <p>Revisa tu email para los detalles. Mientras tanto, hay algo que puedes hacer para aprovecharla al máximo.</p>
+        </div>
+        
+        <!-- Main Card -->
+        <div class="main-card">
+            
+            <!-- IEO CTA -->
+            <div class="ieo-cta">
+                <div class="ieo-cta-icon">📊</div>
+                <h2>Prepárate: Completa tu Evaluación de Eficiencia</h2>
+                <p>Si llegas a la sesión con tu Reporte IEO, podemos ir directo a lo que importa en vez de dedicar tiempo a preguntas básicas.</p>
+                <a href="https://libertysoluciones.com/evaluacion/" class="ieo-btn">
+                    <i class="fas fa-chart-bar"></i> Completar Evaluación Gratuita
+                </a>
+                <span class="ieo-time">⏱️ Solo 5 minutos · Recibes un reporte personalizado al instante</span>
+            </div>
+            
+            <!-- What to prepare -->
+            <div class="prepare-section">
+                <h3>Cómo prepararte para la sesión</h3>
+                <ul class="prepare-list">
+                    <li>
+                        <span class="prepare-num">1</span>
+                        <div>
+                            <strong>Completa la evaluación de eficiencia</strong><br>
+                            <span class="sub">Así llegamos preparados con tu diagnóstico inicial</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="prepare-num">2</span>
+                        <div>
+                            <strong>Piensa en tu principal dolor operacional</strong><br>
+                            <span class="sub">¿Qué proceso te quita más tiempo, dinero o genera más errores?</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="prepare-num">3</span>
+                        <div>
+                            <strong>Ten a mano números básicos de tu operación</strong><br>
+                            <span class="sub">Facturación anual aprox., cantidad de empleados, principales herramientas que usan</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <!-- WhatsApp Card -->
+        <div class="whatsapp-card">
+            <div class="wa-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="wa-content">
+                <h4>¿Tienes dudas antes de la sesión?</h4>
+                <p>Escríbenos por WhatsApp y te respondemos en menos de 2 horas.</p>
+            </div>
+            <a href="https://wa.me/56983525140?text=Hola,%20acabo%20de%20agendar%20mi%20sesión%20estratégica%20y%20tengo%20una%20consulta" class="wa-btn" target="_blank" rel="noopener">
+                Escribir por WhatsApp →
+            </a>
+        </div>
+        
+       
+        
+    </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" role="contentinfo" aria-label="Información de pie de página">
+                <div class="footer-section">
+                    <h4>Sobre Liberty Soluciones</h4>
+                    <p>
+                        Tech Partner especializado en transformación digital industrial.
+                        <br><strong>15+ años</strong> de experiencia implementando soluciones que optimizan procesos y generan valor.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Soluciones</h4>
+                    <ul>
+                        <li><a href="../index.html#servicios">Gestión de Inventarios</a></li>
+                        <li><a href="../index.html#servicios">Automatización Digital</a></li>
+                        <li><a href="../index.html#servicios">Gestión ISO</a></li>
+                        <li><a href="../index.html#servicios">Análisis de Datos</a></li>
+                        <li><a href="../index.html#servicios">Captura de Datos IoT</a></li>
+                        <li><a href="../index.html#servicios">Consultoría</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+56983525140">+56 9 8352 5140</a></li>
+                        <li><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/56983525140" target="_blank" rel="noopener">+56 9 8352 5140</a></li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:contacto@libertysoluciones.com">contacto@libertysoluciones.com</a></li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Santiago, Chile</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Liberty Soluciones. Todos los derechos reservados. | Tech Partner en transformación digital industrial</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Year
+        (function(){ 
+            const y = document.getElementById('year'); 
+            if (y) y.textContent = new Date().getFullYear(); 
+        })();
+
+        // Mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            const btn = document.querySelector(".mobile-menu-btn");
+            const open = navLinks.classList.toggle("active");
+            if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+        }
+
+        document.addEventListener("click", function (event) {
+            const nav = document.querySelector(".site-header nav");
+            const navLinks = document.getElementById("navLinks");
+            const btn = document.querySelector(".mobile-menu-btn");
+            if (!nav || !navLinks) return;
+            if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                if (btn) btn.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.querySelectorAll("#navLinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                const navLinks = document.getElementById("navLinks");
+                const btn = document.querySelector(".mobile-menu-btn");
+                if (navLinks.classList.contains("active")) {
+                    navLinks.classList.remove("active");
+                    if (btn) btn.setAttribute("aria-expanded", "false");
+                }
+            });
+        });
+
+        // GA tracking
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'event_category': 'Conversiones',
+                'event_label': 'Sesión Agendada - Página Confirmación',
+                'value': 1
+            });
+        }
+    </script>
+    
+</body>
+</html>
